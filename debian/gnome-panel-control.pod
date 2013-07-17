@@ -1,0 +1,54 @@
+=head1 NAME
+
+Openbox - standards compliant, fast, light-weight, extensible window manager.
+
+=head1 SYNOPSIS
+
+gnome-panel-control <option>
+
+=head1 DESCRIPTION
+
+As of GNOME 2.4, gnome-panel no longer manages its own key bindings, and
+requires that the window manager provide its own key bindings for showing the
+Main Menu and Run dialog. Openbox does this through the bundled
+B<< gnome-panel-control >> tool, which can be used in keybindings to access the
+gnome-panel. Use the B<< --main-menu >> option to display gnome-panel's menu,
+and the B<< --run-dialog >> to display its Run dialog. 
+
+=head1 OPTIONS
+
+=over 5
+
+=item B<< --help >>
+
+Display some help and exit.
+
+=item B<< --main-menu >>
+
+Show the main menu.
+
+=item B<< --run-dialog >>
+
+Show the run dialog.
+
+=back
+
+=head1 AUTHORS
+
+Openbox was written by Mikael Magnusson <mangosoft@comhem.se> and Ben Jansens
+<ben@openbox.org>, aided by several contributors; for a full list read the
+file AUTHORS.
+
+This manual page was written by Tore Anderson <tore@debian.org>.
+
+=head1 COPYRIGHT
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2, or (at your option) any
+later version.
+
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'.
+
+=cut

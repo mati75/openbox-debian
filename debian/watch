@@ -1,0 +1,2 @@
+version=3
+http://icculus.org/openbox/releases (?:.*/)?openbox-?_?([\d+\.]+|\d+)\.tar.* debian uupdate

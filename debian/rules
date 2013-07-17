@@ -1,0 +1,40 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=
+
+CFLAGS +=-Wall -g -fPIC
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+        CFLAGS += -O0
+else
+        CFLAGS += -O2
+endif
+
+VERSION=$(shell awk '/^PACKAGE_VERSION/ { print $$2 }' "FS='" configure)
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_auto_build:
+	pod2man --section=1 --release=$(VERSION) --center \
+		"Openbox documentation" debian/openbox.pod > openbox.1
+	#pod2man --section=1 --release=$(VERSION) --center \
+	#	"Openbox documentation" debian/kdetrayproxy.pod > kdetrayproxy.1
+	pod2man --section=1 --release=$(VERSION) --center \
+		"Openbox documentation" debian/gnome-panel-control.pod > \
+		gnome-panel-control.1
+	pod2man --section=1 --release=$(VERSION) --center \
+		"Openbox documentation" debian/gdm-control.pod > \
+		gdm-control.1
+	
+	dh_auto_build
+
+override_dh_install:
+	dh_install --list-missing
+
+override_dh_auto_clean:
+	rm -f openbox.1
+	#rm -f kdetrayproxy.1
+	rm -f gnome-panel-control.1
+	rm -f gdm-control.1
+	
+	dh_auto_clean

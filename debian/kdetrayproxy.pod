@@ -1,0 +1,35 @@
+=head1 NAME
+
+Openbox - standards compliant, fast, light-weight, extensible window manager.
+
+=head1 SYNOPSIS
+
+kdetrayproxy &
+
+=head1 DESCRIPTION
+
+The current release of KDE is still using a non-standard, deprecated protocol
+for its system tray. This protocol requires interaction from the window
+manager. In place of that, Openbox includes the B<< kdetrayproxy >> 
+application. Once you run it, KDE system tray apps will work with window
+managers that don't support the legacy protocol, like Openbox. 
+
+=head1 AUTHORS
+
+Openbox was written by Mikael Magnusson <mangosoft@comhem.se> and Ben Jansens
+<ben@openbox.org>, aided by several contributors; for a full list read the
+file AUTHORS.
+
+This manual page was written by Tore Anderson <tore@debian.org>.
+
+=head1 COPYRIGHT
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2, or (at your option) any
+later version.
+
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'.
+
+=cut

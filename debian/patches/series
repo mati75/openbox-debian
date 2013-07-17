@@ -1,0 +1,11 @@
+#03_place_windows_in_quadrants.patch ## Needs to be ported on 3.5.0
+04_xsession.desktop_translation.patch
+02_fix_freedesktop_compliance.patch
+01_rc.xml.patch
+05_simplify_gnome_session.patch
+07_fix_xml_load_file.patch
+90_fix_link_obt.patch
+675991_fix_crash_from_gtk3_apps.patch
+666676_wrong_undecorated_window_placement.patch
+clever-rectangle-picking.patch
+use-nearest-monitor.patch
