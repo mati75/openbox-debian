@@ -1,0 +1,115 @@
+Commit : https://github.com/danakj/openbox/commit/683749d3f38891c4073a9918381d8f18a9939dc2
+
+Allow windows created by execute actions to steal focus if the user isn't interacting with another window (Fix bug 5419).
+
+When the execute action was run, we would say that the user had used the focused
+at that time. Then when a new window popped up, we'd think the user was busy in
+the current window and prevent the new one from steal focus.
+
+Now the execute action does not update the "user interacted with the focused
+window" timestamp anymore. So, if they aren't currently typing in some window
+when they trigger an execute action, and the window appears, it will steal
+focus.
+---
+Index: openbox-3.5.0/openbox/actions.c
+===================================================================
+--- openbox-3.5.0.orig/openbox/actions.c	2011-08-01 22:14:58.000000000 +0200
++++ openbox-3.5.0/openbox/actions.c	2013-06-10 23:56:55.000000000 +0200
+@@ -51,6 +51,7 @@
+     ObActionsDataFreeFunc free;
+     ObActionsRunFunc run;
+     ObActionsShutdownFunc shutdown;
++    gboolean modifies_focused_window;
+ };
+ 
+ struct _ObActionsAct {
+@@ -103,12 +104,13 @@
+             return NULL;
+     }
+ 
+-    def = g_slice_new(ObActionsDefinition);
++    def = g_slice_new0(ObActionsDefinition);
+     def->ref = 1;
+     def->name = g_strdup(name);
+     def->free = free;
+     def->run = run;
+     def->shutdown = NULL;
++    def->modifies_focused_window = TRUE;
+ 
+     registered = g_slist_prepend(registered, def);
+     return def;
+@@ -156,6 +158,22 @@
+     return FALSE;
+ }
+ 
++gboolean actions_set_modifies_focused_window(const gchar *name,
++                                             gboolean modifies)
++{
++    GSList *it;
++    ObActionsDefinition *def;
++
++    for (it = registered; it; it = g_slist_next(it)) {
++        def = it->data;
++        if (!g_ascii_strcasecmp(name, def->name)) {
++            def->modifies_focused_window = modifies;
++            return TRUE;
++        }
++    }
++    return FALSE;
++}
++
+ static void actions_definition_ref(ObActionsDefinition *def)
+ {
+     ++def->ref;
+@@ -340,8 +358,11 @@
+             if (!act->def->run(&data, act->options)) {
+                 if (actions_act_is_interactive(act))
+                     actions_interactive_end_act();
+-                if (client && client == focus_client)
++                if (client && client == focus_client &&
++                    act->def->modifies_focused_window)
++                {
+                     update_user_time = TRUE;
++                }
+             } else {
+                 /* make sure its interactive if it returned TRUE */
+                 g_assert(act->i_input);
+Index: openbox-3.5.0/openbox/actions.h
+===================================================================
+--- openbox-3.5.0.orig/openbox/actions.h	2011-08-01 22:14:58.000000000 +0200
++++ openbox-3.5.0/openbox/actions.h	2013-06-10 23:58:24.000000000 +0200
+@@ -83,6 +83,9 @@
+ gboolean actions_set_shutdown(const gchar *name,
+                               ObActionsShutdownFunc shutdown);
+ 
++gboolean actions_set_modifies_focused_window(const gchar *name,
++                                             gboolean modifies);
++
+ ObActionsAct* actions_parse(xmlNodePtr node);
+ ObActionsAct* actions_parse_string(const gchar *name);
+ 
+Index: openbox-3.5.0/openbox/actions/execute.c
+===================================================================
+--- openbox-3.5.0.orig/openbox/actions/execute.c	2011-08-01 22:14:58.000000000 +0200
++++ openbox-3.5.0/openbox/actions/execute.c	2013-06-10 23:59:22.000000000 +0200
+@@ -33,6 +33,7 @@
+ {
+     actions_register("Execute", setup_func, free_func, run_func);
+     actions_set_shutdown("Execute", shutdown_func);
++    actions_set_modifies_focused_window("Execute", FALSE);
+ 
+     client_add_destroy_notify(client_dest, NULL);
+ }
+Index: openbox-3.5.0/openbox/event.h
+===================================================================
+--- openbox-3.5.0.orig/openbox/event.h	2011-08-01 22:14:58.000000000 +0200
++++ openbox-3.5.0/openbox/event.h	2013-06-10 23:59:57.000000000 +0200
+@@ -26,7 +26,7 @@
+ 
+ /*! The amount of time before a window appears that is checked for user input
+     to determine if the user is working in another window */
+-#define OB_EVENT_USER_TIME_DELAY (1000) /* 1.0 seconds */
++#define OB_EVENT_USER_TIME_DELAY (1000) /* milliseconds */
+ 
+ /*! The last user-interaction time, as given by the clients */
+ extern Time event_last_user_time;

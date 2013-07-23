@@ -60,4 +60,4 @@ Index: openbox-3.4.11.1/data/xsession/openbox-gnome-session.in
 -
 -
 +export WINDOW_MANAGER=openbox
-+exec gnome-session
++exec gnome-session --session=openbox-gnome

@@ -1,7 +1,7 @@
-usr/lib/libobt.a
-usr/lib/libobrender.a
-usr/lib/pkgconfig/obrender-3.5.pc
-usr/lib/pkgconfig/obt-3.5.pc
+usr/lib/*/libobt.a
+usr/lib/*/libobrender.a
+usr/lib/*/pkgconfig/obrender-3.5.pc
+usr/lib/*/pkgconfig/obt-3.5.pc
 usr/include/openbox/3.5/*
-usr/lib/libobt.so
-usr/lib/libobrender.so
+usr/lib/*/libobt.so
+usr/lib/*/libobrender.so

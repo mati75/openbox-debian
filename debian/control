@@ -1,35 +1,35 @@
 Source: openbox
 Section: x11
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
-Build-Depends: debhelper (>= 8.1.0~), gettext, libstartup-notification0-dev, libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl, libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev, autoconf, automake1.9, python-xdg, libimlib2-dev, dh-autoreconf, autopoint
-Standards-Version: 3.9.3
+Maintainer: Mateusz Łukasik <mati75@linuxmint.pl>
+Build-Depends: debhelper (>= 9), gettext, libstartup-notification0-dev, libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl, libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev, autoconf, automake (>= 1:1.11), python-xdg, libimlib2-dev, dh-autoreconf, autopoint
+Standards-Version: 3.9.4
 Homepage: http://www.openbox.org
-Vcs-Browser: http://svn.debian.org/viewsvn/collab-maint/deb-maint/openbox/trunk
-Vcs-Svn: svn://svn.debian.org/svn/collab-maint/deb-maint/openbox
+Vcs-Browser: https://github.com/mati75/openbox-debian
+Vcs-Git: git://github.com/mati75/openbox-debian
 
 Package: openbox
 Architecture: any
 Provides: x-window-manager, x-session-manager
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-xdg
 Recommends: openbox-themes, obconf
 Suggests: menu, ttf-dejavu, python, libxml2-dev
 Breaks: menu (<< 2.1.12)
-Description: standards compliant, fast, light-weight, extensible window manager
+Description: standards-compliant, fast, light-weight, extensible window manager
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
- to be the general case for window managers.  Openbox was written first to
- comply with standards and to work properly.  Only when that was in place did
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
  the team turn to the visual interface.
  .
  Openbox is fully functional as a stand-alone working environment, or can be
  used as a drop-in replacement for the default window manager in the GNOME or
  KDE desktop environments.
  .
- Openbox 3 is a completely new breed of window manager.  It is not based upon
+ Openbox 3 is a completely new breed of window manager. It is not based upon
  any existing code base, although the visual appearance has been based upon
- that of Blackbox.  Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
  .
  Some of the things to look for in Openbox are:
  .
@@ -41,15 +41,6 @@ Description: standards compliant, fast, light-weight, extensible window manager
   * Multi-head Xinerama support!
   * Pipe menus
 
-Package: gnome-panel-control
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: openbox (<< 3.4.11.2)
-Breaks: openbox (<< 3.4.11.2)
-Description: command line utility to invoke GNOME panel run dialog/menu
- gnome-panel-control can be used to invoke the GNOME panel run or main
- menu from the command line.  This is originally a helper utility of openbox
- since gnome-panel is no longer managing its own key bindings.
 
 Package: libobt0
 Section: libs
@@ -60,17 +51,17 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: parsing library for openbox
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
- to be the general case for window managers.  Openbox was written first to
- comply with standards and to work properly.  Only when that was in place did
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
  the team turn to the visual interface.
  .
  Openbox is fully functional as a stand-alone working environment, or can be
  used as a drop-in replacement for the default window manager in the GNOME or
  KDE desktop environments.
  .
- Openbox 3 is a completely new breed of window manager.  It is not based upon
+ Openbox 3 is a completely new breed of window manager. It is not based upon
  any existing code base, although the visual appearance has been based upon
- that of Blackbox.  Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
  .
  This package contains the libobt library files used by openbox
  to load and parse configuration and theme files of openbox.
@@ -84,17 +75,17 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: rendering library for openbox themes
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
- to be the general case for window managers.  Openbox was written first to
- comply with standards and to work properly.  Only when that was in place did
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
  the team turn to the visual interface.
  .
  Openbox is fully functional as a stand-alone working environment, or can be
  used as a drop-in replacement for the default window manager in the GNOME or
  KDE desktop environments.
  .
- Openbox 3 is a completely new breed of window manager.  It is not based upon
+ Openbox 3 is a completely new breed of window manager. It is not based upon
  any existing code base, although the visual appearance has been based upon
- that of Blackbox.  Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
  .
  This package contains the libobrender library files used by openbox
  for theme rendering.
@@ -106,16 +97,16 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender27 (= ${binary:Version})
 Description: development files for the openbox window manager
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
- to be the general case for window managers.  Openbox was written first to
- comply with standards and to work properly.  Only when that was in place did
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
  the team turn to the visual interface.
  .
  Openbox is fully functional as a stand-alone working environment, or can be
  used as a drop-in replacement for the default window manager in the GNOME or
  KDE desktop environments.
  .
- Openbox 3 is a completely new breed of window manager.  It is not based upon
+ Openbox 3 is a completely new breed of window manager. It is not based upon
  any existing code base, although the visual appearance has been based upon
- that of Blackbox.  Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
  .
  This package contains the development headers for building openbox stuff.

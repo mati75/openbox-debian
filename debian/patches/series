@@ -9,3 +9,10 @@
 666676_wrong_undecorated_window_placement.patch
 clever-rectangle-picking.patch
 use-nearest-monitor.patch
+704724_fix_refers-to-autostart.sh.patch
+91_fix_loose_focus.patch
+openbox-3.5.0-title-matching.patch
+openbox-3.5.0-which-2.20.patch
+658081_fix_kde_menu.patch
+644628_fix_autostart.patch
+add_automake1.11_support.patch

@@ -19,17 +19,14 @@ override_dh_auto_build:
 		"Openbox documentation" debian/openbox.pod > openbox.1
 	#pod2man --section=1 --release=$(VERSION) --center \
 	#	"Openbox documentation" debian/kdetrayproxy.pod > kdetrayproxy.1
-	pod2man --section=1 --release=$(VERSION) --center \
-		"Openbox documentation" debian/gnome-panel-control.pod > \
-		gnome-panel-control.1
-	pod2man --section=1 --release=$(VERSION) --center \
-		"Openbox documentation" debian/gdm-control.pod > \
-		gdm-control.1
 	
 	dh_auto_build
 
 override_dh_install:
 	dh_install --list-missing
+	find debian/tmp/usr/lib*/ -name "*.la" -delete
+	rm debian/tmp/usr/bin/gdm-control
+	rm debian/tmp/usr/bin/gnome-panel-control
 
 override_dh_auto_clean:
 	rm -f openbox.1

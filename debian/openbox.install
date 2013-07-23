@@ -28,13 +28,12 @@ usr/bin/obxprop
 usr/bin/openbox-session
 usr/bin/openbox-gnome-session
 usr/bin/openbox-kde-session
-usr/bin/gdm-control
 etc/xdg/openbox/rc.xml
 etc/xdg/openbox/menu.xml
 etc/xdg/openbox/autostart
 etc/xdg/openbox/environment
-usr/lib/openbox/openbox-xdg-autostart
-usr/lib/openbox/openbox-autostart
+usr/lib/*/openbox-xdg-autostart
+usr/lib/*/openbox-autostart
 
 debian/menu.xml etc/xdg/openbox
 debian/openbox.xpm usr/share/pixmaps/
