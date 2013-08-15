@@ -38,12 +38,3 @@ Index: openbox-3.4.11.1/data/rc.xml
    <file>menu.xml</file>
    <hideDelay>200</hideDelay>
    <!-- if a press-release lasts longer than this setting (in milliseconds), the
-@@ -634,7 +645,7 @@
-        submenu will not be shown until it is clicked on -->
-   <submenuHideDelay>400</submenuHideDelay>
-   <!-- time to delay before hiding a submenu when selecting another
--       entry in parent menu -->
-+       entry in parent menu
-        if this is a negative value, then the delay is infinite and the
-        submenu will not be hidden until a different submenu is opened -->
-   <applicationIcons>yes</applicationIcons>

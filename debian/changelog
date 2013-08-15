@@ -1,3 +1,42 @@
+openbox (3.5.2-1) UNRELEASED; urgency=low
+
+  * New upstream release (Closes: #717223):
+    + Fix xy-maximized windows uncorrectly y-sized with 
+      xfce4-panel + matchbox-keyboard (Closes: #614164),
+    + Fix Stacking of dock doesn't work correctly (Closes: #680664),
+    + Fix window no more refresh when lauching epfview if awn running 
+      (Closes: #683556),
+    + Fix xmodmap freezes openbox in lxde (Closes: #678993).
+  * debian/control:
+    + Changing libobrender27 into libobrender29 due to ABI change,
+    + Changing libobt0 into libobt2 due to ABI change,
+    + Add librsvg2-dev to depends,
+    + Add gnome-panel-control binary package.
+  * Remove from debian/patches:
+    + 04_xsession.desktop_translation.patch,
+    + 05_simplify_gnome_session.patch,
+    + 90_fix_link_obt.patch,
+    + 675991_fix_crash_from_gtk3_apps.patch,
+    + 666676_wrong_undecorated_window_placement.patch,
+    + clever-rectangle-picking.patch,
+    + use-nearest-monitor.patch,
+    + 91_fix_loose_focus.patch,
+    + 658081_fix_kde_menu.patch,
+    + add_automake1.11_support.patch -- All included upstream.
+  * Rename in debian/patches:
+    + 07_fix_xml_load_file.patch to 04_fix_xml_load_file.patch,
+    + openbox-3.5.0-title-matching.patch to 
+       05_openbox-3.5.0-title-matching.patch,
+    + openbox-3.5.0-which-2.20.patch to 06_openbox-3.5.0-which-2.20.patch.
+  * Update symbols. 
+  * debian/rules:
+    + override_dh_auto_configure to configure with librsvg support,
+    + enable all hardening flags.
+  * Add debian/patches/07_update_desktop.patch to provide keywords
+    in desktop file.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 15 Aug 2013 15:10:43 +0200
+
 openbox (3.5.0-8) unstable; urgency=low
 
   * New maintainer. (Closes: #566900)
