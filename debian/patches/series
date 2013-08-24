@@ -1,9 +1,10 @@
 #03_place_windows_in_quadrants.patch ## Needs to be ported on 3.5.0
-02_fix_freedesktop_compliance.patch
 01_rc.xml.patch
+02_fix_freedesktop_compliance.patch
 04_fix_xml_load_file.patch
-704724_fix_refers-to-autostart.sh.patch
 05_openbox-3.5.0-title-matching.patch
 06_openbox-3.5.0-which-2.20.patch
-644628_fix_autostart.patch
 07_update_desktop.patch
+644628_fix_autostart.patch
+704724_fix_refers-to-autostart.sh.patch
+719620_fix_show_startup_notification.patch

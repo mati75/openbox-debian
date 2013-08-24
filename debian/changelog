@@ -1,4 +1,4 @@
-openbox (3.5.2-1) UNRELEASED; urgency=low
+openbox (3.5.2-1) unstable; urgency=low
 
   * New upstream release (Closes: #717223):
     + Fix xy-maximized windows uncorrectly y-sized with 
@@ -34,8 +34,11 @@ openbox (3.5.2-1) UNRELEASED; urgency=low
     + enable all hardening flags.
   * Add debian/patches/07_update_desktop.patch to provide keywords
     in desktop file.
+  * Add debian/patches/719620_fix_show_startup_notification.patch
+    (Closes: #719620).
+  * Update debian/NEWS.Debian.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 15 Aug 2013 15:10:43 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 24 Aug 2013 19:55:08 +0200
 
 openbox (3.5.0-8) unstable; urgency=low
 

@@ -1,3 +1,11 @@
+openbox (3.5.2-1) unstable; urgency=low
+
+  - The 3.5.2 release have SVG icon support and correctly 
+    interface with latest gnome-session for Gnome/Openbox X 
+    sessions.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 15 Aug 2013 22:15:10 +0200
+
 openbox (3.5.0-1) unstable; urgency=low
 
   Be aware of the following changes when upgrading to openbox 3.5
