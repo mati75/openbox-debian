@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9), gettext, libstartup-notification0-dev,
  libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl, 
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev, 
  autoconf, automake (>= 1:1.11), python-xdg, libimlib2-dev, dh-autoreconf, 
- autopoint, librsvg2-dev
+ autopoint, librsvg2-dev, libxi-dev
 Standards-Version: 3.9.4
 Homepage: http://www.openbox.org
 Vcs-Browser: https://github.com/mati75/openbox-debian
@@ -20,7 +20,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, python-xdg
 Recommends: openbox-themes, obconf
 Suggests: menu, ttf-dejavu, python, libxml2-dev
 Breaks: menu (<< 2.1.12)
-Description: standards-compliant, fast, light-weight, extensible window manager
+Description: standards-compliant, fast, light-weight and extensible window manager
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
  to be the general case for window managers. Openbox was written first to
@@ -44,7 +44,6 @@ Description: standards-compliant, fast, light-weight, extensible window manager
   * Window resistance
   * Multi-head Xinerama support!
   * Pipe menus
-
 
 Package: libobt2
 Section: libs
@@ -97,7 +96,9 @@ Description: rendering library for openbox themes
 Package: openbox-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender29 (= ${binary:Version}), libobt2 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev, libimlib2-dev
+Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender29 (= ${binary:Version}),
+ libobt2 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
+ libimlib2-dev
 Description: development files for the openbox window manager
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems

@@ -1,17 +1,17 @@
 openbox (3.5.2-1) unstable; urgency=low
 
   * New upstream release (Closes: #717223):
-    + Fix xy-maximized windows uncorrectly y-sized with 
-      xfce4-panel + matchbox-keyboard (Closes: #614164),
     + Fix Stacking of dock doesn't work correctly (Closes: #680664),
-    + Fix window no more refresh when lauching epfview if awn running 
-      (Closes: #683556),
+    + Fix Windows do not refresh anymore when lauching epdfview when
+      awn is running (Closes: #683556)
     + Fix xmodmap freezes openbox in lxde (Closes: #678993).
   * debian/control:
-    + Changing libobrender27 into libobrender29 due to ABI change,
-    + Changing libobt0 into libobt2 due to ABI change,
-    + Add librsvg2-dev to depends,
-    + Add gnome-panel-control binary package.
+    + Rename libobrender27 to libobrender29 to reflect ABI change,
+    + Rename libobt0 to libobt2 to reflect ABI change,
+    + Add librsvg2-dev and libxi-dev to Depends,
+    + Add gnome-panel-control binary package,
+    + Tidy up Build-Depends and Depends.
+    + Fix wording in short description.
   * Remove from debian/patches:
     + 04_xsession.desktop_translation.patch,
     + 05_simplify_gnome_session.patch,
@@ -25,20 +25,22 @@ openbox (3.5.2-1) unstable; urgency=low
     + add_automake1.11_support.patch -- All included upstream.
   * Rename in debian/patches:
     + 07_fix_xml_load_file.patch to 04_fix_xml_load_file.patch,
-    + openbox-3.5.0-title-matching.patch to 
-       05_openbox-3.5.0-title-matching.patch,
+    + openbox-3.5.0-title-matching.patch to
+      05_openbox-3.5.0-title-matching.patch,
     + openbox-3.5.0-which-2.20.patch to 06_openbox-3.5.0-which-2.20.patch.
-  * Update symbols. 
+  * Update symbols files. 
   * debian/rules:
     + override_dh_auto_configure to configure with librsvg support,
     + enable all hardening flags.
   * Add debian/patches/07_update_desktop.patch to provide keywords
     in desktop file.
   * Add debian/patches/719620_fix_show_startup_notification.patch
-    (Closes: #719620).
+    (Closes: #719620, LP: #862662).
   * Update debian/NEWS.Debian.
+  * Add debian/patches/08_fix_causing_submenuShowDelay.patch from
+    upstream.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 24 Aug 2013 19:55:08 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 03 Sep 2013 13:16:24 +0200
 
 openbox (3.5.0-8) unstable; urgency=low
 
