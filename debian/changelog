@@ -1,7 +1,7 @@
 openbox (3.5.2-2) UNRELEASED; urgency=low
 
   * debian/control:
-    + Replace ttf-dejavu with fonts-dejavu and tint2 to suggests.
+    + Replace ttf-dejavu with fonts-dejavu and add tint2 in suggests.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 06 Sep 2013 20:48:34 +0200
 
