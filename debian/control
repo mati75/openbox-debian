@@ -18,7 +18,7 @@ Provides: x-window-manager, x-session-manager
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, python-xdg
 Recommends: openbox-themes, obconf
-Suggests: menu, ttf-dejavu, python, libxml2-dev
+Suggests: menu, fonts-dejavu, python, libxml2-dev, tint2
 Breaks: menu (<< 2.1.12)
 Description: standards-compliant, fast, light-weight and extensible window manager
  Openbox works with your applications, and makes your desktop easier to manage.

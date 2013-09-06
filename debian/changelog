@@ -1,3 +1,10 @@
+openbox (3.5.2-2) UNRELEASED; urgency=low
+
+  * debian/control:
+    + Replace ttf-dejavu with fonts-dejavu and tint2 to suggests.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 06 Sep 2013 20:48:34 +0200
+
 openbox (3.5.2-1) unstable; urgency=low
 
   * New upstream release (Closes: #717223):
