@@ -1,0 +1,2 @@
+openbox: executable-not-elf-or-script etc/xdg/openbox/autostart
+openbox: executable-not-elf-or-script etc/xdg/openbox/environment
