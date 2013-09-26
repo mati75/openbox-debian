@@ -1,7 +1,8 @@
 openbox (3.5.2-2) UNRELEASED; urgency=low
 
   * debian/control:
-    + Replace ttf-dejavu with fonts-dejavu and add tint2 in suggests.
+    + Replace ttf-dejavu with fonts-dejavu and add tint2 in suggests,
+    + Add librsvg-2.0-dev for openbox-dev package. (Closes: #724059)
   * Add lintian overrides for executable-not-elf-or-script.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 06 Sep 2013 20:48:34 +0200
