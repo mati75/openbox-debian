@@ -8,3 +8,4 @@
 644628_fix_autostart.patch
 704724_fix_refers-to-autostart.sh.patch
 719620_fix_show_startup_notification.patch
+fix_center_window.patch

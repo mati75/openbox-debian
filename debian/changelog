@@ -1,11 +1,12 @@
-openbox (3.5.2-2) UNRELEASED; urgency=low
+openbox (3.5.2-2) unstable; urgency=low
 
   * debian/control:
     + Replace ttf-dejavu with fonts-dejavu and add tint2 in suggests,
-    + Add librsvg-2.0-dev for openbox-dev package. (Closes: #724059)
+    + Add librsvg-2.0-dev for depends openbox-dev package. (Closes: #724059)
   * Add lintian overrides for executable-not-elf-or-script.
+  * Add fix_center_window.patch from upstream to add the old center option.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 06 Sep 2013 20:48:34 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 26 Sep 2013 16:37:01 +0200
 
 openbox (3.5.2-1) unstable; urgency=low
 
