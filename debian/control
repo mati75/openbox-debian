@@ -98,7 +98,7 @@ Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender29 (= ${binary:Version}),
  libobt2 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
- libimlib2-dev, librsvg-2.0-dev
+ libimlib2-dev, librsvg2-dev
 Description: development files for the openbox window manager
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems

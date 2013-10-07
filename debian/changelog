@@ -1,8 +1,15 @@
+openbox (3.5.2-3) unstable; urgency=low
+
+  * debian/control:
+    + fix typo in depends openbox-dev package.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 07 Oct 2013 14:58:17 +0200
+
 openbox (3.5.2-2) unstable; urgency=low
 
   * debian/control:
     + Replace ttf-dejavu with fonts-dejavu and add tint2 in suggests,
-    + Add librsvg-2.0-dev for depends openbox-dev package. (Closes: #724059)
+    + Add librsvg2-dev for depends openbox-dev package. (Closes: #724059)
   * Add lintian overrides for executable-not-elf-or-script.
   * Add fix_center_window.patch from upstream to add the old center option.
 
