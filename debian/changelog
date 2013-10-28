@@ -1,3 +1,10 @@
+openbox (3.5.2-4) UNRELEASED; urgency=low
+
+  * Add fix_rsvg_missing_include.patch to fix build with oldest librsvg
+    version.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 28 Oct 2013 07:54:04 +0100
+
 openbox (3.5.2-3) unstable; urgency=low
 
   * debian/control:
