@@ -10,3 +10,4 @@
 719620_fix_show_startup_notification.patch
 fix_center_window.patch
 fix_rsvg_missing_include.patch
+update_pl_po.patch

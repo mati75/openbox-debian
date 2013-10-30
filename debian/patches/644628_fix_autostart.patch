@@ -11,8 +11,8 @@ Bug-Debian: http://bugs.debian.org/644628
 +
 +if [ "$DESKTOP_SESSION" != 'gnome' ]; then
 +    DESKTOP_ENV="OPENBOX"
-+    if which /usr/lib/openbox/xdg-autostart >/dev/null; then
-+       /usr/lib/openbox/xdg-autostart $DESKTOP_ENV
++    if which @libexecdir@/openbox-xdg-autostart >/dev/null; then
++       @libexecdir@/openbox-xdg-autostart $DESKTOP_ENV
 +    fi
 +fi
 
