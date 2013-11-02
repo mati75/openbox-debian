@@ -11,3 +11,4 @@
 fix_center_window.patch
 fix_rsvg_missing_include.patch
 update_pl_po.patch
+remove_redundant_autostart.patch
