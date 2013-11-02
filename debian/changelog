@@ -10,13 +10,13 @@ openbox (3.5.2-4) unstable; urgency=low
     + add fix_rsvg_missing_include.patch to fix build with oldest librsvg
     version.
     + add update_pl_po.patch to update Polish language file.
-    + refresh 644628_fix_autostart.patch. 
+    + refresh 644628_fix_autostart.patch.
   * debian/control:
-    + move python-xdg to recommends. (LP: #1244847)
-    + bump standards version.
-    + remove openbox-themes from recommends.
+    + move python-xdg to Recommends. (LP: #1244847)
+    + bump standards to 3.9.5.0 (no changes required)
+    + remove openbox-themes from Recommends.
   * debian/openbox.postinst:
-    + install openbox with lighter priority. (LP: #598378)
+    + install openbox with lower priority. (LP: #598378)
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 30 Oct 2013 19:22:27 +0100
 
