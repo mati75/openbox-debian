@@ -17,8 +17,8 @@ Architecture: any
 Provides: x-window-manager, x-session-manager
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: obconf, python-xdg
-Suggests: menu, fonts-dejavu, python, libxml2-dev, tint2
+Recommends: obconf, python-xdg, openbox-gnome-session | openbox-kde-session
+Suggests: menu, fonts-dejavu, python, libxml2-dev, tint2, openbox-menu
 Breaks: menu (<< 2.1.12)
 Description: standards-compliant, fast, light-weight and extensible window manager
  Openbox works with your applications, and makes your desktop easier to manage.
@@ -125,3 +125,26 @@ Description: command line utility to invoke GNOME panel run dialog/menu
  gnome-panel-control can be used to invoke the GNOME panel run or main
  menu from the command line.  This is originally a helper utility of openbox 
  since gnome-panel is no longer managing its own key bindings.
+
+Package: openbox-gnome-session
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (= ${binary:Version}), 
+ gnome-session
+Replaces: openbox (<< 3.5.2-4)
+Breaks: openbox (<< 3.5.2-4)
+Description: command line utility to run Openbox as GNOME session 
+ openbox-gnome-session can provides GNOME session with openbox as
+ default window manager. It can replace original window manager
+ in GNOME Shell and GNOME Fallback.
+
+Package: openbox-kde-session
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (= ${binary:Version}), 
+ kde-workspace-bin
+Replaces: openbox (<< 3.5.2-4)
+Breaks: openbox (<< 3.5.2-4)
+Description: command line utility to run Openbox as KDE SC session
+ openbox-kde-session can provides KDE SC session with openbox as
+ default window manager. Can replace for original window manager
+ call kwin.
+

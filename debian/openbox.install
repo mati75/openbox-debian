@@ -1,4 +1,3 @@
-usr/share/applications/openbox.desktop
 usr/share/pixmaps/openbox.png
 usr/share/locale/
 usr/share/themes/
@@ -14,22 +13,13 @@ usr/share/doc/openbox/xbm/shade_toggled.xbm
 usr/share/doc/openbox/xbm/shade.xbm
 usr/share/doc/openbox/rc.xsd
 usr/share/doc/openbox/rc-mouse-focus.xml
-usr/share/gnome/wm-properties/openbox.desktop
 usr/share/man/man1/openbox.1
 usr/share/man/man1/obxprop.1
 usr/share/man/man1/openbox-session.1
-usr/share/man/man1/openbox-gnome-session.1
-usr/share/man/man1/openbox-kde-session.1
-usr/share/xsessions/openbox-gnome.desktop
-usr/share/xsessions/openbox-kde.desktop
 usr/share/xsessions/openbox.desktop
-usr/share/gnome-session/sessions/openbox-gnome.session
-usr/share/gnome-session/sessions/openbox-gnome-fallback.session
 usr/bin/openbox
 usr/bin/obxprop
 usr/bin/openbox-session
-usr/bin/openbox-gnome-session
-usr/bin/openbox-kde-session
 usr/bin/gdm-control
 etc/xdg/openbox/rc.xml
 etc/xdg/openbox/menu.xml
@@ -40,4 +30,3 @@ usr/lib/*/openbox-autostart
 
 debian/menu.xml etc/xdg/openbox
 debian/openbox.xpm usr/share/pixmaps/
-usr/share/xsessions/openbox.desktop usr/share/applications/
