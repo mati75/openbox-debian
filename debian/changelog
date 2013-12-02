@@ -1,21 +1,20 @@
-openbox (3.5.2-5) UNRELEASED; urgency=low
+openbox (3.5.2-5) unstable; urgency=low
 
-  * Add debian/patches/remove_redundant_autostart.patch. 
+  * Add debian/patches/remove_redundant_autostart.patch.
     (Closes: #728527, #709291)
-  * No logger install desktop file in applications. 
+  * No logger install desktop file in applications.
     (LP: #1185502, LP: #1255783)
   * debian/control:
-    + New binary packages openbox-gnome-session and openbox-kde-session to 
-    separate Gnome and KDE SC sessions from Openbox package. 
-    (Closes: #728661)
-    + Add openbox-menu to suggests.
-    + Add openbox-gnome-session and openbox-kde-session to openbox package 
-    recommends.
+    + new binary packages openbox-gnome-session and openbox-kde-session to
+      separate Gnome and KDE SC sessions from Openbox package. (Closes: #728661)
+    + add openbox-menu to suggests.
+    + add openbox-gnome-session and openbox-kde-session to openbox package
+      recommends.
   * debian/rules:
     + use xz to compress packages.
   * Update NEWS.Debian.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 02 Nov 2013 20:15:04 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 28 Nov 2013 19:35:36 +0100
 
 openbox (3.5.2-4) unstable; urgency=low
 
