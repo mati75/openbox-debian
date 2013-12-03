@@ -128,7 +128,7 @@ Description: command line utility to invoke GNOME panel run dialog/menu
  since gnome-panel is no longer managing its own key bindings.
 
 Package: openbox-gnome-session
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (= ${binary:Version}), 
  gnome-session
 Replaces: openbox (<< 3.5.2-4)
@@ -139,7 +139,7 @@ Description: command line utility to run Openbox as GNOME session
  in GNOME Shell and GNOME Fallback.
 
 Package: openbox-kde-session
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (= ${binary:Version}), 
  kde-workspace-bin
 Replaces: openbox (<< 3.5.2-4)
