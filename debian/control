@@ -19,7 +19,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: obconf, python-xdg
 Suggests: menu, fonts-dejavu, python, libxml2-dev, tint2, openbox-menu,
- openbox-gnome-session | openbox-kde-session
+ openbox-gnome-session (= ${source:Version}), openbox-kde-session (= ${source:Version})
 Breaks: menu (<< 2.1.12)
 Description: standards-compliant, fast, light-weight and extensible window manager
  Openbox works with your applications, and makes your desktop easier to manage.

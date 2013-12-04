@@ -1,3 +1,13 @@
+openbox (3.5.2-6) UNRELEASED; urgency=low
+
+  * debian/control:
+    + move openbox-gnome-session, openbox-kde-session from Recommends to
+    Suggests. (Closes: #731180)
+    + set Architecture: all for openbox-gnome-session, openbox-kde-session
+    (Closes: #731272)
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 04 Dec 2013 11:01:23 +0100
+
 openbox (3.5.2-5) unstable; urgency=low
 
   * Add debian/patches/remove_redundant_autostart.patch.
