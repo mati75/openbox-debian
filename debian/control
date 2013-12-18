@@ -19,7 +19,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: obconf, python-xdg
 Suggests: menu, fonts-dejavu, python, libxml2-dev, tint2, openbox-menu,
- openbox-gnome-session (= ${source:Version}), openbox-kde-session (= ${source:Version})
+ openbox-gnome-session (= ${binary:Version}), openbox-kde-session (= ${binary:Version})
 Breaks: menu (<< 2.1.12)
 Description: standards-compliant, fast, light-weight and extensible window manager
  Openbox works with your applications, and makes your desktop easier to manage.
@@ -129,11 +129,11 @@ Description: command line utility to invoke GNOME panel run dialog/menu
 
 Package: openbox-gnome-session
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (= ${binary:Version}), 
+Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}), 
  gnome-session-bin, gconf2, x11-utils
 Enhances: gnome-session
-Replaces: openbox (<< 3.5.2-4)
-Breaks: openbox (<< 3.5.2-4)
+Replaces: openbox (<< 3.5.2-5)
+Breaks: openbox (<< 3.5.2-5)
 Description: command line utility to run Openbox as GNOME session 
  openbox-gnome-session can provide GNOME session with openbox as
  a default window manager. It can replace the original window manager
@@ -141,11 +141,11 @@ Description: command line utility to run Openbox as GNOME session
 
 Package: openbox-kde-session
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (= ${binary:Version}), 
+Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}), 
  kde-workspace-bin, x11-utils
 Enhances: kde-workspace
-Replaces: openbox (<< 3.5.2-4)
-Breaks: openbox (<< 3.5.2-4)
+Replaces: openbox (<< 3.5.2-5)
+Breaks: openbox (<< 3.5.2-5)
 Description: command line utility to run Openbox as KDE SC session
  openbox-kde-session can provide KDE SC session with openbox as
  a default window manager. Can replace the original window manager
