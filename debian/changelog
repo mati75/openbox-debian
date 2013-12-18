@@ -1,10 +1,14 @@
 openbox (3.5.2-6) UNRELEASED; urgency=low
 
   * debian/control:
-    + move openbox-gnome-session, openbox-kde-session from Recommends to
+    + Move openbox-gnome-session, openbox-kde-session from Recommends to
     Suggests. (Closes: #731180)
     + openbox-{gnome,kde}-session: use all as architecture, add Enhances
     field and update description. (Closes: #731272)
+  * Use xz compression.
+  * Patch working:
+    + 644628_fix_autostart.patch and remove_redundant_autostart.patch.
+    (Closes: #728527)
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 04 Dec 2013 11:01:23 +0100
 

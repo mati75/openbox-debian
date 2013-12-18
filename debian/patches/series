@@ -5,10 +5,8 @@
 05_openbox-3.5.0-title-matching.patch
 06_openbox-3.5.0-which-2.20.patch
 07_update_desktop.patch
-644628_fix_autostart.patch
 704724_fix_refers-to-autostart.sh.patch
 719620_fix_show_startup_notification.patch
 fix_center_window.patch
 fix_rsvg_missing_include.patch
 update_pl_po.patch
-remove_redundant_autostart.patch
