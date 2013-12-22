@@ -1,16 +1,20 @@
-openbox (3.5.2-6) UNRELEASED; urgency=low
+openbox (3.5.2-6) unstable; urgency=low
 
   * debian/control:
     + Move openbox-gnome-session, openbox-kde-session from Recommends to
-    Suggests. (Closes: #731180)
+      Suggests. (Closes: #731180)
     + openbox-{gnome,kde}-session: use all as architecture, add Enhances
-    field and update description. (Closes: #731272)
+      field and update description. (Closes: #731272)
   * Use xz compression.
   * Patch working:
-    + 644628_fix_autostart.patch and remove_redundant_autostart.patch.
-    (Closes: #728527)
+    + drop both 644628_fix_autostart.patch and remove_redundant_autostart.patch
+      to finally fix the issue with openbox-xdg-autostart being executed twice.
+      (Closes: #728527)
+  * Update openbox.lintian-overrides.
+  * debian/rules:
+    + use disable-silent-rules.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 04 Dec 2013 11:01:23 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 21 Dec 2013 15:00:02 +0100
 
 openbox (3.5.2-5) unstable; urgency=low
 

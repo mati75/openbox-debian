@@ -16,7 +16,7 @@ VERSION=$(shell awk '/^PACKAGE_VERSION/ { print $$2 }' "FS='" configure)
 	dh $@ --with autoreconf
 
 override_dh_auto_configure:
-	dh_auto_configure -- --enable-librsvg
+	dh_auto_configure -- --enable-librsvg --disable-silent-rules
 
 override_dh_auto_build:
 	pod2man --section=1 --release=$(VERSION) --center \
