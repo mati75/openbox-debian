@@ -30,7 +30,7 @@ Files: debian/*
 Copyright: 2002, Kyle McMartin <kyle@debian.org>
 	   2003-2004, Tore Anderson <tore@debian.org>
 	   2007-2009, Nico Golde <nion@debian.org>, Anibal Avelar (Fixxxer) <aavelar@cofradia.org>
-	   2013, Mateusz Łukasik <mati75@linuxmint.pl>
+	   2013-2014, Mateusz Łukasik <mati75@linuxmint.pl>
 License: BSD-3-clause
  These scripts are placed under the BSD license:
  Copyright (c) The Regents of the University of California.
