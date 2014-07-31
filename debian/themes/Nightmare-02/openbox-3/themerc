@@ -23,7 +23,7 @@ menu.title.bg: raised solid
 menu.title.bg.color: #181818
 menu.title.text.color: #ffffff
 
-menu.separator.color: #2e2e2e
+menu.separator.color: #242424
 
 menu.items.bg: raised solid
 menu.items.bg.color: #181818
@@ -106,7 +106,7 @@ osd.hilight.bg.colorTo: #18375a
 osd.hilight.bg.border.color: #25548a
 
 #======================================
-#     Font
+#     Title Justification
 #======================================
 
 menu.title.text.justify: center

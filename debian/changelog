@@ -1,13 +1,19 @@
 openbox (3.5.2-7) UNRELEASED; urgency=medium
 
   * debian/copyright:
-    + Update years,
+    + Update years.
+    + Add copyright for Nightmare themes.
   * debian/control:
     + Fix version of standards.
     + Add scrot to recommends.
   * Patch working:
     + add 754207_use-scrot.patch for using scrot to take a screenshot.
     (Closes: #754207)
+  * debian/themes:
+    + Add Nightmare themes from: 
+    http://box-look.org/content/show.php/Nightmare+?content=165646
+  * debian/openbox.install:
+    + update for install Nightmare themes.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 13 Jul 2014 22:52:14 +0200
 
