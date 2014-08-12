@@ -14,6 +14,8 @@ Files: debian/themes/Nightmare*
 Copyright: 2014 maxim2
 Source: http://box-look.org/content/show.php/Nightmare+?content=165646
 License: GPL-2+
+
+License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation; version 2 dated June, 1991.

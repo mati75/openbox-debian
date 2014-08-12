@@ -1,4 +1,4 @@
-openbox (3.5.2-7) UNRELEASED; urgency=medium
+openbox (3.5.2-7) unstable; urgency=medium
 
   * debian/copyright:
     + Update years.
@@ -15,7 +15,7 @@ openbox (3.5.2-7) UNRELEASED; urgency=medium
   * debian/openbox.install:
     + update for install Nightmare themes.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 13 Jul 2014 22:52:14 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 31 Jul 2014 20:05:26 +0200
 
 openbox (3.5.2-6) unstable; urgency=low
 
