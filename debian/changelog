@@ -1,3 +1,10 @@
+openbox (3.5.2-8) UNRELEASED; urgency=medium
+
+  * debian/openbox.install:
+    + fix install Nightmare themes directory. (Closes: #758404)
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 22 Aug 2014 22:32:43 +0200
+
 openbox (3.5.2-7) unstable; urgency=medium
 
   * debian/copyright:
