@@ -1,2 +1,3 @@
 version=3
-http://icculus.org/openbox/releases (?:.*/)?openbox-?_?([\d+\.]+|\d+)\.tar.* debian uupdate
+opts=filenamemangle=s/.+\/release-?(\d\S*)\.tar\.gz/openbox-$1\.tar\.gz/ \
+  https://github.com/danakj/openbox/tags .*/release-?(\d\S*)\.tar\.gz
