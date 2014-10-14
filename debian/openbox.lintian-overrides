@@ -1,0 +1,3 @@
+openbox: executable-not-elf-or-script etc/xdg/openbox/autostart
+openbox: executable-not-elf-or-script etc/xdg/openbox/environment
+openbox: duplicate-files usr/share/doc/openbox/xbm/shade.xbm usr/share/doc/openbox/xbm/shade_toggled.xbm

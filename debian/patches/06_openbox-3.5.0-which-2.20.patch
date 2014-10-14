@@ -1,0 +1,14 @@
+Description: Fixed load gnome 3 applications
+Index: openbox-3.5.0/data/autostart/autostart.in
+===================================================================
+--- openbox-3.5.0.orig/data/autostart/autostart.in	2013-07-17 17:09:45.000000000 +0200
++++ openbox-3.5.0/data/autostart/autostart.in	2013-07-17 18:32:23.000000000 +0200
+@@ -8,7 +8,7 @@
+ #
+ #if test -x @libexecdir@/gnome-settings-daemon >/dev/null; then
+ #  @libexecdir@/gnome-settings-daemon &
+-#elif which gnome-settings-daemon >/dev/null; then
++#elif which gnome-settings-daemon >/dev/null 2>&1; then
+ #  gnome-settings-daemon &
+ #fi
+ 

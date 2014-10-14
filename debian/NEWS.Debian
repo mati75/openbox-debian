@@ -1,0 +1,57 @@
+openbox (3.5.2-5) unstable; urgency=low
+
+  - Make new binary packages openbox-gnome-session and openbox-kde-session to
+    separate Gnome and KDE SC sessions from Openbox package
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 05 Nov 2013 13:45:12 +0100
+
+openbox (3.5.2-1) unstable; urgency=low
+
+  - The 3.5.2 release has SVG icon support and correctly 
+    interfaces with the latest gnome-session for Gnome/Openbox X 
+    sessions.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 15 Aug 2013 22:15:10 +0200
+
+openbox (3.5.0-1) unstable; urgency=low
+
+  Be aware of the following changes when upgrading to openbox 3.5
+  or later:
+
+    - There is a new config file called environment that you should 
+      copy from /etc/xdg/openbox to ~/.config/openbox
+    - The config file previously called autostart.sh is now just called
+      autostart. You should rename yours to remove the .sh from the end
+      of the name.
+    - Some of the configuration grammar in rc.xml has changed. While Openbox
+      appears to understand the old options, it would be wise to compare
+      your configuration to the one in /etc/xdg/openbox and look for changes
+      that affect you. 
+
+ -- Nico Golde <nion@debian.org>  Sun, 31 Oct 2011 23:41:20 +0200
+
+openbox (3.4.2-1) unstable; urgency=low
+
+  - The 3.4.x release introduced quite a few changes and improvements
+    for users. Make sure to read:
+    http://icculus.org/openbox/index.php/Help:Upgrading_to_3.4
+    to take advantage of them.
+
+ -- Nico Golde <nion@debian.org>  Sun, 15 Jul 2007 23:17:28 +0200
+
+openbox (3.0-1) unstable; urgency=low
+
+  - Openbox 3 is rewritten from scratch in C, and is now licenced under the
+    GNU General Public Licence.  Prior versions of Openbox was written in
+    C++, and based on Blackbox 0.65.0 codebase.
+    
+    The format for configuration files, menu files, and theme files has
+    been changed, so if you're upgrading from Openbox 2, you will have to
+    convert your existing setup to the new formats.  The included script
+    /usr/share/openbox/themeupdate.py may be helpful when converting themes,
+    while configuration and menu files must be done manually.
+
+    You might want to postpone upgrading this package (or downgrade it
+    if you already have), if you do not want to do the conversion now.
+
+ -- Tore Anderson <tore@debian.org>  Tue, 18 Nov 2003 19:46:48 +0100

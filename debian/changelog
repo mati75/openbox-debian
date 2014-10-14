@@ -1,0 +1,1013 @@
+openbox (3.5.2-8) unstable; urgency=medium
+
+  * debian/openbox.install:
+    + fix install Nightmare themes directory. (Closes: #758404)
+  * debian/themes:
+    + update Nightmare themes to latest version.
+  * Bump Standards-Version to 3.9.6. (no changes needed)
+  * debian/copyright:
+    + fix lintian errors.
+  * debian/watch:
+    + update to use github.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 14 Oct 2014 18:07:29 +0200
+
+openbox (3.5.2-7) unstable; urgency=medium
+
+  * debian/copyright:
+    + Update years.
+    + Add copyright for Nightmare themes.
+  * debian/control:
+    + Fix version of standards.
+    + Add scrot to recommends.
+  * Patch working:
+    + add 754207_use-scrot.patch for using scrot to take a screenshot.
+    (Closes: #754207)
+  * debian/themes:
+    + Add Nightmare themes from: 
+    http://box-look.org/content/show.php/Nightmare+?content=165646
+  * debian/openbox.install:
+    + update for install Nightmare themes.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 31 Jul 2014 20:05:26 +0200
+
+openbox (3.5.2-6) unstable; urgency=low
+
+  * debian/control:
+    + Move openbox-gnome-session, openbox-kde-session from Recommends to
+      Suggests. (Closes: #731180)
+    + openbox-{gnome,kde}-session: use all as architecture, add Enhances
+      field and update description. (Closes: #731272)
+  * Use xz compression.
+  * Patch working:
+    + drop both 644628_fix_autostart.patch and remove_redundant_autostart.patch
+      to finally fix the issue with openbox-xdg-autostart being executed twice.
+      (Closes: #728527)
+  * Update openbox.lintian-overrides.
+  * debian/rules:
+    + use disable-silent-rules.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 21 Dec 2013 15:00:02 +0100
+
+openbox (3.5.2-5) unstable; urgency=low
+
+  * Add debian/patches/remove_redundant_autostart.patch.
+    (Closes: #728527, #709291)
+  * No logger install desktop file in applications.
+    (LP: #1185502, LP: #1255783)
+  * debian/control:
+    + new binary packages openbox-gnome-session and openbox-kde-session to
+      separate Gnome and KDE SC sessions from Openbox package. (Closes: #728661)
+    + add openbox-menu to suggests.
+    + add openbox-gnome-session and openbox-kde-session to openbox package
+      recommends.
+  * debian/rules:
+    + use xz to compress packages.
+  * Update NEWS.Debian.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 28 Nov 2013 19:35:36 +0100
+
+openbox (3.5.2-4) unstable; urgency=low
+
+  * Patch working:
+    + add fix_rsvg_missing_include.patch to fix build with oldest librsvg
+    version.
+    + add update_pl_po.patch to update Polish language file.
+    + refresh 644628_fix_autostart.patch.
+  * debian/control:
+    + move python-xdg to Recommends. (LP: #1244847)
+    + bump standards to 3.9.5.0 (no changes required)
+    + remove openbox-themes from Recommends.
+  * debian/openbox.postinst:
+    + install openbox with lower priority. (LP: #598378)
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 30 Oct 2013 19:22:27 +0100
+
+openbox (3.5.2-3) unstable; urgency=low
+
+  * debian/control:
+    + fix typo in depends openbox-dev package.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 07 Oct 2013 14:58:17 +0200
+
+openbox (3.5.2-2) unstable; urgency=low
+
+  * debian/control:
+    + Replace ttf-dejavu with fonts-dejavu and add tint2 in suggests,
+    + Add librsvg2-dev for depends openbox-dev package. (Closes: #724059)
+  * Add lintian overrides for executable-not-elf-or-script.
+  * Add fix_center_window.patch from upstream to add the old center option.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 26 Sep 2013 16:37:01 +0200
+
+openbox (3.5.2-1) unstable; urgency=low
+
+  * New upstream release (Closes: #717223):
+    + Fix Stacking of dock doesn't work correctly (Closes: #680664),
+    + Fix Windows do not refresh anymore when lauching epdfview when
+      awn is running (Closes: #683556)
+    + Fix xmodmap freezes openbox in lxde (Closes: #678993).
+  * debian/control:
+    + Rename libobrender27 to libobrender29 to reflect ABI change,
+    + Rename libobt0 to libobt2 to reflect ABI change,
+    + Add librsvg2-dev and libxi-dev to Depends,
+    + Add gnome-panel-control binary package,
+    + Tidy up Build-Depends and Depends.
+    + Fix wording in short description.
+  * Remove from debian/patches:
+    + 04_xsession.desktop_translation.patch,
+    + 05_simplify_gnome_session.patch,
+    + 90_fix_link_obt.patch,
+    + 675991_fix_crash_from_gtk3_apps.patch,
+    + 666676_wrong_undecorated_window_placement.patch,
+    + clever-rectangle-picking.patch,
+    + use-nearest-monitor.patch,
+    + 91_fix_loose_focus.patch,
+    + 658081_fix_kde_menu.patch,
+    + add_automake1.11_support.patch -- All included upstream.
+  * Rename in debian/patches:
+    + 07_fix_xml_load_file.patch to 04_fix_xml_load_file.patch,
+    + openbox-3.5.0-title-matching.patch to
+      05_openbox-3.5.0-title-matching.patch,
+    + openbox-3.5.0-which-2.20.patch to 06_openbox-3.5.0-which-2.20.patch.
+  * Update symbols files. 
+  * debian/rules:
+    + override_dh_auto_configure to configure with librsvg support,
+    + enable all hardening flags.
+  * Add debian/patches/07_update_desktop.patch to provide keywords
+    in desktop file.
+  * Add debian/patches/719620_fix_show_startup_notification.patch
+    (Closes: #719620, LP: #862662).
+  * Update debian/NEWS.Debian.
+  * Add debian/patches/08_fix_causing_submenuShowDelay.patch from
+    upstream.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 03 Sep 2013 13:16:24 +0200
+
+openbox (3.5.0-8) unstable; urgency=low
+
+  * New maintainer. (Closes: #566900)
+  * Bump standard version and compat.
+  * Add python-xdg to dependences:
+    + Fix XDG_DATA_DIRS not set when using openbox-gnome-session,
+      (Closes: #647427)
+    + Fix openbox: missing dependency: python-xdg. (Closes: #695432)
+  * Update config files:
+    + Add debian/patches/704724_fix_refers-to-autostart.sh.patch to fix
+      openbox-session(1) refers to autostart.sh files, (Closes: #704724)
+    + Add debian/patches/644628_fix_autostart.patch to fix openbox: Please
+      provide a way to disable openbox-xdg-autostart via config file.
+      (Closes: #644628)
+  * Remove support for gdm-control and gnome-panel-control to fix
+    openbox: gdm-control fails to execute. (Closes: #705793)
+  * Add 91_fix_loose_focus.patch: From upstream, focus the windows when the
+     execute action is run. (Closes: #709439)
+  * Add patches from Arch Linux:
+    + openbox-3.5.0-which-2.20.patch,
+    + openbox-3.5.0-title-matching.patch.
+  * Add 658081_fix_kde_menu.patch:
+    + fix bad KDE menu placement when running a KDE/Openbox
+    session (Closes: #658081)
+  * Add add_automake1.11_support.patch: From upstream, add support
+    automake 1.11 and newest.
+  * Switch to Vcs-Git.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 23 Jul 2013 08:37:08 +0200
+
+openbox (3.5.0-7) unstable; urgency=low
+
+  * QA upload.
+  * Apply upstream fix for an infinite loop when disabling RandR outputs
+    (Closes: #697571)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Wed, 27 Mar 2013 14:16:10 +0100
+
+openbox (3.5.0-6) unstable; urgency=low
+
+  * Add missing Breaks/Replaces for gnome-panel-control,
+    thanks Andreas Beckmann for reporting! (Closes: #694396).
+
+ -- Nico Golde <nion@debian.org>  Sat, 01 Dec 2012 18:38:41 +0100
+
+openbox (3.5.0-4) unstable; urgency=low
+
+  * Fix crash on unexpected NET_WM_MOVERESIZE_CANCEL messages
+    (675991_fix_crash_from_gtk3_apps.patch; Closes: #675991).
+  * Make undecorated windows place according to their undecorated
+    state (666676_wrong_undecorated_window_placement.patch; Closes: #666676)
+
+ -- Nico Golde <nion@debian.org>  Tue, 05 Jun 2012 07:18:19 +0200
+
+openbox (3.5.0-3) unstable; urgency=low
+
+  * Apply Ubuntu patches, thanks a lot! (Closes: #647852)
+  * debian/control:
+    - Remove libxft-dev and libxau-dev build-depends, not needed anymore.
+    - Add depends on libimlib2-dev for openbox-dev, needed to build against
+      openbox-dev.
+    - Build-depends on dh-autoreconf and autopoint.
+  * debian/openbox-dev.install:
+    - Install directly .so files.
+  * Bump policy versoin to 3.9.3.
+  * debian/openbox-dev.links:
+    - Remove since the .so files are installed.
+  * debian/openbox.install
+    - Install all locales and all themes.
+    - Install .desktop and pixmap files.
+    - Install menu.xml.
+  * debian/rules:
+    - Use CFLAGS += instead of CFLAGS =.
+    - Use dh_install --list-missing.
+    - Use --with autoreconf, needed by 90_fix_link_obt.patch.
+  * debian/patches:
+     - 90_fix_link_obt.patch : From upstream, fix linker issue with libobt.
+  * debian/*.symbols:
+     - Add symbols files.
+  * debian/README.source
+     - Remove, not needed with source format 3.0 (quilt).
+  * Remove broken symlink to libobparser.so.27.0.1 (Closes: #653119).
+  * Use maintscript support in dh_installdeb rather than writing out
+    dpkg-maintscript-helper commands by hand.  We now simply Pre-Depend on a
+    new enough version of dpkg rather than using 'dpkg-maintscript-helper
+    supports' guards, leading to more predictable behaviour on upgrades.
+    Thanks Colin Watson! (Closes: #659785)
+
+ -- Nico Golde <nion@debian.org>  Fri, 11 May 2012 06:00:28 +0200
+
+openbox (3.5.0-2) unstable; urgency=low
+
+  * Document changes to be made after upgrade to 3.5 (Closes: #644754).
+    - Ship new environment configuration file.
+    - Remove old autostart.sh conffile (Closes: #645441).
+    - Add notes in NEWS.Debian to state configuration changes to be made
+      with the new 3.5.0 release.
+    - Thanks Julien Valroff!
+  * Add 'set -e' to openbox preinst script.
+  * Drop useless build-dependency on quilt.
+  * Register HTML documentation via doc-base.
+  * openbox.menu-method: Add icon assignment statements into the
+    openbox menu (Closes: #645952).
+  * Add libimlib2-dev to build-dependencies to support icons in
+    menus (Closes: #645944).
+  * Fix loading of /var/lib/openbox/debian-menu.xml (Closes: #644756).
+    - remove debian-menu.xml from rc.xml and only load the file from
+      /var/lib/openbox to prevent confusing errors in xsessions-errors.
+
+ -- Nico Golde <nion@debian.org>  Sun, 31 Oct 2011 23:41:20 +0200
+
+openbox (3.5.0-1) unstable; urgency=low
+
+  [Nico Golde]
+  * New upstream release (Closes: #638783).
+    - Fix crashes in the menu code (Closes: #563891).
+  * Add Brazilian translation to openbox.desktop,
+    thanks Sérgio Cipolla (Closes: #627912).
+  * Remove 06_fix_swap_byte_order.patch, applied upstream.
+  * Bump debhelper dependency to >= 7.0.50~ due to override.
+  * Remove CHANGELOG from openbox.docs to prevent double installation.
+  * Add 02_fix_freedesktop_compliance.dpatch desktop file to
+    /usr/share/applications.
+
+  [Eugenio Paolantonio]
+  * debian/patches:
+    - Disabled 03_place_windows_in_quadrants.patch
+    - Updated 01_rc.xml.patch and 06_fix_swap_byte_order.patch
+    - Removed 04_fix_ftbfs_no-add-needed.patch and 20_24bits_support.patch
+  * debian/control:
+    - Added myself to the Uploaders.
+    - Build-Depends: removed libxau-dev, libxft-dev and python-xdg;
+      added libimlib2-dev
+    - openbox Suggests: added python-xdg
+    - libobrender21 renamed to libobrender27
+    - libobparser21 renamed to libobt0
+  * debian/rules:
+    - Rewrote using a simpler debhelper syntax
+    - Moved the install pass to openbox.install
+  * debian/*.{install,links,dirs}:
+    - Updated.
+  * debian/openbox.xsession:
+    - Removed. Openbox now ships it by default.
+
+ -- Nico Golde <nion@debian.org>  Sun, 03 Oct 2011 22:59:30 +0200
+
+openbox (3.4.11.2-2) unstable; urgency=low
+
+  * Remove gnome-panel-control files from openbox binary package
+    (Closes: #627812).
+
+ -- Nico Golde <nion@debian.org>  Wed, 25 May 2011 16:49:57 +0200
+
+openbox (3.4.11.2-1) unstable; urgency=low
+
+  * "New" upstream release (Closes: #599818).
+  * Fix FTBFS with ld --no-add-needed/gold (Closes: #609317)
+    - Link gdm-control against Xau.
+    - Build-depend on autoconf and automake1.9.
+    - Thanks to Felix Geyer!
+  * Update install files for libobparser/libobrender as the shared
+    library minor version changed.
+  * openbox-dev: Add libxml2-dev, libglib2.0-dev, libxft-dev, libpango1.0-dev
+    to Depends (Closes: #603305).
+  * Simplify gnome session script
+    (Closes: #604043; 05_simplify_gnome_session.patch).
+    - Thanks Jim Paris for the patch!
+  * Add hunk to 01_rc.xml.patch to fix double closed xml comment
+    (Closes: #592589).
+  * Change the unique id in openbox menu-methods to $section
+    (Closes: #586306).
+    - Thanks Bill Allombert!
+  * Given that the included documentation about configuring openbox is rather
+    bad, move obconf to Recommends from Suggests (Closes: #597972).
+  * Add python-xdg to depends, install xdg-autostart to
+    /usr/lib/openbox (Closes: #587283)
+  * Add upstream patch for 24 bit video support
+    (Closes: #606137; 20_24bits_support.patch).
+  * Fix incorrect loop in swap_byte_order (06_fix_swap_byte_order.patch).
+  * Split gnome-panel-control in its own binary package due to its nature
+    not necessary being bound to openbox (Closes: #602594).
+  * Do not install libobparser.la and libobrender.la files anymore as they
+    are not needed (Closes: #622425).
+  * Bump standards version, no changes needed.
+  * Change menu conflict of openbox to Breaks.
+  * Move BSD license text directly into debian/copyright as it may be removed
+    from base-files in the future.
+
+ -- Nico Golde <nion@debian.org>  Sun, 22 May 2011 19:27:57 +0200
+
+openbox (3.4.11.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #570441).
+    - removed wrong use of test command in openbox-gnome-session leading
+      to misbehaviour with gnome sessions (Closes: #566685).
+  * Add obxprop to the installed files (Closes: #564292).
+  * Removed 04_escape_session_names.dpatch/03_nextprev-xinerama.dpatch
+    completely from debian/, wasn't used anymore anyway.
+  * Bump standards version, no changes needed.
+  * Update install files for libobparser/libobrender and links in openbox-dev
+    as the shared library minor version changed.
+  * Update install paths of openbox-dev files to reflect upstream changes
+    and install all header files rather than pick them manually.
+  * Switch to regular paragraphs from asterisks in NEWS file.
+  * Change short description of openbox-dev to differ from openbox.
+  * Switch to dpkg-source 3.0 (quilt) format
+    - switch from dpatch to quilt patches.
+  * Adding ${misc:Depends} to openbox-dev.
+
+ -- Nico Golde <nion@debian.org>  Fri, 23 Apr 2010 16:26:22 +0200
+
+openbox (3.4.10-1) unstable; urgency=low
+
+  * New upstream release.
+  * Add ${misc:Depends} to Depends of libobparser21,libobrender and openbox.
+  * Add dummy README.source file.
+  * Update install files for libobparser/libobrender as the shared
+    library minor version changed.
+
+ -- Nico Golde <nion@debian.org>  Sat, 02 Jan 2010 14:55:54 +0100
+
+openbox (3.4.9-2) unstable; urgency=low
+
+  * Add libxau-dev to build-depends as it was previously only installed
+    as a transitive dependency by other dependencies (Closes: #555787).
+    Previous fix incomplete.
+
+ -- Nico Golde <nion@debian.org>  Sat, 02 Jan 2010 14:42:16 +0100
+
+openbox (3.4.9-1) unstable; urgency=low
+
+  * New upstream release
+    - Prevent focus from moving under the mouse after activating a window
+      with an openbox menu (Closes: #517038)
+    - NOTE: this release introduces a new tool named obprop. I did not
+      include this tool in the package yet as it has no manual page and it's
+      use is probably limited for most users.
+  * Add libx11-dev to build-depends as it was previously only installed
+    as a transitive dependency by other dependencies (Closes: #555787).
+  * Update install files for libobparser/libobrender as the shared
+    library minor version changed.
+
+ -- Nico Golde <nion@debian.org>  Fri, 01 Jan 2010 22:26:10 +0100
+
+openbox (3.4.8-1) unstable; urgency=low
+
+  * New upstream release (Closes: #561247).
+    + Drop 03_nextprev-xinerama.dpatch included upstream.
+    + Drop 04_escape_session_names.dpatch included upstream.
+    + Drop 05_fix_gnome_session.dpatch included upstream.
+    + Drop 06_resepect_xdg_home.dpatch included upstream.
+    + Show desktop switch box on every monitor (Closes: #487382).
+  * Categorize openbox.desktop in System, maybe remove that file
+    alltogether at a later point (Closes: #544839).
+  * Remove Anibal Avelar from uploaders, not active anyway. Thanks
+    for your previous work!
+  * Integrate patch my Marc Brockschmidt to make MoveResize understand
+    BelowCenter/AboveCente/LeftOfCenter/RightOfCenter, thanks!
+    (03_place_windows_in_quadrants; Closes: #544538).
+  * Update install files for libobparser/libobrender as the shared
+    library minor version changed.
+  * Bump standards version, no changes needed.
+  * Tighten library dependencies of openbox-dev.
+
+ -- Nico Golde <nion@debian.org>  Tue, 15 Dec 2009 16:03:25 +0100
+
+openbox (3.4.7.2-5) unstable; urgency=low
+
+  * Remove --choose-session option the openbox-gnome-session
+    script as gnome-session doesn't support this option anymore
+    and it's not needed anyway (Closes: #537294).
+  * Do not install kdetrayproxy manual anymore, we don't ship the
+    program since ages (Closes: #505161).
+  * Respect XDG_CONFIG_HOME in openbox-session script as described
+    in the XDG Base Directory Specification (Closes: #537621).
+  * Bump standards version to 3.8.2, no changes needed.
+
+ -- Nico Golde <nion@debian.org>  Sun, 09 Aug 2009 14:51:12 +0200
+
+openbox (3.4.7.2-4) unstable; urgency=low
+
+  * Bump policy version, no changes needed.
+  * Fix 02_fix_freedesktop_compliance.dpatch and install it as well
+    to /usr/share/applications to make the session manager work again.
+    Thanks Craig Sanders. (Closes: #533126, #531580)
+  * Fix unversioned links to license in copyright.
+  * Use dh_prep rather than dh_clean -k as it is deprecated.
+
+ -- Nico Golde <nion@debian.org>  Mon, 15 Jun 2009 12:32:07 +0200
+
+openbox (3.4.7.2-3) unstable; urgency=low
+
+  * Set priority of x-session-manager alternative (openbox-session) to 40
+    instead of 50 (Closes: #490392).
+  * Properly escape window and desktop name in session file when saving a
+    session (04_escape_session_names.dpatch; Closes: #488492).
+  * Bump to debhelper compatiblity leve 7 and adjust build dependency.
+  * Bump to policy version 3.8.0, no changes needed.
+
+ -- Nico Golde <nion@debian.org>  Mon, 14 Jul 2008 14:21:28 +0200
+
+openbox (3.4.7.2-2) unstable; urgency=low
+
+  * Add 03_nextprev-xinerama.dpatch to add the possibility to specify
+    <monitor>next</monitor> or prev to the MoveResizeTo action to
+    toggle a window from one monitor to the other without having
+    multiple keybindings or shift it for 3 or more monitors when used
+    with Xinerama.
+
+ -- Nico Golde <nion@debian.org>  Mon, 05 May 2008 22:45:09 +0200
+
+openbox (3.4.7.2-1) unstable; urgency=low
+
+  * New upstream release (Closes: #477841).
+  * Bump library SONAMES to 21, minor number to 2.
+  * Conflict and replace libobrender16/parser16 and depend on the new version.
+  * Update openbox.xpm image to fix new upstream icon.
+  * Adjust upstream copyright years in debian/copyright.
+  * Add the new gdm-control tool including a manpage to the package.
+  * Remove openbox.compress and explicit file listing for dh_compress in
+    rules and let debhelper do the magic.
+
+ -- Nico Golde <nion@debian.org>  Fri, 25 Apr 2008 19:35:37 +0200
+
+openbox (3.4.6.1-3) unstable; urgency=low
+
+  * Remove quotes around CFLAGS in rules to prevent FTBFS (Closes: #476061).
+  * Properly pass CFLAGS values to configure.
+
+ -- Nico Golde <nion@debian.org>  Mon, 14 Apr 2008 17:48:06 +0200
+
+openbox (3.4.6.1-2) unstable; urgency=low
+
+  * Install openbox-session as x-session-manager alternative rather
+    than x-window-manager, many thanks to Andrew Lee for providing
+    the patch! (CLoses: #472829).
+
+ -- Nico Golde <nion@debian.org>  Thu, 27 Mar 2008 11:00:15 +0100
+
+openbox (3.4.6.1-1) unstable; urgency=low
+
+  [Nico Golde]
+  * New upstream version.
+  * Switch to compat level 6 as it is the default now.
+
+  [Anibal Avelar]
+  * Added the field Vcs-Svn field instead the Vcs-Git field instead.
+    This fields should point to the control version for Debian package
+    not to the upstream source  code.
+  * Modified the Vcs-Browser value to the correct site due to the same
+    reason described above.
+  * Updated the soname minor number to 0.4 version in
+    libobparser16.install, libobrender16.install and openbox-dev.links
+
+ -- Nico Golde <nion@debian.org>  Sat, 01 Mar 2008 09:09:55 +0100
+
+openbox (3.4.5-1) unstable; urgency=low
+
+  [Anibal Avelar]
+  * New upstream version (Closes: #459790)
+  * Updated the soname minor number to 0.2 version in libobparser16.install,
+    libobrender16.install and openbox-dev.links
+  * Removed the patches 03_fix_crash-by-combined-client-list-menu.dpatch and
+    04_fixdepo.dpatch from the patches list due to were fixed in the upstream
+    version
+  * Bumped to new standards version 3.7.3
+  * Added the fields Vcs-Browser and Vcs-Git in the debian/control file.
+
+  [Nico Golde]
+  * Removed dependency on ttf-bitstream-vera in favour for the
+    ttf-dejavu fonts (Closes: #461277).
+  * Don't use deprecated `pwd` in rules while we have CURDIR.
+  * Fix incomplete GPL stub in copyright.
+
+ -- Anibal Avelar (Fixxxer) <aavelar@cofradia.org>  Sat, 19 Jan 2008 14:02:57 +0100
+
+openbox (3.4.4-3) unstable; urgency=low
+
+  * Included patch (04_fixdepo) by Peter Schwindt to fix minor issues
+    in the German translation (Closes: #439220).
+  * Switched from old Homepage tag to new Homepage control field.
+  * Recognize DEB_BUILD_OPTIONS in rules.
+  * Applied patch by Daniel Kahn Gillmor to fix outdated details.html
+    file (Closes: #446199).
+
+ -- Nico Golde <nion@debian.org>  Sun, 28 Oct 2007 15:40:57 +0100
+
+openbox (3.4.4-2) unstable; urgency=low
+
+  * Added openbox-themes to Recommends, thanks HE for the hint.
+  * Included patch by Mikael Magnusson to fix a crash caused by
+    combined client list with too many items (Closes: #445197).
+
+ -- Nico Golde <nion@debian.org>  Wed, 08 Aug 2007 17:22:47 +0200
+
+openbox (3.4.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added watch file back.
+  * Switched from libobparser15 and libobrender15
+    to libobparser16 and libobrender16.
+  * Added dpatch to build-deps.
+  * Added patch to add Debian menu to rc.xml (01_rc.xml.dpatch):
+    + included patch by Aron Sisak to take screenshots on hotkey.
+  * Added patch to add Type tag to .desktop file
+    (02_fix_freedesktop_compliance.dpatch).
+  * Added Conflicts and Replaces fields for libobrender15 and
+    libobparser15.
+
+ -- Nico Golde <nion@debian.org>  Mon, 06 Aug 2007 13:59:14 +0200
+
+openbox (3.4.2-2) unstable; urgency=low
+
+  * Execute openbox-session instead of openbox via
+    a session manager (Closes: #434497).
+
+ -- Nico Golde <nion@debian.org>  Tue, 24 Jul 2007 13:35:30 +0200
+
+openbox (3.4.2-1) unstable; urgency=low
+
+  [Anibal Avelar]
+  * New mantainer, (Closes: #430663)
+  * New upstream version
+  (Closes: #430663, #426279, #427465, #335726, #400575, #319098)
+  * Fixed the randr support (Closes: #425816)
+  * Support for keyboard shortcuts has been added (Closes: #361596)
+  * Added new packages for shared libs (libobparser15, libobrender15).
+  * Added new openbox-dev file headers.
+  * Added the openbox-dev.links file.
+  * Update standards version to 3.7.2
+
+  [Nico Golde]
+  * Added Openbox Maintainers as maintainer name and Anibal + myself
+    as Uploaders.
+  * Do not recommend but suggest obconf any longer since everything
+    can be configured with an editor as well.
+  * Added additional space in front of the Homepage tag in control.
+  * Fixed broken copyright file.
+  * Do not suppress output of make distclean in rules file.
+  * Added menu file.
+  * Point x-window-manager alternative to openbox-session for autostart
+    features rather than to openbox.
+  * Added NEWS entry about
+    http://icculus.org/openbox/index.php/Help:Upgrading_to_3.4
+  * Remove upstream debian files before building.
+
+ -- Nico Golde <nion@debian.org>  Mon, 16 Jul 2007 19:20:34 +0200
+
+openbox (3.3-2.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * High-urgency upload for RC bug fix.
+  * Revert erroneous Window-Managers to WindowManagers change
+    (Closes: #391917)
+
+ -- Faidon Liambotis <paravoid@debian.org>  Fri, 10 Nov 2006 23:31:07 +0200
+
+openbox (3.3-2) unstable; urgency=low
+
+  * Change WindowManagers to Window-Managers in openbox.menu.
+    closes: 312193.
+  * Remove a couple of exclamation marks in the description and rephrase
+    "Fast as f$%k!" into "Very fast".  closes: 364123
+  * Add homepage URL to the end of the description.  closes: 323336
+  * Apply patch from upstream to not show border on the gnome panel.
+    closes: 385461.
+
+ -- Tollef Fog Heen <tfheen@debian.org>  Tue,  5 Sep 2006 07:01:21 +0200
+
+openbox (3.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Tollef Fog Heen <tfheen@debian.org>  Tue, 29 Aug 2006 20:23:13 +0200
+
+openbox (3.2-9) unstable; urgency=low
+
+  * Actually change the Maintainer field in debian/control as well.
+
+ -- Tollef Fog Heen <tfheen@debian.org>  Mon,  9 Jan 2006 10:42:36 +0100
+
+openbox (3.2-8) unstable; urgency=low
+
+  * Adopt package.  Thanks to Tore for his maintenance.
+  * Don't build-dep on xlibs-dev any more, closes: #347130.
+  * Build-depend on libxt-dev, libxinerama-dev.
+
+ -- Tollef Fog Heen <tfheen@debian.org>  Mon,  9 Jan 2006 09:29:33 +0100
+
+openbox (3.2-7) unstable; urgency=low
+
+  * openbox/prop.c:
+      - Fix prop_set32() and prop_set_array32() to work on AMD64,
+        closes: #295318.  Thanks to Tollef Fog Heen for the patch!
+
+ -- Tore Anderson <tore@debian.org>  Mon, 21 Feb 2005 23:58:27 +0100
+
+openbox (3.2-6) unstable; urgency=low
+
+  * debian/control:
+      - Suggest ttf-bitstream-vera, closes: #265441.
+      - Lowercase first letter in the synopsis.
+
+  * debian/*.pod:
+      - Fix "contributiors" typo.
+
+  * debian/copyright, debian/*.pod:
+      - Acknowledge Mikael Magnusson as the new upstream lead developer.
+
+  * openbox/event.c:
+      - Apply patch from Denis Barbier, remedying breakage stemming from recent
+        changes in XFree86' XKB behaviour.  Closes: #272214.  Thanks, Denis!
+
+ -- Tore Anderson <tore@debian.org>  Thu,  6 Jan 2005 00:04:16 +0100
+
+openbox (3.2-5) unstable; urgency=low
+
+  * debian/control:
+      - Suggest libxml-dev, as the developement headers provided in the
+        package need them.  Closes: #254580.
+
+  * debian/docs/*:
+      - Re-sync with upstream - fixes some minor errors, closes: #248657.
+
+  * debian/openbox.xsession (new), debian/rules:
+      - Register Openbox as an X session with the various diplay managers.
+        Thanks, William Lynch!  Closes: #255081.
+
+ -- Tore Anderson <tore@debian.org>  Thu,  8 Jul 2004 23:14:49 +0200
+
+openbox (3.2-4) unstable; urgency=low
+
+  * debian/openbox.menu-method:
+      - Ensure that ampersands are escaped into their respective XML entities,
+        before any of the other of the XML reserved characters are.
+
+  * debian/openbox.postinst:
+      - Eliminate kluge that removed any obsolete Debian menu in /etc.
+
+ -- Tore Anderson <tore@debian.org>  Mon,  3 May 2004 21:03:21 +0200
+
+openbox (3.2-3) unstable; urgency=low
+
+  * data/rc.xml.in:
+      - Add back reference to the Debian system menu which dissapeared in the
+        3.2-1 upload, closes: #245286.
+
+ -- Tore Anderson <tore@debian.org>  Fri, 30 Apr 2004 17:23:28 +0200
+
+openbox (3.2-2) unstable; urgency=medium
+
+  * debian/control:
+      - Update menu conflict to << 2.1.12, to prevent triggering a bug in the
+        replace() menu function which caused an infinite loop, closes: #244671.
+
+ -- Tore Anderson <tore@debian.org>  Wed, 21 Apr 2004 16:54:26 +0200
+
+openbox (3.2-1) unstable; urgency=low
+
+  * New upstream release.
+      - Fixes a focus-related bug which froze Openbox solid, closes: #233549.
+      - Re-introduces the focusLast option, closes: #240039.
+
+  * debian/rules:
+      - Bump dh_makeshlibs version info to >= 3.2.
+
+  * debian/openbox.menu:
+      - Quote the value of the "needs" field.
+
+  * debian/openbox.menu-method:
+      - Use the new replace() function instead of my own char2entity() hack.
+
+  * debian/control:
+      - Add a conflict on menu << 2.1.10, closes: #223874.
+
+ -- Tore Anderson <tore@debian.org>  Sun, 18 Apr 2004 00:27:39 +0200
+
+openbox (3.1-3) unstable; urgency=low
+
+  * Enable XRandR support by linking to the XFree86 4.3.0 libraries.
+
+ -- Tore Anderson <tore@debian.org>  Sat, 28 Feb 2004 13:37:48 +0100
+
+openbox (3.1-2) unstable; urgency=low
+
+  * debian/docs/*.html (new), debian/openbox.docs:
+      - Include some additional documentation from the upstream web site at
+        <http://icculus.org/openbox/content/en/docs/>, closes: #228523.
+
+ -- Tore Anderson <tore@debian.org>  Sat, 31 Jan 2004 15:48:04 +0100
+
+openbox (3.1-1) unstable; urgency=low
+
+  * New upstream release, closes: #225414.
+
+  * debian/control:
+      - Slacken build dependency on debhelper from >= 4.1.45 to >= 4.
+
+  * debian/openbox.menu-method:
+      - Use title() instead of $title.
+      - Move the compat level declaration to below the menu.h inclusion.
+      - Enclose the threewalk declaration in double quotes.
+      - Change rootprefix to /var/lib/openbox/.
+
+  * debian/rules:
+      - Create /var/lib/openbox/ in the install target.
+
+  * debian/openbox.postinst, debian/openbox.postrm:
+      - Remove calls to the obsolete wm-menu-config program.
+
+  * debian/openbox.postinst:
+      - Remove /etc/xdg/openbox/debian-menu.xml, which now should be found in
+        /var/lib/openbox/ instead.
+
+  * debian/openbox.postrm:
+      - Do not attempt to delete /etc/xdg/openbox/debian-menu.xml on purge.
+
+  * debian/openbox.prerm:
+      - Delete /var/lib/openbox/debian-menu.xml on package removal.
+
+  * data/rc.xml.in:
+      - Attempt to read the menu file /var/lib/openbox/debian-menu.xml if it
+        exists.
+
+  * Thanks to Bill Allombert for pointing out and providing suggested fixes for
+    most of the above problems.
+
+ -- Tore Anderson <tore@debian.org>  Sat, 03 Jan 2004 17:16:24 +0100
+
+openbox (3.0-2) unstable; urgency=low
+
+  * debian/openbox.menu-method:
+      - Ascertain that the five XML reserved characters are translated into
+        their respective entities, closes: #221868.
+      - Set output encoding to UTF-8.
+      - Remove unused "openbox" supported type.
+
+  * debian/openbox.menu:
+      - Add an entry for the restart action, closes: #222900.
+
+ -- Tore Anderson <tore@debian.org>  Fri, 12 Dec 2003 14:59:21 +0100
+
+openbox (3.0-1) unstable; urgency=low
+
+  * New upstream release, closes: #216418:
+      - Does not have a toolbar any longer, closes: #214078 (sort-of).
+      - Uses Xft fonts only, closes: #212019, #204097.
+      - Epist is gone, closes: #171239 (sort-of).
+      - Removes the drop shadows under text option, closes: #186777 (sort-of).
+      - Brand new configuration file format, closes: #167802.  (Please refer
+        to /usr/share/doc/openbox/NEWS.Debian.gz if you're upgrading.)
+      - No longer hangs when apps change screen resolution, closes: #212128.
+      - Much improved compliance with varios WM protocols, closes: #181821.
+
+  * debian/control:
+      - Removed the openbox-tools package section.  These tools are no longer
+        included in the upstream sources, so I'm removing them as well.
+      - Updated build dependencies for the new upstream release.
+      - Up Standards-Version to 3.6.1, no changes required.
+      - New description, stolen from the home page.
+
+  * debian/copyright:
+      - Change licence to the GNU GPL.
+
+  * debian/NEWS.Debian (new), debian/openbox.docs:
+      - Inform about the changes in configuration file layout.
+
+  * debian/rules, debian/openbox.menu, debian/openbox-menu-method,
+    openbox/docs:
+      - Updated for the new upstream release.
+
+  * debian/compat (new), debian/rules:
+      - Declare debhelper compability level in the file debian/compat instead
+        of a variable in debian/rules.  Up it to 4 as well.
+
+  * debian/openbox.prerm (new):
+      - Unregister x-window-manager alternative when the package is removed.
+
+  * debian/openbox.postinst:
+      - Up x-window-manager alternative priority to 90, as we're now
+        compliant with freedesktop.org's WM spec.
+
+  * debian/openbox.postinst, debian/openbox.postrm:
+      - Some minor changes and updates for the new upstream release.
+
+  * debian/openbox.pod (new), debian/kdetrayproxy.pod (new),
+    debian/gnome-panel-control.pod (new), debian/openbox.manpages (new):
+      - Provide manual pages for all binaries, as required by policy.
+
+  * debian/openbox.links (new):
+      - Symlink /etc/X11/openbox to /etc/xdg/openbox, to comply with
+        both policy and the freedesktop.org spec.
+
+  * debian/menu.xml (new):
+      - Ship a small menu with entries for x-terminal-editor and
+        x-www-browser as default.  If the menu package is installed,
+        the automatic Debian menu will also be included.
+
+  * debian/openbox.conffiles (removed):
+      - Don't explicitly declare any conffiles;  let debhelper handle them.
+
+  * debian/makefile-menu.patch (removed), debian/openbox.preinst (removed):
+      - Obsoleted by the new upstream release.
+
+  * data/rc.xml.in:
+      - Try to include the Debian menu, if it exists.
+
+ -- Tore Anderson <tore@debian.org>  Tue, 18 Nov 2003 19:46:48 +0100
+
+openbox (2.3.1-4) unstable; urgency=low
+
+  * Acknowledge NMUs:
+    - 2.3.1-1.1, closes: #216358, #216417.  Thanks, J.H.M. Dassen (Ray)!
+  * debian/copyright, debian/control:
+    - New maintainer, closes: #220658.
+  * debian/control:
+    - Improve description, closes: #220357.
+
+ -- Tore Anderson <tore@debian.org>  Sat, 15 Nov 2003 15:40:25 +0100
+
+openbox (2.3.1-3) unstable; urgency=high
+
+  * QA upload
+  * Reintroduced the fixes from my NMU 2.3.1-1.1: (Closes: #216417)
+    * [nls/convert.awk] Output "$ codeset=UTF-8" first to fix FTBFS processing
+      translations. (Closes: #216358)
+    * [debian/control] Build-Depends s/libxft2-dev/libxft-dev/ to fix new FTBFS.
+
+ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Sat, 15 Nov 2003 14:28:52 +0100
+
+openbox (2.3.1-2) unstable; urgency=low
+
+  * Orphaning the package.
+
+ -- Kyle McMartin <kyle@debian.org>  Thu, 13 Nov 2003 18:21:50 -0500
+
+openbox (2.3.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * FTBFS is fixed, <assert.h> was included in Configuration.cc in
+    latest upstream. (closes: #196654)
+  * Also included <assert.h> in util/epist/keytree.cc, as this also
+    causes FTBFS...
+
+ -- Kyle McMartin <kyle@debian.org>  Sun, 08 Jun 2003 16:30:10 -0400
+
+openbox (2.2.3-3) unstable; urgency=low
+
+  * Update to XFT2 and fontconfig.
+
+ -- Kyle McMartin <kyle@debian.org>  Sat, 11 Jan 2003 18:02:10 -0500
+
+openbox (2.2.3-2) unstable; urgency=low
+
+  * Fix where openbox looks for menu file, repoint it at the menu-methods
+    one. (closes: #174428)
+
+ -- Kyle McMartin <kyle@debian.org>  Sun, 29 Dec 2002 17:40:28 -0500
+
+openbox (2.2.3-1) unstable; urgency=low
+
+  * New upstream.
+  * The 2.2 series is now the stable branch.
+
+ -- Kyle McMartin <kyle@debian.org>  Tue, 24 Dec 2002 10:13:19 -0500
+
+openbox (2.2.2-1) unstable; urgency=low
+
+  * New upstream.
+
+ -- Kyle McMartin <kyle@debian.org>  Sun, 8 Dec 2002 13:54:52 -0500
+
+openbox (2.2.1-1) unstable; urgency=low
+
+  * New upstream.
+  * Not sure why this didn't get closed last go round. (closes: #160801)
+
+ -- Kyle McMartin <kyle@debian.org>  Wed, 20 Nov 2002 22:30:20 -0500
+
+openbox (2.2.0-2) unstable; urgency=low
+
+  * Fixed URL (damned pedants :) (closes #167991)
+  * Default epistrc behaviour fixed upstream. (closes #160801)
+  * Reference to menuFile removed from manpage. (closes #167802)
+
+ -- Kyle McMartin <kyle@debian.org>  Wed, 6 Nov 2002 18:39:02 -0500
+
+openbox (2.2.0-1) unstable; urgency=low
+
+  * New upstream release. [2.2 has been branched for testing]
+
+ -- Kyle McMartin <kyle@debian.org>  Sun, 6 Oct 2002 14:38:20 -0400
+
+openbox (2.1.1-1) unstable; urgency=low
+
+  * New upstream release. [2.1 series is now the stable]
+
+ -- Kyle McMartin <kyle@debian.org>  Sat, 28 Sep 2002 19:31:29 -0400
+
+openbox (2.1.0-3) unstable; urgency=low
+
+  * ugh, remove circular depends/provides on blackbox.
+  * create a new package containing bsetbg, bsetroot which openbox depends on
+    || blackbox || fluxbox, so that in no case are /usr/bin/bsetbg or
+    /usr/bin/bsetroot not installed. This should hopefully make sure everyone
+    gets their root window set from the styles.
+
+ -- Kyle McMartin <kyle@debian.org>  Sat, 21 Sep 2002 18:38:12 -0400
+
+openbox (2.1.0-2) unstable; urgency=low
+
+  * Depend blackbox to provide bsetbg/bsetroot namespace... They are
+    compatible so we'll worry about a proper solution later. (closes: #161142)
+
+ -- Kyle McMartin <kyle@debian.org>  Wed, 18 Sep 2002 15:34:10 -0400
+
+openbox (2.1.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Kyle McMartin <kyle@debian.org>  Thu, 12 Sep 2002 22:36:23 -0400
+
+openbox (2.0.0-1) unstable; urgency=low
+
+  * Initial full release from CVS.
+
+ -- Kyle McMartin <kyle@debian.org>  Thu, 16 Aug 2002 20:33:10 -0400
+
+openbox (0.20020811-1) unstable; urgency=low
+
+  * New checkout from CVS.
+
+ -- Kyle McMartin <kyle@debian.org>  Sun, 11 Aug 2002 15:41:10 -0400
+
+openbox (0.20020807-3) unstable; urgency=medium
+
+  * Really fix menu this time... ugh.
+
+ -- Kyle McMartin <kyle@debian.org>  Thu, 8 Aug 2002 15:14:59 -0400
+
+openbox (0.20020807-2) unstable; urgency=medium
+
+  * Fixed menu.
+  * Added build dependencies on bison and flex for epist.
+
+ -- Kyle McMartin <kyle@debian.org>  Thu, 8 Aug 2002 15:00:01 -0400
+
+openbox (0.20020807-1) unstable; urgency=low
+
+  * New checkout from CVS.
+  * Added menu entries and lintian fixes, and a manpage for epist (undoc)
+
+ -- Kyle McMartin <kyle@debian.org>  Thu, 8 Aug 2002 00:42:29 -0400
+
+openbox (0.20020721-1) unstable; urgency=low
+
+  * New checkout from CVS.
+  * Added post-install scripts to handle x-window-manager alternatives.
+
+ -- Kyle McMartin <kyle@debian.org>  Sun, 21 Jul 2002 17:32:25 -0400
+
+openbox (0.20020717-1) unstable; urgency=low
+
+  * Checkout from CVS.
+  * Initial release. (closes: Bug#153407)
+
+ -- Kyle McMartin <kyle@debian.org>  Thu, 18 Jul 2002 00:00:01 -0400

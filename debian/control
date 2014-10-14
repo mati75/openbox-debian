@@ -1,0 +1,153 @@
+Source: openbox
+Section: x11
+Priority: optional
+Maintainer: Mateusz Łukasik <mati75@linuxmint.pl>
+Build-Depends: debhelper (>= 9), gettext, libstartup-notification0-dev, 
+ libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl, 
+ libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev, 
+ autoconf, automake (>= 1:1.11), python-xdg, libimlib2-dev, dh-autoreconf, 
+ autopoint, librsvg2-dev, libxi-dev
+Standards-Version: 3.9.6
+Homepage: http://www.openbox.org
+Vcs-Browser: https://github.com/mati75/openbox-debian
+Vcs-Git: git://github.com/mati75/openbox-debian
+
+Package: openbox
+Architecture: any
+Provides: x-window-manager, x-session-manager
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: obconf, python-xdg, scrot
+Suggests: menu, fonts-dejavu, python, libxml2-dev, tint2, openbox-menu,
+ openbox-gnome-session (= ${binary:Version}), openbox-kde-session (= ${binary:Version})
+Breaks: menu (<< 2.1.12)
+Description: standards-compliant, fast, light-weight and extensible window manager
+ Openbox works with your applications, and makes your desktop easier to manage.
+ This is because the approach to its development was the opposite of what seems
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
+ the team turn to the visual interface.
+ .
+ Openbox is fully functional as a stand-alone working environment, or can be
+ used as a drop-in replacement for the default window manager in the GNOME or
+ KDE desktop environments.
+ .
+ Openbox 3 is a completely new breed of window manager. It is not based upon
+ any existing code base, although the visual appearance has been based upon
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ .
+ Some of the things to look for in Openbox are:
+ .
+  * ICCCM and EWMH compliance!
+  * Very fast
+  * Chainable key bindings
+  * Customizable mouse actions
+  * Window resistance
+  * Multi-head Xinerama support!
+  * Pipe menus
+
+Package: libobt2
+Section: libs
+Architecture: any
+Conflicts: libobparser15, libobparser16
+Replaces: libobparser15, libobparser16
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: parsing library for openbox
+ Openbox works with your applications, and makes your desktop easier to manage.
+ This is because the approach to its development was the opposite of what seems
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
+ the team turn to the visual interface.
+ .
+ Openbox is fully functional as a stand-alone working environment, or can be
+ used as a drop-in replacement for the default window manager in the GNOME or
+ KDE desktop environments.
+ .
+ Openbox 3 is a completely new breed of window manager. It is not based upon
+ any existing code base, although the visual appearance has been based upon
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ .
+ This package contains the libobt library files used by openbox
+ to load and parse configuration and theme files of openbox.
+
+Package: libobrender29
+Section: libs
+Architecture: any
+Conflicts: libobrender15, libobrender16
+Replaces: libobrender15, libobrender16
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: rendering library for openbox themes
+ Openbox works with your applications, and makes your desktop easier to manage.
+ This is because the approach to its development was the opposite of what seems
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
+ the team turn to the visual interface.
+ .
+ Openbox is fully functional as a stand-alone working environment, or can be
+ used as a drop-in replacement for the default window manager in the GNOME or
+ KDE desktop environments.
+ .
+ Openbox 3 is a completely new breed of window manager. It is not based upon
+ any existing code base, although the visual appearance has been based upon
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ .
+ This package contains the libobrender library files used by openbox
+ for theme rendering.
+
+Package: openbox-dev
+Section: libdevel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender29 (= ${binary:Version}),
+ libobt2 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
+ libimlib2-dev, librsvg2-dev
+Description: development files for the openbox window manager
+ Openbox works with your applications, and makes your desktop easier to manage.
+ This is because the approach to its development was the opposite of what seems
+ to be the general case for window managers. Openbox was written first to
+ comply with standards and to work properly. Only when that was in place did
+ the team turn to the visual interface.
+ .
+ Openbox is fully functional as a stand-alone working environment, or can be
+ used as a drop-in replacement for the default window manager in the GNOME or
+ KDE desktop environments.
+ .
+ Openbox 3 is a completely new breed of window manager. It is not based upon
+ any existing code base, although the visual appearance has been based upon
+ that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
+ .
+ This package contains the development headers for building openbox stuff.
+
+Package: gnome-panel-control
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: openbox (<< 3.4.11.2)
+Breaks: openbox (<< 3.4.11.2)
+Description: command line utility to invoke GNOME panel run dialog/menu
+ gnome-panel-control can be used to invoke the GNOME panel run or main
+ menu from the command line. This is originally a helper utility of openbox 
+ since gnome-panel is no longer managing its own key bindings.
+
+Package: openbox-gnome-session
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}), 
+ gnome-session-bin, gconf2, x11-utils
+Enhances: gnome-session
+Replaces: openbox (<< 3.5.2-5)
+Breaks: openbox (<< 3.5.2-5)
+Description: command line utility to run Openbox as GNOME session 
+ openbox-gnome-session can provide GNOME session with openbox as
+ a default window manager. It can replace the original window manager
+ in GNOME Shell and GNOME Fallback sessions.
+
+Package: openbox-kde-session
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}), 
+ kde-workspace-bin, x11-utils
+Enhances: kde-workspace
+Replaces: openbox (<< 3.5.2-5)
+Breaks: openbox (<< 3.5.2-5)
+Description: command line utility to run Openbox as KDE SC session
+ openbox-kde-session can provide KDE SC session with openbox as
+ a default window manager. Can replace the original window manager
+ called KWin.
+

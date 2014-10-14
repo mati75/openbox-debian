@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+	configure)
+		update-alternatives --install /usr/bin/x-window-manager \
+			x-window-manager /usr/bin/openbox 90 --slave \
+			/usr/share/man/man1/x-window-manager.1.gz \
+			x-window-manager.1.gz /usr/share/man/man1/openbox.1.gz
+		update-alternatives --install /usr/bin/x-session-manager \
+                        x-session-manager /usr/bin/openbox-session 40 --slave \
+                        /usr/share/man/man1/x-session-manager.1.gz \
+                        x-session-manager.1.gz /usr/share/man/man1/openbox-session.1.gz
+
+			if [ -x /usr/bin/update-menus ]; then update-menus; fi
+		;;
+esac
+
+#DEBHELPER#

@@ -1,0 +1,6 @@
+usr/bin/openbox-gnome-session
+usr/share/gnome/wm-properties/openbox.desktop
+usr/share/gnome-session/sessions/openbox-gnome.session
+usr/share/gnome-session/sessions/openbox-gnome-fallback.session
+usr/share/man/man1/openbox-gnome-session.1
+usr/share/xsessions/openbox-gnome.desktop

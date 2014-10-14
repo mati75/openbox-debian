@@ -1,0 +1,10 @@
+Description: Add keywords to desktop file.
+Author: Mateusz Łukasik <mati75@linuxmint.pl>
+
+--- a/data/openbox.desktop
++++ b/data/openbox.desktop
+@@ -13,3 +13,4 @@ X-GNOME-Provides=windowmanager
+ X-Ubuntu-Gettext-Domain=openbox
+ # back compat
+ X-GNOME-Autostart-Notify=true
++_Keywords=wm;windowmanager;window;manager;gnome;

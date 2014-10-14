@@ -1,0 +1,40 @@
+by Nico Golde <nion@debian.org>
+updated for 3.5.0 by Eugenio Paolantonio <me@medesimo.eu>
+
+add screenshot support using gnome-screenshot;
+ensure that the Debian system menu is listed in <menu>
+Index: openbox-3.4.11.1/data/rc.xml
+===================================================================
+--- a/data/rc.xml
++++ b/data/rc.xml
+@@ -245,6 +245,10 @@
+   <keybind key="A-space">
+     <action name="ShowMenu"><menu>client-menu</menu></action>
+   </keybind>
++  <!-- Take a screenshot of the current window with gnome-screenshot when Alt+Print are pressed -->
++  <keybind key="A-Print">
++    <action name="Execute"><command>gnome-screenshot -w</command></action>
++  </keybind>
+ 
+   <!-- Keybindings for window switching -->
+   <keybind key="A-Tab">
+@@ -308,6 +312,10 @@
+       <command>kfmclient openProfile filemanagement</command>
+     </action>
+   </keybind>
++  <!-- Launch gnome-screenshot when Print is pressed -->
++  <keybind key="Print">
++    <action name="Execute"><command>gnome-screenshot</command></action>
++  </keybind>
+ </keyboard>
+ 
+ <mouse>
+@@ -621,6 +629,8 @@
+        just don't make menu ids clash or, well, it'll be kind of pointless -->
+ 
+   <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
++  <!-- system menu files on Debian systems -->
++  <file>/var/lib/openbox/debian-menu.xml</file>
+   <file>menu.xml</file>
+   <hideDelay>200</hideDelay>
+   <!-- if a press-release lasts longer than this setting (in milliseconds), the

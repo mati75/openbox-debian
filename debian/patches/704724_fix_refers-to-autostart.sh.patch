@@ -1,0 +1,51 @@
+commit c94992179e99f4088f3a1cb8e304a9fb6035170d
+Author: John Vogel <jvogel4@stny.rr.com>
+Date:   Sat Mar 17 12:33:24 2012 -0400
+
+    Update manpage to current version. (Fix bug 5444)
+
+--- a/doc/openbox-session.1.in
++++ b/doc/openbox-session.1.in
+@@ -12,8 +12,8 @@ to save your state from one log in to th
+ arguments. 
+ .PP 
+ On log in, \fBopenbox-session\fR will run the 
+-~/.config/openbox/autostart.sh script if it exists, and will run the 
+-system-wide script @configdir@/openbox/autostart.sh otherwise. You may 
++~/.config/openbox/autostart script if it exists, and will run the 
++system-wide script @configdir@/openbox/autostart otherwise. You may 
+ place anything you want to run automatically in those files, for example: 
+  
+ .PP 
+@@ -27,7 +27,7 @@ gnome-settings-daemon &
+ .PP 
+ Make sure that each line is followed by a "&" or else the script will 
+ stop there and further commands will not be executed. You can use the 
+-@configdir@/openbox/autostart.sh file as an example for creating your 
++@configdir@/openbox/autostart file as an example for creating your 
+ own. 
+ .SH "SEE ALSO" 
+ .PP 
+--- a/doc/openbox-session.1.sgml
++++ b/doc/openbox-session.1.sgml
+@@ -44,8 +44,8 @@ manpage.1: manpage.sgml
+       arguments.</para>
+ 
+     <para>On log in, <command>&dhpackage;</command> will run the
+-      ~/.config/openbox/autostart.sh script if it exists, and will run the
+-      system-wide script @configdir@/openbox/autostart.sh otherwise. You may
++      ~/.config/openbox/autostart script if it exists, and will run the
++      system-wide script @configdir@/openbox/autostart otherwise. You may
+       place anything you want to run automatically in those files, for example:
+       </para>
+ 
+@@ -55,7 +55,7 @@ manpage.1: manpage.sgml
+ 
+     <para>Make sure that each line is followed by a "&" or else the script will
+       stop there and further commands will not be executed. You can use the
+-      @configdir@/openbox/autostart.sh file as an example for creating your
++      @configdir@/openbox/autostart file as an example for creating your
+       own.</para>
+ 
+   </refsect1>
+

@@ -1,0 +1,33 @@
+usr/share/pixmaps/openbox.png
+usr/share/locale/
+usr/share/themes/
+usr/share/doc/openbox/menu.xsd
+usr/share/doc/openbox/xbm/bullet.xbm
+usr/share/doc/openbox/xbm/close.xbm
+usr/share/doc/openbox/xbm/desk_toggled.xbm
+usr/share/doc/openbox/xbm/desk.xbm
+usr/share/doc/openbox/xbm/iconify.xbm
+usr/share/doc/openbox/xbm/max_toggled.xbm
+usr/share/doc/openbox/xbm/max.xbm
+usr/share/doc/openbox/xbm/shade_toggled.xbm
+usr/share/doc/openbox/xbm/shade.xbm
+usr/share/doc/openbox/rc.xsd
+usr/share/doc/openbox/rc-mouse-focus.xml
+usr/share/man/man1/openbox.1
+usr/share/man/man1/obxprop.1
+usr/share/man/man1/openbox-session.1
+usr/share/xsessions/openbox.desktop
+usr/bin/openbox
+usr/bin/obxprop
+usr/bin/openbox-session
+usr/bin/gdm-control
+etc/xdg/openbox/rc.xml
+etc/xdg/openbox/menu.xml
+etc/xdg/openbox/autostart
+etc/xdg/openbox/environment
+usr/lib/*/openbox-xdg-autostart
+usr/lib/*/openbox-autostart
+
+debian/menu.xml etc/xdg/openbox
+debian/openbox.xpm usr/share/pixmaps/
+debian/themes/ usr/share
