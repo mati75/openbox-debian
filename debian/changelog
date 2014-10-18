@@ -10,7 +10,7 @@ openbox (3.5.2-8) unstable; urgency=medium
   * debian/watch:
     + update to use github.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 14 Oct 2014 18:07:29 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 18 Oct 2014 22:50:54 +0200
 
 openbox (3.5.2-7) unstable; urgency=medium
 

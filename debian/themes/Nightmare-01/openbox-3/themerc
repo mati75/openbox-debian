@@ -19,20 +19,16 @@
 #     Menu Settings	
 #======================================
 
-menu.title.bg: raised solid
+menu.title.bg: raised
 menu.title.bg.color: #181818
 menu.title.text.color: #ffffff
-
 menu.separator.color: #242424
-
-menu.items.bg: raised solid
+menu.items.bg: raised
 menu.items.bg.color: #181818
 menu.items.text.color: #ffffff
 menu.items.disabled.text.color: #707070
-
-menu.items.active.bg: flat border horizontal gradient
+menu.items.active.bg: flat border
 menu.items.active.bg.color: #7f1e31
-menu.items.active.bg.colorTo: #7f1e31
 menu.items.active.bg.border.color: #c3314f
 menu.items.active.text.color: #ffffff
 
@@ -40,19 +36,14 @@ menu.items.active.text.color: #ffffff
 #     Focused Window Settings
 #======================================
 
-window.active.title.bg: flat border horizontal gradient
+window.active.title.bg: flat border
 window.active.title.bg.color: #7f1e31
-window.active.title.bg.colorTo: #7f1e31
 window.active.title.bg.border.color: #c3314f
-
-window.active.handle.bg: raised solid
+window.active.handle.bg: raised
 window.active.handle.bg.color: #181818
-
 window.active.grip.bg: parentrelative
-
 window.active.label.bg: parentrelative
 window.active.label.text.color: #ffffff
-
 window.*.button.*.bg: parentrelative
 window.active.button.*.image.color: #ffffff
 window.active.button.*.pressed.image.color: #000000
@@ -62,17 +53,13 @@ window.active.button.disabled.image.color: #ffffff
 #     Unfocused Window Settings
 #======================================
 
-window.inactive.title.bg: raised solid
+window.inactive.title.bg: raised
 window.inactive.title.bg.color: #181818
-
-window.inactive.handle.bg: raised solid
+window.inactive.handle.bg: raised
 window.inactive.handle.bg.color: #181818
-
 window.inactive.grip.bg: parentrelative
-
 window.inactive.label.bg: parentrelative
 window.inactive.label.text.color: #ffffff
-
 window.inactive.button.*.image.color: #ffffff
 
 #======================================
@@ -97,12 +84,10 @@ menu.border.color: #000000
 #     Osd		
 #======================================
 
-osd.bg: raised solid
+osd.bg: raised
 osd.bg.color: #181818
-
-osd.hilight.bg: flat border horizontal gradient
+osd.hilight.bg: flat border
 osd.hilight.bg.color: #7f1e31
-osd.hilight.bg.colorTo:	#7f1e31
 osd.hilight.bg.border.color: #c3314f
 
 #======================================
@@ -111,4 +96,3 @@ osd.hilight.bg.border.color: #c3314f
 
 menu.title.text.justify: center
 window.label.text.justify: center
-
