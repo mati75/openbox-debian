@@ -1,16 +1,16 @@
-openbox (3.5.2-8) unstable; urgency=medium
+openbox (3.5.2-8) unstable; urgency=high
 
   * debian/openbox.install:
-    + fix install Nightmare themes directory. (Closes: #758404)
+    + Fix install Nightmare themes directory. (Closes: #758404)
   * debian/themes:
-    + update Nightmare themes to latest version.
+    + Update Nightmare themes to latest version.
   * Bump Standards-Version to 3.9.6. (no changes needed)
   * debian/copyright:
-    + fix lintian errors.
+    + Fix lintian errors.
   * debian/watch:
-    + update to use github.
+    + Update for use github.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 18 Oct 2014 22:50:54 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 25 Oct 2014 14:38:46 +0200
 
 openbox (3.5.2-7) unstable; urgency=medium
 
