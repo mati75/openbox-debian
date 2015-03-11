@@ -1,4 +1,4 @@
-Description: Add compatibity to obsession when the pyxdg is not running
+Description: Add compatibility to obsession when the pyxdg is not running
 Author: Mateusz Łukasik <mati75@linuxmint.pl>
 
 --- a/data/autostart/openbox-autostart.in
