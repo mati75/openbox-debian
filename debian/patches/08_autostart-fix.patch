@@ -1,0 +1,16 @@
+Description: Add compatibity to obsession when the pyxdg is not running
+Author: Mateusz Łukasik <mati75@linuxmint.pl>
+
+--- a/data/autostart/openbox-autostart.in
++++ b/data/autostart/openbox-autostart.in
+@@ -31,4 +31,9 @@ fi
+ # Run the XDG autostart stuff.  These are found in /etc/xdg/autostart and
+ # in $HOME/.config/autostart.  This requires PyXDG to be installed.
+ # See openbox-xdg-autostart --help for more details.
+-@libexecdir@/openbox-xdg-autostart "$@"
++if which xdg-autostart >/dev/null 2>/dev/null; then
++   CMD=xdg-autostart
++else
++   CMD=@libexecdir@/openbox-xdg-autostart
++fi
++exec $CMD "$@"

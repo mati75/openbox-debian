@@ -5,6 +5,11 @@ openbox (3.6.0~git20150304-1) UNRELEASED; urgency=medium
     + fix_center_window.patch
     + fix_rsvg_missing_include.patch
     + update_pl_po.patch
+  * Add compatibility to obsession:
+    + debian/control: add obsession as replacement for python-xdg.
+    + debian/patches/08_fix-autostart.patch: fix autostart then the python-xdg
+    is not running.
+    + Remove debian/patches/644628_fix_autostart.patch.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 08 Mar 2015 22:57:15 +0100
 

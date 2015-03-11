@@ -5,6 +5,7 @@
 05_openbox-3.5.0-title-matching.patch
 06_openbox-3.5.0-which-2.20.patch
 07_update_desktop.patch
+08_autostart-fix.patch
 704724_fix_refers-to-autostart.sh.patch
 719620_fix_show_startup_notification.patch
 754207_use-scrot.patch
