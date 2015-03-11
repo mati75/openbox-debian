@@ -1,3 +1,16 @@
+openbox (3.6.0~git20150304-1) UNRELEASED; urgency=medium
+
+  * New upstream release. (Closes: #498801, #688969, LP: #1220257)
+  * debian/control:
+    + Rename libobrender29 to libobrender31 to reflect ABI change,
+    + Rename libobt2 to libobt4 to reflect ABI change,
+  * Remove patches included upstream:
+    + fix_center_window.patch
+    + fix_rsvg_missing_include.patch
+    + update_pl_po.patch
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 08 Mar 2015 22:57:15 +0100
+
 openbox (3.5.2-8) unstable; urgency=high
 
   * debian/openbox.install:
