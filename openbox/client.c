@@ -218,7 +218,7 @@ void client_manage(Window window, ObPrompt *prompt)
     Time launch_time;
     guint32 user_time;
     gboolean obplaced;
-    gulong ignore_start;
+    gulong ignore_start = FALSE;
 
     ob_debug("Managing window: 0x%lx", window);
 
@@ -2458,19 +2458,9 @@ static void client_get_session_ids(ObClient *self)
     }
 }
 
-/*! Save the properties used for app matching rules, as seen by Openbox when
-  the window mapped, so that users can still access them later if the app
-  changes them */
-static void client_save_app_rule_values(ObClient *self)
+const gchar *client_type_to_string(ObClient *self)
 {
     const gchar *type;
-
-    OBT_PROP_SETS(self->window, OB_APP_ROLE, self->role);
-    OBT_PROP_SETS(self->window, OB_APP_NAME, self->name);
-    OBT_PROP_SETS(self->window, OB_APP_CLASS, self->class);
-    OBT_PROP_SETS(self->window, OB_APP_GROUP_NAME, self->group_name);
-    OBT_PROP_SETS(self->window, OB_APP_GROUP_CLASS, self->group_class);
-    OBT_PROP_SETS(self->window, OB_APP_TITLE, self->original_title);
 
     switch (self->type) {
     case OB_CLIENT_TYPE_NORMAL:
@@ -2490,7 +2480,23 @@ static void client_save_app_rule_values(ObClient *self)
     case OB_CLIENT_TYPE_DOCK:
         type = "dock"; break;
     }
-    OBT_PROP_SETS(self->window, OB_APP_TYPE, type);
+
+    return type;
+}
+
+/*! Save the properties used for app matching rules, as seen by Openbox when
+  the window mapped, so that users can still access them later if the app
+  changes them */
+static void client_save_app_rule_values(ObClient *self)
+{
+    OBT_PROP_SETS(self->window, OB_APP_ROLE, self->role);
+    OBT_PROP_SETS(self->window, OB_APP_NAME, self->name);
+    OBT_PROP_SETS(self->window, OB_APP_CLASS, self->class);
+    OBT_PROP_SETS(self->window, OB_APP_GROUP_NAME, self->group_name);
+    OBT_PROP_SETS(self->window, OB_APP_GROUP_CLASS, self->group_class);
+    OBT_PROP_SETS(self->window, OB_APP_TITLE, self->original_title);
+
+    OBT_PROP_SETS(self->window, OB_APP_TYPE, client_type_to_string(self));
 }
 
 static void client_change_wm_state(ObClient *self)
@@ -2728,7 +2734,7 @@ gboolean client_should_show(ObClient *self)
 {
     if (self->iconic)
         return FALSE;
-    if (client_normal(self) && screen_showing_desktop)
+    if (client_normal(self) && screen_showing_desktop())
         return FALSE;
     if (self->desktop == screen_desktop || self->desktop == DESKTOP_ALL)
         return TRUE;
@@ -4074,7 +4080,7 @@ gboolean client_focus(ObClient *self)
 static void client_present(ObClient *self, gboolean here, gboolean raise,
                            gboolean unshade)
 {
-    if (client_normal(self) && screen_showing_desktop)
+    if (client_normal(self) && screen_showing_desktop())
         screen_show_desktop(FALSE, self);
     if (self->iconic)
         client_iconify(self, FALSE, here, FALSE);
@@ -4529,8 +4535,9 @@ void client_find_move_directional(ObClient *self, ObDirection dir,
     frame_frame_gravity(self->frame, x, y);
 }
 
-void client_find_resize_directional(ObClient *self, ObDirection side,
-                                    gboolean grow,
+void client_find_resize_directional(ObClient *self,
+                                    ObDirection side,
+                                    ObClientDirectionalResizeType resize_type,
                                     gint *x, gint *y, gint *w, gint *h)
 {
     gint head;
@@ -4538,31 +4545,84 @@ void client_find_resize_directional(ObClient *self, ObDirection side,
     gboolean near;
     ObDirection dir;
 
+    gboolean grow;
+    switch (resize_type) {
+    case CLIENT_RESIZE_GROW:
+        grow = TRUE;
+        break;
+    case CLIENT_RESIZE_GROW_IF_NOT_ON_EDGE:
+        grow = TRUE;
+        break;
+    case CLIENT_RESIZE_SHRINK:
+        grow = FALSE;
+        break;
+    }
+
     switch (side) {
     case OB_DIRECTION_EAST:
-        head = RECT_RIGHT(self->frame->area) +
-            (self->size_inc.width - 1) * (grow ? 1 : 0);
+        head = RECT_RIGHT(self->frame->area);
+        switch (resize_type) {
+        case CLIENT_RESIZE_GROW:
+            head += self->size_inc.width - 1;
+            break;
+        case CLIENT_RESIZE_GROW_IF_NOT_ON_EDGE:
+            head -= 1;
+            break;
+        case CLIENT_RESIZE_SHRINK:
+            break;
+        }
+
         e_start = RECT_TOP(self->frame->area);
         e_size = self->frame->area.height;
         dir = grow ? OB_DIRECTION_EAST : OB_DIRECTION_WEST;
         break;
     case OB_DIRECTION_WEST:
-        head = RECT_LEFT(self->frame->area) -
-            (self->size_inc.width - 1) * (grow ? 1 : 0);
+        head = RECT_LEFT(self->frame->area);
+        switch (resize_type) {
+        case CLIENT_RESIZE_GROW:
+            head -= self->size_inc.width - 1;
+            break;
+        case CLIENT_RESIZE_GROW_IF_NOT_ON_EDGE:
+            head += 1;
+            break;
+        case CLIENT_RESIZE_SHRINK:
+            break;
+        }
+
         e_start = RECT_TOP(self->frame->area);
         e_size = self->frame->area.height;
         dir = grow ? OB_DIRECTION_WEST : OB_DIRECTION_EAST;
         break;
     case OB_DIRECTION_NORTH:
-        head = RECT_TOP(self->frame->area) -
-            (self->size_inc.height - 1) * (grow ? 1 : 0);
+        head = RECT_TOP(self->frame->area);
+        switch (resize_type) {
+        case CLIENT_RESIZE_GROW:
+            head -= self->size_inc.height - 1;
+            break;
+        case CLIENT_RESIZE_GROW_IF_NOT_ON_EDGE:
+            head += 1;
+            break;
+        case CLIENT_RESIZE_SHRINK:
+            break;
+        }
+
         e_start = RECT_LEFT(self->frame->area);
         e_size = self->frame->area.width;
         dir = grow ? OB_DIRECTION_NORTH : OB_DIRECTION_SOUTH;
         break;
     case OB_DIRECTION_SOUTH:
-        head = RECT_BOTTOM(self->frame->area) +
-            (self->size_inc.height - 1) * (grow ? 1 : 0);
+        head = RECT_BOTTOM(self->frame->area);
+        switch (resize_type) {
+        case CLIENT_RESIZE_GROW:
+            head += self->size_inc.height - 1;
+            break;
+        case CLIENT_RESIZE_GROW_IF_NOT_ON_EDGE:
+            head -= 1;
+            break;
+        case CLIENT_RESIZE_SHRINK:
+            break;
+        }
+
         e_start = RECT_LEFT(self->frame->area);
         e_size = self->frame->area.width;
         dir = grow ? OB_DIRECTION_SOUTH : OB_DIRECTION_NORTH;
@@ -4601,7 +4661,7 @@ void client_find_resize_directional(ObClient *self, ObDirection side,
         if (grow == near) --e;
         delta = e - RECT_BOTTOM(self->frame->area);
         *h += delta;
-        break;
+       break;
     default:
         g_assert_not_reached();
     }

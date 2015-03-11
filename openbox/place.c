@@ -257,12 +257,12 @@ static Rect* choose_monitor(ObClient *c, gboolean client_to_be_foregrounded,
 static gboolean place_under_mouse(ObClient *client, gint *x, gint *y,
                                   Size frame_size)
 {
-    if (config_place_policy != OB_PLACE_POLICY_MOUSE)
-        return FALSE;
-
     gint l, r, t, b;
     gint px, py;
     Rect *area;
+
+    if (config_place_policy != OB_PLACE_POLICY_MOUSE)
+        return FALSE;
 
     ob_debug("placing under mouse");
 
@@ -295,25 +295,8 @@ static gboolean place_per_app_setting_position(ObClient *client, Rect *screen,
 
     ob_debug("placing by per-app settings");
 
-    if (settings->position.x.center)
-        *x = screen->x + screen->width / 2 - client->area.width / 2;
-    else if (settings->position.x.opposite)
-        *x = screen->x + screen->width - frame_size.width -
-            settings->position.x.pos;
-    else
-        *x = screen->x + settings->position.x.pos;
-    if (settings->position.x.denom)
-        *x = (*x * screen->width) / settings->position.x.denom;
-
-    if (settings->position.y.center)
-        *y = screen->y + screen->height / 2 - client->area.height / 2;
-    else if (settings->position.y.opposite)
-        *y = screen->y + screen->height - frame_size.height -
-            settings->position.y.pos;
-    else
-        *y = screen->y + settings->position.y.pos;
-    if (settings->position.y.denom)
-        *y = (*y * screen->height) / settings->position.y.denom;
+    screen_apply_gravity_point(x, y, frame_size.width, frame_size.height,
+                               &settings->position, screen);
 
     return TRUE;
 }
@@ -377,11 +360,11 @@ static gboolean place_transient_splash(ObClient *client, Rect *area,
                     b = MAX(b, RECT_BOTTOM(m->frame->area));
                 }
             }
-            if (!first) {
-                *x = ((r + 1 - l) - frame_size.width) / 2 + l;
-                *y = ((b + 1 - t) - frame_size.height) / 2 + t;
-                return TRUE;
-            }
+        }
+        if (!first) {
+            *x = ((r + 1 - l) - frame_size.width) / 2 + l;
+            *y = ((b + 1 - t) - frame_size.height) / 2 + t;
+            return TRUE;
         }
     }
 
@@ -406,8 +389,19 @@ static gboolean place_least_overlap(ObClient *c, Rect *head, int *x, int *y,
     GSList* potential_overlap_clients = NULL;
     gint n_client_rects = config_dock_hide ? 0 : 1;
 
-    /* if we're "showing desktop", ignore all existing windows */
-    if (!screen_showing_desktop) {
+    /* If we're "showing desktop", and going to allow this window to
+       be shown now, then ignore all existing windows */
+    gboolean ignore_windows = FALSE;
+    switch (screen_show_desktop_mode) {
+    case SCREEN_SHOW_DESKTOP_NO:
+    case SCREEN_SHOW_DESKTOP_UNTIL_WINDOW:
+        break;
+    case SCREEN_SHOW_DESKTOP_UNTIL_TOGGLE:
+        ignore_windows = TRUE;
+        break;
+    }
+
+    if (!ignore_windows) {
         GList* it;
         for (it = client_list; it != NULL; it = g_list_next(it)) {
             ObClient* maybe_client = (ObClient*)it->data;
@@ -432,24 +426,27 @@ static gboolean place_least_overlap(ObClient *c, Rect *head, int *x, int *y,
             n_client_rects += 1;
         }
     }
-    Rect client_rects[n_client_rects];
 
-    GSList* it;
-    guint i = 0;
-    if (!config_dock_hide)
-        dock_get_area(&client_rects[i++]);
-    for (it = potential_overlap_clients; it != NULL; it = g_slist_next(it)) {
-        ObClient* potential_overlap_client = (ObClient*)it->data;
-        client_rects[i] = potential_overlap_client->frame->area;
-        i += 1;
+    if (n_client_rects) {
+        Rect client_rects[n_client_rects];
+        GSList* it;
+        Point result;
+        guint i = 0;
+
+        if (!config_dock_hide)
+            dock_get_area(&client_rects[i++]);
+        for (it = potential_overlap_clients; it != NULL; it = g_slist_next(it)) {
+            ObClient* potential_overlap_client = (ObClient*)it->data;
+            client_rects[i] = potential_overlap_client->frame->area;
+            i += 1;
+        }
+        g_slist_free(potential_overlap_clients);
+
+        place_overlap_find_least_placement(client_rects, n_client_rects, head,
+                                           &frame_size, &result);
+        *x = result.x;
+        *y = result.y;
     }
-    g_slist_free(potential_overlap_clients);
-
-    Point result;
-    place_overlap_find_least_placement(client_rects, n_client_rects, head,
-                                       &frame_size, &result);
-    *x = result.x;
-    *y = result.y;
 
     return TRUE;
 }

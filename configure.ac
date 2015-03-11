@@ -1,5 +1,5 @@
 AC_PREREQ([2.54])
-AC_INIT([openbox], [3.5.2], [http://bugzilla.icculus.org])
+AC_INIT([openbox], [3.6], [http://bugzilla.icculus.org])
 AC_CONFIG_SRCDIR([openbox/openbox.c])
 
 AM_INIT_AUTOMAKE([foreign])
@@ -9,27 +9,37 @@ OB_VERSION=$PACKAGE_VERSION
 AC_SUBST(OB_VERSION)
 
 dnl Making releases:
+dnl RR_ is for obrender, OBT_ is for obt, keep major/minor in sync,
+dnl treat the rest separately.
+dnl
+dnl if MAJOR or MINOR version changes, be sure to change AC_INIT above to match.
+dnl the other variables aren't related to the user visible versions, but are used
+dnl to version the .so files.
+dnl if no backward compat is broken, it's just a preference if you want to bump
+dnl the AC_INIT micro version or minor version. if the AC_INIT micro version is
+dnl 0, don't write it out.
+dnl
+dnl How to process .so versioning,
 dnl   RR_MICRO_VERSION += 1;
 dnl   RR_INTERFACE_AGE += 1;
-dnl   R_BINARY_AGE += 1;
+dnl   RR_BINARY_AGE += 1;
 dnl if any functions have been added, set RR_INTERFACE_AGE to 0.
 dnl if backwards compatibility has been broken,
 dnl set RR_BINARY_AGE and RR_INTERFACE_AGE to 0.
-dnl
-dnl if MAJOR or MINOR version changes, be sure to change AC_INIT above to match
+dnl if you set anything to 0, you should also bump the MINOR version.
 dnl
 RR_MAJOR_VERSION=3
-RR_MINOR_VERSION=5
-RR_MICRO_VERSION=30
-RR_INTERFACE_AGE=1
-RR_BINARY_AGE=1
+RR_MINOR_VERSION=6
+RR_MICRO_VERSION=31
+RR_INTERFACE_AGE=2
+RR_BINARY_AGE=2
 RR_VERSION=$RR_MAJOR_VERSION.$RR_MINOR_VERSION
 
 OBT_MAJOR_VERSION=3
-OBT_MINOR_VERSION=5
-OBT_MICRO_VERSION=3
-OBT_INTERFACE_AGE=1
-OBT_BINARY_AGE=1
+OBT_MINOR_VERSION=6
+OBT_MICRO_VERSION=4
+OBT_INTERFACE_AGE=2
+OBT_BINARY_AGE=2
 OBT_VERSION=$OBT_MAJOR_VERSION.$OBT_MINOR_VERSION
 
 AC_SUBST(RR_MAJOR_VERSION)

@@ -277,7 +277,7 @@ static gunichar parse_shortcut(const gchar *label, gboolean allow_shortcut,
     return shortcut;
 }
 
-static void parse_menu_item(xmlNodePtr node,  gpointer data)
+static void parse_menu_item(xmlNodePtr node, gpointer data)
 {
     ObMenuParseState *state = data;
     gchar *label;
@@ -454,10 +454,12 @@ static gboolean menu_hide_delay_func(gpointer data)
 {
     menu_can_hide = TRUE;
     menu_timeout_id = 0;
+
     return FALSE; /* no repeat */
 }
 
-void menu_show(gchar *name, gint x, gint y, gboolean mouse, ObClient *client)
+void menu_show(gchar *name, const GravityPoint *pos, gint monitor,
+               gboolean mouse, gboolean user_positioned, ObClient *client)
 {
     ObMenu *self;
     ObMenuFrame *frame;
@@ -479,7 +481,7 @@ void menu_show(gchar *name, gint x, gint y, gboolean mouse, ObClient *client)
     menu_clear_pipe_caches();
 
     frame = menu_frame_new(self, 0, client);
-    if (!menu_frame_show_topmenu(frame, x, y, mouse))
+    if (!menu_frame_show_topmenu(frame, pos, monitor, mouse, user_positioned))
         menu_frame_free(frame);
     else {
         if (!mouse) {
@@ -515,6 +517,12 @@ void menu_show(gchar *name, gint x, gint y, gboolean mouse, ObClient *client)
 gboolean menu_hide_delay_reached(void)
 {
     return menu_can_hide;
+}
+
+void menu_hide_delay_reset(void)
+{
+    if (menu_timeout_id) g_source_remove(menu_timeout_id);
+    menu_hide_delay_func(NULL);
 }
 
 static ObMenuEntry* menu_entry_new(ObMenu *menu, ObMenuEntryType type, gint id)

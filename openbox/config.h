@@ -88,6 +88,8 @@ extern gboolean config_unfocus_leave;
 
 /*! The algorithm to use for placing new windows */
 extern ObPlacePolicy config_place_policy;
+/*! Place windows in the center of the free area */
+extern gboolean config_place_center;
 /*! Place windows on the active monitor (unless they are part of an application
   already on another monitor) */
 extern ObPlaceMonitor config_place_monitor;
@@ -177,6 +179,8 @@ extern guint config_desktop_popup_time;
 extern guint config_keyboard_reset_keycode;
 /*! The modifiers of the key combo which resets the keybaord chains */
 extern guint config_keyboard_reset_state;
+/*! Reload the keyboard bindings when the mapping changes */
+extern gboolean config_keyboard_rebind_on_mapping_notify;
 
 /*! Number of pixels a drag must go before being considered a drag */
 extern gint config_mouse_threshold;

@@ -1664,8 +1664,7 @@ static void flash_done(gpointer data)
 {
     ObFrame *self = data;
 
-    if (self->focused != self->flash_on)
-        frame_adjust_focus(self, self->focused);
+    self->flash_timer = 0;
 }
 
 static gboolean flash_timeout(gpointer data)
@@ -1679,8 +1678,12 @@ static gboolean flash_timeout(gpointer data)
          now.tv_usec >= self->flash_end.tv_usec))
         self->flashing = FALSE;
 
-    if (!self->flashing)
+    if (!self->flashing) {
+        if (self->focused != self->flash_on)
+            frame_adjust_focus(self, self->focused);
+
         return FALSE; /* we are done */
+    }
 
     self->flash_on = !self->flash_on;
     if (!self->focused) {
@@ -1787,14 +1790,12 @@ static gboolean frame_animate_iconify(gpointer p)
     XMoveResizeWindow(obt_display, self->window, x, y, w, h);
     XFlush(obt_display);
 
-    if (time == 0)
-        frame_end_iconify_animation(self);
-
     return time > 0; /* repeat until we're out of time */
 }
 
-void frame_end_iconify_animation(ObFrame *self)
+void frame_end_iconify_animation(gpointer data)
 {
+    ObFrame *self = data;
     /* see if there is an animation going */
     if (self->iconify_animation_going == 0) return;
 
@@ -1811,6 +1812,7 @@ void frame_end_iconify_animation(ObFrame *self)
 
     /* we're not animating any more ! */
     self->iconify_animation_going = 0;
+    self->iconify_animation_timer = 0;
 
     XMoveResizeWindow(obt_display, self->window,
                       self->area.x, self->area.y,
@@ -1861,7 +1863,8 @@ void frame_begin_iconify_animation(ObFrame *self, gboolean iconifying)
         self->iconify_animation_timer =
             g_timeout_add_full(G_PRIORITY_DEFAULT,
                                FRAME_ANIMATE_ICONIFY_STEP_TIME,
-                               frame_animate_iconify, self, NULL);
+                               frame_animate_iconify, self,
+                               frame_end_iconify_animation);
                                
 
         /* do the first step */
