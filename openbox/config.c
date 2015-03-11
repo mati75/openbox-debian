@@ -37,6 +37,7 @@ gboolean config_focus_under_mouse;
 gboolean config_unfocus_leave;
 
 ObPlacePolicy  config_place_policy;
+gboolean       config_place_center;
 ObPlaceMonitor config_place_monitor;
 
 guint          config_primary_monitor_index;
@@ -82,8 +83,9 @@ guint           config_dock_show_delay;
 guint           config_dock_app_move_button;
 guint           config_dock_app_move_modifiers;
 
-guint config_keyboard_reset_keycode;
-guint config_keyboard_reset_state;
+guint    config_keyboard_reset_keycode;
+guint    config_keyboard_reset_state;
+gboolean config_keyboard_rebind_on_mapping_notify;
 
 gint     config_mouse_threshold;
 gint     config_mouse_dclicktime;
@@ -502,6 +504,9 @@ static void parse_keyboard(xmlNodePtr node, gpointer d)
             parse_key(n, NULL);
             n = obt_xml_find_node(n->next, "keybind");
         }
+
+    if ((n = obt_xml_find_node(node->children, "rebindOnMappingNotify")))
+        config_keyboard_rebind_on_mapping_notify = obt_xml_node_bool(n);
 }
 
 /*
@@ -539,13 +544,15 @@ static void parse_mouse(xmlNodePtr node, gpointer d)
     if ((n = obt_xml_find_node(node, "screenEdgeWarpMouse")))
         config_mouse_screenedgewarp = obt_xml_node_bool(n);
 
-    n = obt_xml_find_node(node, "context");
-    while (n) {
+    for (n = obt_xml_find_node(node, "context");
+         n;
+         n = obt_xml_find_node(n->next, "context"))
+    {
         gchar *modcxstr;
         ObFrameContext cx;
 
         if (!obt_xml_attr_string(n, "name", &cxstr))
-            goto next_n;
+            continue;
 
         modcxstr = g_strdup(cxstr); /* make a copy to mutilate */
         while (frame_next_context_from_string(modcxstr, &cx)) {
@@ -560,10 +567,15 @@ static void parse_mouse(xmlNodePtr node, gpointer d)
                 continue;
             }
 
-            nbut = obt_xml_find_node(n->children, "mousebind");
-            while (nbut) {
+            for (nbut = obt_xml_find_node(n->children, "mousebind");
+                 nbut;
+                 nbut = obt_xml_find_node(nbut->next, "mousebind"))
+            {
+
+                gchar **button, **buttons;
+
                 if (!obt_xml_attr_string(nbut, "button", &buttonstr))
-                    goto next_nbut;
+                    continue;
                 if (obt_xml_attr_contains(nbut, "action", "press"))
                     mact = OB_MOUSE_ACTION_PRESS;
                 else if (obt_xml_attr_contains(nbut, "action", "release"))
@@ -575,25 +587,31 @@ static void parse_mouse(xmlNodePtr node, gpointer d)
                 else if (obt_xml_attr_contains(nbut, "action", "drag"))
                     mact = OB_MOUSE_ACTION_MOTION;
                 else
-                    goto next_nbut;
+                    continue;
 
-                nact = obt_xml_find_node(nbut->children, "action");
-                while (nact) {
+                buttons = g_strsplit(buttonstr, " ", 0);
+                for (nact = obt_xml_find_node(nbut->children, "action");
+                     nact;
+                     nact = obt_xml_find_node(nact->next, "action"))
+                {
                     ObActionsAct *action;
 
-                    if ((action = actions_parse(nact)))
-                        mouse_bind(buttonstr, cx, mact, action);
-                    nact = obt_xml_find_node(nact->next, "action");
+                    /* actions_parse() creates one ref to the action, but we need
+                     * exactly one ref per binding we use it for. */
+                    if ((action = actions_parse(nact))) {
+                        for (button = buttons; *button; ++button) {
+                            actions_act_ref(action);
+                            mouse_bind(*button, cx, mact, action);
+                        }
+                        actions_act_unref(action);
+                    }
                 }
-            g_free(buttonstr);
-            next_nbut:
-            nbut = obt_xml_find_node(nbut->next, "mousebind");
+                g_strfreev(buttons);
+                g_free(buttonstr);
             }
         }
         g_free(modcxstr);
         g_free(cxstr);
-    next_n:
-        n = obt_xml_find_node(n->next, "context");
     }
 }
 
@@ -625,9 +643,13 @@ static void parse_placement(xmlNodePtr node, gpointer d)
 
     node = node->children;
 
-    if ((n = obt_xml_find_node(node, "policy")))
+    if ((n = obt_xml_find_node(node, "policy"))) {
         if (obt_xml_node_contains(n, "UnderMouse"))
             config_place_policy = OB_PLACE_POLICY_MOUSE;
+    }
+    if ((n = obt_xml_find_node(node, "center"))) {
+        config_place_center = obt_xml_node_bool(n);
+    }
     if ((n = obt_xml_find_node(node, "monitor"))) {
         if (obt_xml_node_contains(n, "active"))
             config_place_monitor = OB_PLACE_MONITOR_ACTIVE;
@@ -698,8 +720,10 @@ static void parse_theme(xmlNodePtr node, gpointer d)
             config_theme_window_list_icon_size = 96;
     }
 
-    n = obt_xml_find_node(node, "font");
-    while (n) {
+    for (n = obt_xml_find_node(node, "font");
+         n;
+         n = obt_xml_find_node(n->next, "font"))
+    {
         xmlNodePtr   fnode;
         RrFont     **font;
         gchar       *name = g_strdup(RrDefaultFontFamily);
@@ -722,7 +746,7 @@ static void parse_theme(xmlNodePtr node, gpointer d)
         else if (obt_xml_attr_contains(n, "place","InactiveOnScreenDisplay"))
             font = &config_font_inactiveosd;
         else
-            goto next_font;
+            continue;
 
         if ((fnode = obt_xml_find_node(n->children, "name"))) {
             g_free(name);
@@ -749,8 +773,6 @@ static void parse_theme(xmlNodePtr node, gpointer d)
 
         *font = RrFontOpen(ob_rr_inst, name, size, weight, slant);
         g_free(name);
-    next_font:
-        n = obt_xml_find_node(n->next, "font");
     }
 }
 
@@ -779,12 +801,13 @@ static void parse_desktops(xmlNodePtr node, gpointer d)
         g_slist_free(config_desktops_names);
         config_desktops_names = NULL;
 
-        nname = obt_xml_find_node(n->children, "name");
-        while (nname) {
+        for (nname = obt_xml_find_node(n->children, "name");
+             nname;
+             nname = obt_xml_find_node(nname->next, "name"))
+        {
             config_desktops_names =
                 g_slist_append(config_desktops_names,
                                obt_xml_node_string(nname));
-            nname = obt_xml_find_node(nname->next, "name");
         }
     }
     if ((n = obt_xml_find_node(node, "popupTime")))
@@ -900,7 +923,7 @@ static void parse_dock(xmlNodePtr node, gpointer d)
         config_dock_show_delay = obt_xml_node_int(n);
     if ((n = obt_xml_find_node(node, "moveButton"))) {
         gchar *str = obt_xml_node_string(n);
-        guint b, s;
+        guint b = 0, s = 0;
         if (translate_button(str, &s, &b)) {
             config_dock_app_move_button = b;
             config_dock_app_move_modifiers = s;
@@ -934,12 +957,14 @@ static void parse_menu(xmlNodePtr node, gpointer d)
 #endif
     }
 
-    while ((node = obt_xml_find_node(node, "file"))) {
+    for (node = obt_xml_find_node(node, "file");
+         node;
+         node = obt_xml_find_node(node->next, "file"))
+    {
             gchar *c = obt_xml_node_string(node);
             config_menu_files = g_slist_append(config_menu_files,
                                                obt_paths_expand_tilde(c));
             g_free(c);
-            node = node->next;
     }
 }
 
@@ -1055,6 +1080,7 @@ void config_startup(ObtXmlInst *i)
     obt_xml_register(i, "focus", parse_focus, NULL);
 
     config_place_policy = OB_PLACE_POLICY_SMART;
+    config_place_center = TRUE;
     config_place_monitor = OB_PLACE_MONITOR_PRIMARY;
 
     config_primary_monitor_index = 1;
@@ -1114,6 +1140,7 @@ void config_startup(ObtXmlInst *i)
 
     translate_key("C-g", &config_keyboard_reset_state,
                   &config_keyboard_reset_keycode);
+    config_keyboard_rebind_on_mapping_notify = TRUE;
 
     bind_default_keyboard();
 

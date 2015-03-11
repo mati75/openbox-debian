@@ -26,6 +26,12 @@ struct _ObClient;
 
 #define DESKTOP_ALL (0xffffffff)
 
+typedef enum {
+    SCREEN_SHOW_DESKTOP_NO,
+    SCREEN_SHOW_DESKTOP_UNTIL_WINDOW,
+    SCREEN_SHOW_DESKTOP_UNTIL_TOGGLE
+} ObScreenShowDestopMode;
+
 /*! The number of available desktops */
 extern guint screen_num_desktops;
 /*! The number of virtual "xinerama" screens/heads */
@@ -35,7 +41,7 @@ extern guint screen_desktop;
 /*! The desktop which was last visible */
 extern guint screen_last_desktop;
 /*! Are we in showing-desktop mode? */
-extern gboolean screen_showing_desktop;
+extern ObScreenShowDestopMode screen_show_desktop_mode;
 /*! The support window also used for focus and stacking */
 extern Window screen_support_win;
 /*! The last time at which the user changed desktops */
@@ -90,7 +96,11 @@ void screen_hide_desktop_popup(void);
          show is FALSE (restoring from show-desktop mode), and the rest are
          iconified.
 */
-void screen_show_desktop(gboolean show, struct _ObClient *show_only);
+void screen_show_desktop(ObScreenShowDestopMode show_mode,
+                         struct _ObClient *show_only);
+
+/*! Returns true if showing desktop mode is enabled. */
+gboolean screen_showing_desktop();
 
 /*! Updates the desktop layout from the root property if available */
 void screen_update_layout(void);
@@ -172,4 +182,9 @@ guint screen_monitor_pointer(void);
 */
 gboolean screen_compare_desktops(guint a, guint b);
 
+/*! Resolve a gravity point into absolute coordinates.
+ * width and height are the size of the object being placed, used for
+ * aligning to right/bottom edges of the area. */
+void screen_apply_gravity_point(gint *x, gint *y, gint width, gint height,
+                                const GravityPoint *position, const Rect *area);
 #endif

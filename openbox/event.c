@@ -206,6 +206,7 @@ static Window event_get_window(XEvent *e)
             switch (((XkbAnyEvent*)e)->xkb_type) {
             case XkbBellNotify:
                 window = ((XkbBellNotifyEvent*)e)->window;
+                break;
             default:
                 window = None;
             }
@@ -636,11 +637,13 @@ static void event_process(const XEvent *ec, gpointer data)
     else if (e->type == MappingNotify) {
         /* keyboard layout changes for modifier mapping changes. reload the
            modifier map, and rebind all the key bindings as appropriate */
-        ob_debug("Keyboard map changed. Reloading keyboard bindings.");
-        ob_set_state(OB_STATE_RECONFIGURING);
-        obt_keyboard_reload();
-        keyboard_rebind();
-        ob_set_state(OB_STATE_RUNNING);
+        if (config_keyboard_rebind_on_mapping_notify) {
+            ob_debug("Keyboard map changed. Reloading keyboard bindings.");
+            ob_set_state(OB_STATE_RECONFIGURING);
+            obt_keyboard_reload();
+            keyboard_rebind();
+            ob_set_state(OB_STATE_RUNNING);
+        }
     }
     else if (e->type == ClientMessage) {
         /* This is for _NET_WM_REQUEST_FRAME_EXTENTS messages. They come for
@@ -772,7 +775,12 @@ static void event_handle_root(XEvent *e)
             if (d > 0 && d <= 1000)
                 screen_set_num_desktops(d);
         } else if (msgtype == OBT_PROP_ATOM(NET_SHOWING_DESKTOP)) {
-            screen_show_desktop(e->xclient.data.l[0] != 0, NULL);
+            ObScreenShowDestopMode show_mode;
+            if (e->xclient.data.l[0] != 0)
+                show_mode = SCREEN_SHOW_DESKTOP_UNTIL_WINDOW;
+            else
+                show_mode = SCREEN_SHOW_DESKTOP_NO;
+            screen_show_desktop(show_mode, NULL);
         } else if (msgtype == OBT_PROP_ATOM(OB_CONTROL)) {
             ob_debug("OB_CONTROL: %d", e->xclient.data.l[0]);
             if (e->xclient.data.l[0] == 1)
@@ -1190,7 +1198,7 @@ static void event_handle_client(ObClient *client, XEvent *e)
             }
 
         if (e->xconfigurerequest.value_mask & CWStackMode) {
-            ObClient *sibling = NULL;
+            ObWindow *sibling = NULL;
             gulong ignore_start;
             gboolean ok = TRUE;
 
@@ -1201,7 +1209,11 @@ static void event_handle_client(ObClient *client, XEvent *e)
                 if (win && WINDOW_IS_CLIENT(win) &&
                     WINDOW_AS_CLIENT(win) != client)
                 {
-                    sibling = WINDOW_AS_CLIENT(win);
+                    sibling = win;
+                }
+                else if (win && WINDOW_IS_DOCK(win))
+                {
+                    sibling = win;
                 }
                 else
                     /* an invalid sibling was specified so don't restack at
@@ -1552,13 +1564,17 @@ static void event_handle_client(ObClient *client, XEvent *e)
                               "invalid source indication %ld",
                               client->title, e->xclient.data.l[0]);
             } else {
-                ObClient *sibling = NULL;
+                ObWindow *sibling = NULL;
                 if (e->xclient.data.l[1]) {
                     ObWindow *win = window_find(e->xclient.data.l[1]);
                     if (WINDOW_IS_CLIENT(win) &&
                         WINDOW_AS_CLIENT(win) != client)
                     {
-                        sibling = WINDOW_AS_CLIENT(win);
+                        sibling = win;
+                    }
+                    if (WINDOW_IS_DOCK(win))
+                    {
+                        sibling = win;
                     }
                     if (sibling == NULL)
                         ob_debug_type(OB_DEBUG_APP_BUGS,
@@ -1820,8 +1836,14 @@ static gboolean event_handle_menu_input(XEvent *ev)
             if ((e = menu_entry_frame_under(ev->xbutton.x_root,
                                             ev->xbutton.y_root)))
             {
-                if (ev->type == ButtonPress && e->frame->child)
-                    menu_frame_select(e->frame->child, NULL, TRUE);
+                if (ev->type == ButtonPress) {
+                    /* We know this is a new press, so we don't have to
+                     * block release events anymore */
+                    menu_hide_delay_reset();
+
+                    if (e->frame->child)
+                        menu_frame_select(e->frame->child, NULL, TRUE);
+                }
                 menu_frame_select(e->frame, e, TRUE);
                 if (ev->type == ButtonRelease)
                     menu_entry_frame_execute(e, ev->xbutton.state);
@@ -2106,6 +2128,7 @@ static gboolean focus_delay_func(gpointer data)
     if (client_focus(d->client) && config_focus_raise)
         stacking_raise(CLIENT_AS_WINDOW(d->client));
     event_curtime = old;
+
     return FALSE; /* no repeat */
 }
 
@@ -2118,6 +2141,7 @@ static gboolean unfocus_delay_func(gpointer data)
     event_curserial = d->serial;
     focus_nothing();
     event_curtime = old;
+
     return FALSE; /* no repeat */
 }
 
