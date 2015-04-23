@@ -5,7 +5,7 @@ Maintainer: Mateusz Łukasik <mati75@linuxmint.pl>
 Build-Depends: debhelper (>= 9), gettext, libstartup-notification0-dev, 
  libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl, 
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev, 
- autoconf, automake (>= 1:1.11), python-xdg, libimlib2-dev, dh-autoreconf, 
+ autoconf, automake (>= 1:1.11), libimlib2-dev, dh-autoreconf, 
  autopoint, librsvg2-dev, libxi-dev
 Standards-Version: 3.9.6
 Homepage: http://www.openbox.org

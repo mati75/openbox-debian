@@ -4,6 +4,8 @@ export DEB_LDFLAGS_MAINT_APPEND=-Wl,--as-needed -Wl,-O1 -Wl,-z,defs
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 
 CFLAGS +=-Wall -g -fPIC
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
         CFLAGS += -O0
 else
