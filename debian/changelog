@@ -1,4 +1,4 @@
-openbox (3.6.0~git20150304-1) UNRELEASED; urgency=medium
+openbox (3.6.0~git20150322-1) UNRELEASED; urgency=medium
 
   * New upstream release. (Closes: #498801, #688969, LP: #1220257)
   * Remove patches included upstream:
