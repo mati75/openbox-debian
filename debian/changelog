@@ -14,6 +14,8 @@ openbox (3.6.0-1) UNRELEASED; urgency=medium
   * Drop python-xdg from Build-Depends.
   * debian/rules: Drop obsolete override_dh_builddeb.
   * Drop debian/source/options -- no longer needed.
+  * Add lintian-overrides for desktop-entry-lacks-keywords-entry on xsession
+    desktop files.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 08 Mar 2015 22:57:15 +0100
 
