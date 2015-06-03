@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Openbox 3.4.7.2\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2014-11-05 16:51+0100\n"
+"POT-Creation-Date: 2015-05-31 18:40+0200\n"
 "PO-Revision-Date: 2009-04-05 16:53+0200\n"
 "Last-Translator: boljsa <asjlob AT vip.hr>\n"
 "Language-Team:  <asjlob AT vip.hr>\n"
@@ -38,7 +38,7 @@ msgstr "Izvrši"
 msgid "Failed to convert the path \"%s\" from utf8"
 msgstr "Neuspio pokušaj pretvorbe putanje \"%s\" iz utf8"
 
-#: openbox/actions/exit.c:69 openbox/client.c:3665
+#: openbox/actions/exit.c:69 openbox/client.c:3669
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -74,7 +74,7 @@ msgstr "Ubijanje..."
 msgid "Not Responding"
 msgstr "Ne Odgovara"
 
-#: openbox/client.c:3654
+#: openbox/client.c:3658
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to force it "
@@ -82,11 +82,11 @@ msgid ""
 msgstr ""
 "Prozor \"%s\" ne reagira. Želite li forsirati izlaženje šaljući %s signal?"
 
-#: openbox/client.c:3656
+#: openbox/client.c:3660
 msgid "End Process"
 msgstr "Završetak Procesa"
 
-#: openbox/client.c:3660
+#: openbox/client.c:3664
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to disconnect "
@@ -94,7 +94,7 @@ msgid ""
 msgstr ""
 "Prozor \"%s\" ne reagira. Želite li prekinuti njegovu vezu sa X serverom?"
 
-#: openbox/client.c:3662
+#: openbox/client.c:3666
 msgid "Disconnect"
 msgstr "Prekid veze"
 

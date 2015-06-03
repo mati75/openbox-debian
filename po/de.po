@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Openbox 3.4.7\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2014-11-05 16:51+0100\n"
+"POT-Creation-Date: 2015-05-31 18:40+0200\n"
 "PO-Revision-Date: 2012-09-18 21:51+0100\n"
 "Last-Translator: Volker Ribbert <volker.nospam@netcologne.de>\n"
 "Language-Team:  <de@li.org>\n"
@@ -43,7 +43,7 @@ msgstr "Ausführen"
 msgid "Failed to convert the path \"%s\" from utf8"
 msgstr "Konnte Pfad \"%s\" nicht von UTF-8 konvertieren"
 
-#: openbox/actions/exit.c:69 openbox/client.c:3665
+#: openbox/actions/exit.c:69 openbox/client.c:3669
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -79,7 +79,7 @@ msgstr "Wird gelöscht..."
 msgid "Not Responding"
 msgstr "Reagiert nicht"
 
-#: openbox/client.c:3654
+#: openbox/client.c:3658
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to force it "
@@ -88,11 +88,11 @@ msgstr ""
 "Das Fenster \"%s\" reagiert anscheinend nicht. Möchten Sie es durch Senden "
 "des %s-Signals trotzdem beenden?"
 
-#: openbox/client.c:3656
+#: openbox/client.c:3660
 msgid "End Process"
 msgstr "Prozess beenden"
 
-#: openbox/client.c:3660
+#: openbox/client.c:3664
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to disconnect "
@@ -101,7 +101,7 @@ msgstr ""
 "Das Fenster \"%s\" reagiert anscheinend nicht. Möchten Sie es vom X-Server "
 "trennen?"
 
-#: openbox/client.c:3662
+#: openbox/client.c:3666
 msgid "Disconnect"
 msgstr "Trennen"
 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Openbox 3.4.11\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2014-11-05 16:51+0100\n"
+"POT-Creation-Date: 2015-05-31 18:40+0200\n"
 "PO-Revision-Date: 2010-03-13 21:56+0100\n"
 "Last-Translator: Lauri Hakko <aperculum@gmail.com>\n"
 "Language-Team: None\n"
@@ -42,7 +42,7 @@ msgstr "Suorita"
 msgid "Failed to convert the path \"%s\" from utf8"
 msgstr "Polun \"%s\" muuntaminen utf8:sta epäonnistui"
 
-#: openbox/actions/exit.c:69 openbox/client.c:3665
+#: openbox/actions/exit.c:69 openbox/client.c:3669
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -78,7 +78,7 @@ msgstr "Tapetaan..."
 msgid "Not Responding"
 msgstr "Ei vastaa"
 
-#: openbox/client.c:3654
+#: openbox/client.c:3658
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to force it "
@@ -87,11 +87,11 @@ msgstr ""
 "Ikkuna \"%s\" ei näytä vastaavan.  Haluatko sulkea sen lähettämällä sille "
 "singaalin %s?"
 
-#: openbox/client.c:3656
+#: openbox/client.c:3660
 msgid "End Process"
 msgstr "Lopeta prosessi"
 
-#: openbox/client.c:3660
+#: openbox/client.c:3664
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to disconnect "
@@ -100,7 +100,7 @@ msgstr ""
 "Ikkuna \"%s\" ei näytä vastaavan.  Haluatko katkaista sen yhteyden X-"
 "palvelimeen?"
 
-#: openbox/client.c:3662
+#: openbox/client.c:3666
 msgid "Disconnect"
 msgstr "Katkaise yhteys"
 
