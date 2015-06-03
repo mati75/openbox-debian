@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Openbox 3.4.7\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2014-11-05 16:51+0100\n"
+"POT-Creation-Date: 2015-05-31 18:40+0200\n"
 "PO-Revision-Date: 2008-03-11 02:07+0100\n"
 "Last-Translator: Quan Tran <qeed.quan@gmail.com>\n"
 "Language-Team: None\n"
@@ -39,7 +39,7 @@ msgstr "Hành động"
 msgid "Failed to convert the path \"%s\" from utf8"
 msgstr "Không thể chuyển chỗ \"%s\" từ utf8"
 
-#: openbox/actions/exit.c:69 openbox/client.c:3665
+#: openbox/actions/exit.c:69 openbox/client.c:3669
 msgid "Cancel"
 msgstr "Bãi bỏ"
 
@@ -75,7 +75,7 @@ msgstr "Đang giết..."
 msgid "Not Responding"
 msgstr "Không phản ứng"
 
-#: openbox/client.c:3654
+#: openbox/client.c:3658
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to force it "
@@ -84,11 +84,11 @@ msgstr ""
 "Cái cửa sổ \"%s\" không phản ứng được. Có muốn bắt nó đi ra bằng gửi đi %s "
 "tính hiệu?"
 
-#: openbox/client.c:3656
+#: openbox/client.c:3660
 msgid "End Process"
 msgstr "Giết Process"
 
-#: openbox/client.c:3660
+#: openbox/client.c:3664
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to disconnect "
@@ -96,7 +96,7 @@ msgid ""
 msgstr ""
 "Cái cửa sổ \"%s\" không phản ứng được. Có muốn rời nó ra X server không"
 
-#: openbox/client.c:3662
+#: openbox/client.c:3666
 msgid "Disconnect"
 msgstr "Rời ra"
 

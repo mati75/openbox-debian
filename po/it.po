@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Openbox 3.4.11.2\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2014-11-05 16:51+0100\n"
+"POT-Creation-Date: 2015-05-31 18:40+0200\n"
 "PO-Revision-Date: 2010-08-22 21:33+0200\n"
 "Last-Translator: Davide Truffa <davide@catoblepa.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -42,7 +42,7 @@ msgstr "Esegui"
 msgid "Failed to convert the path \"%s\" from utf8"
 msgstr "Impossibile convertire il percorso utf8 \"%s\""
 
-#: openbox/actions/exit.c:69 openbox/client.c:3665
+#: openbox/actions/exit.c:69 openbox/client.c:3669
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -78,7 +78,7 @@ msgstr "Termino..."
 msgid "Not Responding"
 msgstr "Non Risponde"
 
-#: openbox/client.c:3654
+#: openbox/client.c:3658
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to force it "
@@ -87,11 +87,11 @@ msgstr ""
 "La finestra \"%s\" sembra non rispondere. Vuoi forzarne l'uscita inviando il "
 "segnale %s?"
 
-#: openbox/client.c:3656
+#: openbox/client.c:3660
 msgid "End Process"
 msgstr "Termina Processo"
 
-#: openbox/client.c:3660
+#: openbox/client.c:3664
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to disconnect "
@@ -99,7 +99,7 @@ msgid ""
 msgstr ""
 "La finestra \"%s\" non sembra rispondere. Vuoi disconnetterla dal server X?"
 
-#: openbox/client.c:3662
+#: openbox/client.c:3666
 msgid "Disconnect"
 msgstr "Disconnesso"
 

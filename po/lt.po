@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Openbox 3.5.0\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2014-11-05 16:51+0100\n"
+"POT-Creation-Date: 2015-05-31 18:40+0200\n"
 "PO-Revision-Date: 2013-01-09 13:17+0200\n"
 "Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
@@ -43,7 +43,7 @@ msgstr "Vykdyti"
 msgid "Failed to convert the path \"%s\" from utf8"
 msgstr "Nepavyko išversti kelio „%s“ iš utf8"
 
-#: openbox/actions/exit.c:69 openbox/client.c:3665
+#: openbox/actions/exit.c:69 openbox/client.c:3669
 msgid "Cancel"
 msgstr "Atšaukti"
 
@@ -79,7 +79,7 @@ msgstr "Nutraukiama..."
 msgid "Not Responding"
 msgstr "Neatsako"
 
-#: openbox/client.c:3654
+#: openbox/client.c:3658
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to force it "
@@ -88,18 +88,18 @@ msgstr ""
 "Langas „%s“ neatsako.  Ar norite priverstinai nutraukti vykdymą nusiųsdami "
 "%s signalą?"
 
-#: openbox/client.c:3656
+#: openbox/client.c:3660
 msgid "End Process"
 msgstr "Baigti procesą"
 
-#: openbox/client.c:3660
+#: openbox/client.c:3664
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to disconnect "
 "it from the X server?"
 msgstr "Langas „%s“ neatsako.  Ar norite atjungti jį nuo X serverio?"
 
-#: openbox/client.c:3662
+#: openbox/client.c:3666
 msgid "Disconnect"
 msgstr "Atjungti"
 

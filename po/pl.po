@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Openbox 3.4.3\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2014-11-05 16:51+0100\n"
+"POT-Creation-Date: 2015-05-31 18:40+0200\n"
 "PO-Revision-Date: 2013-10-06 15:08+0200\n"
 "Last-Translator: Jakub Błażejczyk\n"
 "Language-Team: polski <kuboslawik@gmail.com>\n"
@@ -44,7 +44,7 @@ msgstr "Wykonaj"
 msgid "Failed to convert the path \"%s\" from utf8"
 msgstr "Nie można przekonwertować ścieżki \"%s\" z UTF-8"
 
-#: openbox/actions/exit.c:69 openbox/client.c:3665
+#: openbox/actions/exit.c:69 openbox/client.c:3669
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -80,7 +80,7 @@ msgstr "Kończenie..."
 msgid "Not Responding"
 msgstr "Nie odpowiada"
 
-#: openbox/client.c:3654
+#: openbox/client.c:3658
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to force it "
@@ -89,18 +89,18 @@ msgstr ""
 "Okno \"%s\" nie odpowiada. Czy wymusić zakończenie poprzez wysłanie sygnału "
 "%s?"
 
-#: openbox/client.c:3656
+#: openbox/client.c:3660
 msgid "End Process"
 msgstr "Zakończ proces"
 
-#: openbox/client.c:3660
+#: openbox/client.c:3664
 #, c-format
 msgid ""
 "The window \"%s\" does not seem to be responding.  Do you want to disconnect "
 "it from the X server?"
 msgstr "Okno \"%s\" nie odpowiada. Odłączyć je od serwera X?"
 
-#: openbox/client.c:3662
+#: openbox/client.c:3666
 msgid "Disconnect"
 msgstr "Odłącz"
 
