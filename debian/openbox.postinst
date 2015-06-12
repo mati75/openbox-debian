@@ -13,7 +13,9 @@ case "$1" in
                         /usr/share/man/man1/x-session-manager.1.gz \
                         x-session-manager.1.gz /usr/share/man/man1/openbox-session.1.gz
 
-			if [ -x /usr/bin/update-menus ]; then update-menus; fi
+			if which update-menus >/dev/null 2>&1; then
+				update-menus;
+			fi
 		;;
 esac
 

@@ -17,6 +17,8 @@ case "$1" in
 		;;
 esac
 
-if [ -x /usr/bin/update-menus ]; then update-menus ; fi
+if which update-menus >/dev/null 2>&1; then
+	update-menus ;
+fi
 
 #DEBHELPER#
