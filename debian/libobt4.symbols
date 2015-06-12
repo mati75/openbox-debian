@@ -1,4 +1,4 @@
-libobt.so.3 libobt3 #MINVER#
+libobt.so.4 libobt4 #MINVER#
  callbacks@Base 3.6.0
  gid_cmp@Base 3.6.0
  obt_ddparse_file@Base 3.6.0

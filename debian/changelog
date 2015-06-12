@@ -5,9 +5,9 @@ openbox (3.6.0-2) UNRELEASED; urgency=medium
   * Change libobrender ABI from 29 to 31: (Closes: #788520)
     + Add debian/patches/788520_change_libobrender_abi.patch
     + Rename debian/libobrender29.install to debian/libobrender31.install.
-  * Change libobt ABI from 2 to 3:
-    + Add debian/patches/change_libobt_abi.patch
-    + Rename debian/libobt2.install to debian/libobt3.install.
+  * Change libobt ABI from 2 to 4:
+    + Add debian/patches/788520_change_libobt_abi.patch.
+    + Rename debian/libobt2.install to debian/libobt4.install.
   * debian/control: Update libralies soname.
   * Update symbols files.
 

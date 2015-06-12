@@ -46,7 +46,7 @@ Description: standards-compliant, fast, light-weight and extensible window manag
   * Multi-head Xinerama support!
   * Pipe menus
 
-Package: libobt3
+Package: libobt4
 Section: libs
 Architecture: any
 Conflicts: libobparser15, libobparser16
@@ -100,7 +100,7 @@ Package: openbox-dev
 Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender31 (= ${binary:Version}),
- libobt3 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
+ libobt4 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
  libimlib2-dev, librsvg2-dev
 Description: development files for the openbox window manager
  Openbox works with your applications, and makes your desktop easier to manage.
