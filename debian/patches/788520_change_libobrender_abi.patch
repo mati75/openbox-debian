@@ -1,0 +1,17 @@
+Description: Fix binary incompatible with previous versions but no ABI changed
+Author: Mateusz Łukasik <mati75@linuxmint.pl>
+Bug-Debian: https://bugs.debian.org/788520
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -31,8 +31,8 @@ dnl
+ RR_MAJOR_VERSION=3
+ RR_MINOR_VERSION=6
+ RR_MICRO_VERSION=31
+-RR_INTERFACE_AGE=2
+-RR_BINARY_AGE=2
++RR_INTERFACE_AGE=0
++RR_BINARY_AGE=1
+ RR_VERSION=$RR_MAJOR_VERSION.$RR_MINOR_VERSION
+ 
+ OBT_MAJOR_VERSION=3

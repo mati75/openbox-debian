@@ -9,3 +9,5 @@
 704724_fix_refers-to-autostart.sh.patch
 719620_fix_show_startup_notification.patch
 754207_use-scrot.patch
+788520_change_libobrender_abi.patch
+change_libobt_abi.patch
