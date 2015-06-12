@@ -1,4 +1,4 @@
-openbox (3.6.0-2) UNRELEASED; urgency=medium
+openbox (3.6.0-2) unstable; urgency=medium
 
   * debian/post{rm,inst}:
     + Fix command-with-path-in-maintainer-script.
@@ -8,10 +8,10 @@ openbox (3.6.0-2) UNRELEASED; urgency=medium
   * Change libobt ABI from 2 to 4:
     + Add debian/patches/788520_change_libobt_abi.patch.
     + Rename debian/libobt2.install to debian/libobt4.install.
-  * debian/control: Update libralies soname.
+  * debian/control: Update libraries soname.
   * Update symbols files.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 12 Jun 2015 13:10:33 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 12 Jun 2015 19:31:23 +0200
 
 openbox (3.6.0-1) unstable; urgency=medium
 
