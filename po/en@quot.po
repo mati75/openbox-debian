@@ -27,10 +27,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: openbox 3.6\n"
+"Project-Id-Version: openbox 3.6.1\n"
 "Report-Msgid-Bugs-To: http://bugzilla.icculus.org\n"
-"POT-Creation-Date: 2015-05-31 18:40+0200\n"
-"PO-Revision-Date: 2015-05-31 18:40+0200\n"
+"POT-Creation-Date: 2015-07-01 11:26+0200\n"
+"PO-Revision-Date: 2015-07-01 11:26+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
