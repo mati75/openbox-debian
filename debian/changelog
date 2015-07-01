@@ -1,6 +1,12 @@
 openbox (3.6.1-1) UNRELEASED; urgency=medium
 
   * New upstream release. (Closes: #790740)
+  * Change libobrender ABI from 29 to 31:
+    + Remove debian/patches/788520_change_libobrender_abi.patch
+    + Rename debian/libobrender31.* to debian/libobrender32.*.
+  * Change libobt ABI back from 4 to 2:
+    + Remove debian/patches/788520_change_libobt_abi.patch.
+    + Rename debian/libobt4.* to debian/libobt2.*.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 01 Jul 2015 18:36:21 +0200
 
@@ -9,7 +15,7 @@ openbox (3.6.0-2) unstable; urgency=medium
   * debian/openbox.post{rm,inst}:
     + Fix command-with-path-in-maintainer-script lintian warning.
   * Change libobrender ABI from 29 to 31: (Closes: #788520)
-    + Add debian/patches/788520_change_libobrender_abi.patch
+    + Add debian/patches/788520_change_libobrender_abi.patch.
     + Rename debian/libobrender29.install to debian/libobrender31.install.
     + Add updated symbols file debian/libobrender31.symbols.
   * Change libobt ABI from 2 to 4:
