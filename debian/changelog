@@ -7,6 +7,8 @@ openbox (3.6.1-1) UNRELEASED; urgency=medium
   * Change libobt ABI back from 4 to 2:
     + Remove debian/patches/788520_change_libobt_abi.patch.
     + Rename debian/libobt4.* to debian/libobt2.*.
+  * debian/control:
+    + Remove no necessary Breaks and Conflicts fields.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 01 Jul 2015 18:36:21 +0200
 
