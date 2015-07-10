@@ -1,7 +1,7 @@
-openbox (3.6.1-1) UNRELEASED; urgency=medium
+openbox (3.6.1-1) unstable; urgency=medium
 
-  * New upstream release. (Closes: #790740)
-  * Change libobrender ABI from 29 to 31:
+  * New upstream release. (Closes: #788821, #790740)
+  * Change libobrender ABI from 29 to 32:
     + Remove debian/patches/788520_change_libobrender_abi.patch
     + Rename debian/libobrender31.* to debian/libobrender32.*.
   * Change libobt ABI back from 4 to 2:
@@ -10,7 +10,7 @@ openbox (3.6.1-1) UNRELEASED; urgency=medium
   * debian/control:
     + Remove no necessary Breaks and Conflicts fields.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 01 Jul 2015 18:36:21 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 04 Jul 2015 20:25:30 +0200
 
 openbox (3.6.0-2) unstable; urgency=medium
 
