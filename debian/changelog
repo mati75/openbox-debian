@@ -8,7 +8,7 @@ openbox (3.6.1-1) unstable; urgency=medium
     + Remove debian/patches/788520_change_libobt_abi.patch.
     + Rename debian/libobt4.* to debian/libobt2.*.
   * debian/control:
-    + Remove no necessary Breaks and Conflicts fields.
+    + Remove unnecessary necessary Breaks and Conflicts fields.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 04 Jul 2015 20:25:30 +0200
 
