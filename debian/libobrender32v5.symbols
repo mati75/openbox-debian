@@ -1,4 +1,4 @@
-libobrender.so.32 libobrender32 #MINVER#
+libobrender.so.32 libobrender32v5 #MINVER#
  DestroyImlibLoader@Base 3.6.0
  DestroyRsvgLoader@Base 3.6.0
  DrawRGBA@Base 3.6.0

@@ -46,11 +46,11 @@ Description: standards-compliant, fast, light-weight and extensible window manag
   * Multi-head Xinerama support!
   * Pipe menus
 
-Package: libobt2
+Package: libobt2v5
 Section: libs
 Architecture: any
-Conflicts: libobparser15, libobparser16
-Replaces: libobparser15, libobparser16
+Conflicts: libobparser15, libobparser16, libobt2
+Replaces: libobparser15, libobparser16, libobt2
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: parsing library for openbox
  Openbox works with your applications, and makes your desktop easier to manage.
@@ -70,11 +70,11 @@ Description: parsing library for openbox
  This package contains the libobt library files used by openbox
  to load and parse configuration and theme files of openbox.
 
-Package: libobrender32
+Package: libobrender32v5
 Section: libs
 Architecture: any
-Conflicts: libobrender15, libobrender16
-Replaces: libobrender15, libobrender16
+Conflicts: libobrender15, libobrender16, libobrender32
+Replaces: libobrender15, libobrender16, libobrender32
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: rendering library for openbox themes
  Openbox works with your applications, and makes your desktop easier to manage.
@@ -97,8 +97,8 @@ Description: rendering library for openbox themes
 Package: openbox-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender32 (= ${binary:Version}),
- libobt2 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
+Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender32v5 (= ${binary:Version}),
+ libobt2v5 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
  libimlib2-dev, librsvg2-dev
 Description: development files for the openbox window manager
  Openbox works with your applications, and makes your desktop easier to manage.
