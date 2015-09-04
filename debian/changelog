@@ -3,8 +3,9 @@ openbox (3.6.1-2) unstable; urgency=medium
   * Rename library packages for g++5 ABI transition.
   * debian/control:
     + Drop obsolete kde-workspace-bin from openbox-kde-session depends.
+    (Closes: #797946)
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 22 Aug 2015 11:09:54 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 04 Sep 2015 12:23:45 +0200
 
 openbox (3.6.1-1) unstable; urgency=medium
 
