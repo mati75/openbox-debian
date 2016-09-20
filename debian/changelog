@@ -3,6 +3,7 @@ openbox (3.6.1-3) UNRELEASED; urgency=medium
   * debian/control:
     + Bump Standards-Version to 3.9.8.
     + Use secured links for VCS.
+  * Bump debhelper compat to 10.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 20 Sep 2016 13:24:59 +0200
 
