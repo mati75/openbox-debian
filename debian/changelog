@@ -3,6 +3,7 @@ openbox (3.6.1-3) UNRELEASED; urgency=medium
   * debian/control:
     + Bump Standards-Version to 3.9.8.
     + Use secured links for VCS.
+    + Add libxcursor-dev to B-D. (Closes: #838326, LP: #1336521)
   * Bump debhelper compat to 10.
   * debian/patches:
     + Add 808138_Replace-getgrent-with-getgroups.patch for not enumerate

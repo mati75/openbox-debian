@@ -5,7 +5,7 @@ Maintainer: Mateusz Łukasik <mati75@linuxmint.pl>
 Build-Depends: debhelper (>= 10), gettext, libstartup-notification0-dev, 
  libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl,
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev,
- autoconf, automake (>= 1:1.11), libimlib2-dev,
+ autoconf, automake (>= 1:1.11), libimlib2-dev, libxcursor-dev,
  autopoint, librsvg2-dev, libxi-dev
 Standards-Version: 3.9.8
 Homepage: http://www.openbox.org
@@ -99,7 +99,7 @@ Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender32v5 (= ${binary:Version}),
  libobt2v5 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
- libimlib2-dev, librsvg2-dev
+ libimlib2-dev, librsvg2-dev, libxcursor-dev
 Description: development files for the openbox window manager
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
