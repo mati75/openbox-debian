@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9), gettext, libstartup-notification0-dev,
 Standards-Version: 3.9.8
 Homepage: http://www.openbox.org
 Vcs-Browser: https://github.com/mati75/openbox-debian
-Vcs-Git: git://github.com/mati75/openbox-debian
+Vcs-Git: https://github.com/mati75/openbox-debian.git
 
 Package: openbox
 Architecture: any
