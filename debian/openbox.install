@@ -29,5 +29,4 @@ usr/lib/*/openbox-xdg-autostart
 usr/lib/*/openbox-autostart
 
 debian/menu.xml etc/xdg/openbox
-debian/openbox.xpm usr/share/pixmaps/
 debian/themes/ usr/share
