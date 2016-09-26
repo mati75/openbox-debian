@@ -10,6 +10,7 @@ openbox (3.6.1-3) UNRELEASED; urgency=medium
     all groups at startup (Closes: #808138)
     + Add d9a405e9.patch cherry-pick from upstream to Add 'last' as a desktop
     target for if/foreach.
+  * Drop menu file.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 20 Sep 2016 13:24:59 +0200
 
