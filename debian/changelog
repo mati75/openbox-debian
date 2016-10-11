@@ -1,4 +1,4 @@
-openbox (3.6.1-3) UNRELEASED; urgency=medium
+openbox (3.6.1-3) unstable; urgency=medium
 
   * debian/control:
     + Bump Standards-Version to 3.9.8.
@@ -12,7 +12,7 @@ openbox (3.6.1-3) UNRELEASED; urgency=medium
     target for if/foreach.
   * Drop menu file.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 20 Sep 2016 13:24:59 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 03 Oct 2016 11:33:24 +0200
 
 openbox (3.6.1-2) unstable; urgency=medium
 
