@@ -11,3 +11,4 @@
 754207_use-scrot.patch
 808138_Replace-getgrent-with-getgroups.patch
 d9a405e9.patch
+fix-spelling-error-in-binary.patch

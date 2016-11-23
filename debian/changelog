@@ -6,6 +6,8 @@ openbox (3.6.1-4) UNRELEASED; urgency=medium
   [ Mateusz Łukasik ]
   * debian/control:
     + Add plasma-workspace to openbox-kde-session depends. (Closes: #845386)
+  * debian/patches:
+    + Add fix-spelling-error-in-binary.patch.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 11 Oct 2016 22:08:21 +0200
 
