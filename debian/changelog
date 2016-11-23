@@ -1,10 +1,16 @@
 openbox (3.5.2-8+deb8u1) jessie; urgency=medium
 
+  [ Mateusz Łukasik ]
   * debian/control:
     +  Add libxcursor-dev to B-D for fix load startup notifications.
     (Closes: #838326)
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 15 Oct 2016 13:52:38 +0200
+  [ Salvatore Bonaccorso ]
+  * Add 808138_Replace-getgrent-with-getgroups.patch patch.
+    Replace getgrent with getgroups for not enumerate all groups at startup.
+    Thanks to Simon <simondobbss@gmail.com> (Closes: #808138)
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 23 Oct 2016 18:36:47 +0200
 
 openbox (3.5.2-8) unstable; urgency=high
 

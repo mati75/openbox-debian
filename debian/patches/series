@@ -11,3 +11,4 @@ fix_center_window.patch
 fix_rsvg_missing_include.patch
 update_pl_po.patch
 754207_use-scrot.patch
+808138_Replace-getgrent-with-getgroups.patch
