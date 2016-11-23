@@ -142,7 +142,7 @@ Description: command line utility to run Openbox as GNOME session
 Package: openbox-kde-session
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}), 
- x11-utils
+ x11-utils, plasma-workspace
 Enhances: kde-workspace
 Replaces: openbox (<< 3.5.2-5)
 Breaks: openbox (<< 3.5.2-5)

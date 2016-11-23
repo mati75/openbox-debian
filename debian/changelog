@@ -3,6 +3,10 @@ openbox (3.6.1-4) UNRELEASED; urgency=medium
   [ Bruno Pennati ]
   * Update manpage. (Closes: #800669)
 
+  [ Mateusz Łukasik ]
+  * debian/control:
+    + Add plasma-workspace to openbox-kde-session depends. (Closes: #845386)
+
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 11 Oct 2016 22:08:21 +0200
 
 openbox (3.6.1-3) unstable; urgency=medium
