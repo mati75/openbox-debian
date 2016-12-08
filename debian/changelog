@@ -1,4 +1,4 @@
-openbox (3.6.1-4) UNRELEASED; urgency=medium
+openbox (3.6.1-4) unstable; urgency=medium
 
   [ Bruno Pennati ]
   * Update manpage. (Closes: #800669)
@@ -9,7 +9,7 @@ openbox (3.6.1-4) UNRELEASED; urgency=medium
   * debian/patches:
     + Add fix-spelling-error-in-binary.patch.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 11 Oct 2016 22:08:21 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 24 Nov 2016 09:51:09 +0100
 
 openbox (3.6.1-3) unstable; urgency=medium
 
