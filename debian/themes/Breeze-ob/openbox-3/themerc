@@ -1,0 +1,62 @@
+# jcsl 
+# 2015
+# Breeze-ob
+
+border.width                              : 1
+padding.width                             : 1
+padding.height                            : 2
+window.client.padding.width               : 2
+window.handle.width                       : 0
+window.label.text.justify                 : center
+
+window.active.border.color                : #475057
+window.inactive.border.color              : #EFF0F1
+window.*.client.color                     : #EFF0F1
+window.*.title.bg                         : flat
+window.active.title.bg.color              : #475057
+window.inactive.title.bg.color            : #EFF0F1
+window.active.label.bg                    : parentrelative
+window.inactive.label.bg                  : parentrelative
+window.active.button.*.bg                 : parentrelative
+window.active.button.*.image.color        : #EFF0F1
+window.active.button.*.pressed.image.color: #798085
+window.active.button.*.hover.image.color  : #FDFEFF
+window.inactive.button.*.bg               : parentrelative
+window.inactive.button.*.image.color      : #bdc3c7
+window.inactive.button.*.hover.image.color: #CED4D9
+window.active.label.text.color            : #EFF0F1
+window.inactive.label.text.color          : #bdc3c7
+window.active.title.separator.color       : #3498db
+window.inactive.title.separator.color     : #EFF0F1
+
+menu.border.width                         : 1
+menu.separator.width                      : 1
+menu.separator.padding.width              : 3
+menu.separator.padding.height             : 3
+menu.overlap.x                            : 0
+menu.overlap.y                            : 0
+menu.border.color                         : #d0d2d2
+menu.separator.color                      : #d0d2d2
+menu.items.text.color                     : #31363b
+menu.items.disabled.text.color            : #a5a7a9
+menu.items.active.text.color              : #fcfcfc
+menu.items.active.disabled.text.color     : #a5a7a9
+menu.items.bg                             : flat
+menu.items.bg.color                       : #EFF0F1
+menu.items.active.bg                      : flat
+menu.items.active.bg.color                : #3daee9
+menu.title.text.color                     : #31363b
+menu.title.bg                             : flat
+menu.title.bg.color                       : #d0d2d2
+
+osd.border.width                          : 1
+osd.border.color                          : #d0d2d2
+osd.bg                                    : flat
+osd.bg.color                              : #EFF0F1
+osd.hilight.bg                            : flat
+osd.hilight.bg.color                      : #BBDCEE
+osd.unhilight.bg                          : flat
+osd.unhilight.bg.color                    : #EFF0F1
+osd.label.bg                              : flat
+osd.label.bg.color                        : #BBDCEE
+osd.label.text.color                      : #31363b

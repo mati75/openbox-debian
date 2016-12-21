@@ -20,7 +20,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: obconf, python-xdg | obsession, scrot
 Suggests: menu, fonts-dejavu, python, libxml2-dev, tint2, openbox-menu,
  openbox-gnome-session (= ${binary:Version}), openbox-kde-session (= ${binary:Version})
-Breaks: menu (<< 2.1.12)
+Breaks: openbox-theme-breeze
 Description: standards-compliant, fast, light-weight and extensible window manager
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
@@ -49,8 +49,8 @@ Description: standards-compliant, fast, light-weight and extensible window manag
 Package: libobt2v5
 Section: libs
 Architecture: any
-Conflicts: libobparser15, libobparser16, libobt2
-Replaces: libobparser15, libobparser16, libobt2
+Conflicts: libobt2
+Replaces: libobt2
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: parsing library for openbox
  Openbox works with your applications, and makes your desktop easier to manage.
@@ -73,8 +73,8 @@ Description: parsing library for openbox
 Package: libobrender32v5
 Section: libs
 Architecture: any
-Conflicts: libobrender15, libobrender16, libobrender32
-Replaces: libobrender15, libobrender16, libobrender32
+Conflicts: libobrender32
+Replaces: libobrender32
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: rendering library for openbox themes
  Openbox works with your applications, and makes your desktop easier to manage.
