@@ -1,0 +1,16 @@
+Description: Disable sets a dull gray background during startup
+Author: Mateusz Łukasik <mati75@linuxmint.pl>
+Bug-Debian: https://bugs.debian.org/843231
+Forwarded: not-needed
+
+--- a/data/autostart/openbox-autostart.in
++++ b/data/autostart/openbox-autostart.in
+@@ -9,7 +9,7 @@ elif which esetroot >/dev/null 2>/dev/nu
+ elif which xsetroot >/dev/null 2>/dev/null; then
+   BG=xsetroot
+ fi
+-test -z $BG || $BG -solid "#303030"
++#test -z $BG || $BG -solid "#303030"
+ 
+ GLOBALAUTOSTART="@rcdir@/autostart"
+ AUTOSTART="${XDG_CONFIG_HOME:-"$HOME/.config"}/openbox/autostart"

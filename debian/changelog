@@ -5,7 +5,9 @@ openbox (3.6.1-5) UNRELEASED; urgency=medium
   * debian/control:
     + Drop all pre-wheezy breaks.
     + Bump Standards-Version to 4.0.1.
-  * Add patches from Raspberry Pi.
+  * debian/patches:
+    + Add patches from Raspberry Pi.
+    + Add patch to disable sets a dull gray background during startup. (Closes: #843231)
 
   [ Jeremy Bicha <jbicha@ubuntu.com> ]
   * Adapt to gnome-settings-daemon 3.25 (Closes: #872694) 
