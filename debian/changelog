@@ -1,8 +1,9 @@
 openbox (3.6.1-5) UNRELEASED; urgency=medium
 
-  * Add Breeze-ob theme.
+  * Add Breeze-ob theme to make compatibility with lxqt.
   * debian/control:
     + Drop all pre-wheezy breaks.
+  * Add patches from Raspberry Pi.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 19 Dec 2016 13:52:39 +0100
 
