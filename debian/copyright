@@ -49,7 +49,7 @@ Copyright: 2014, maxim2
 Source: http://box-look.org/content/show.php/Nightmare+?content=165646
 License: GPL-2+
 
-Files: debian/themes/Breeze-ob
+Files: debian/themes/Breeze-ob/*
 Copyright: 2015, jcsl
 Source: https://www.box-look.org/content/show.php/Breeze-ob?content=169136
 License: GPL-3+

@@ -12,10 +12,10 @@
   <item label="Web browser">
     <action name="Execute"><execute>x-www-browser</execute></action>
   </item>
-  <!-- This requires the presence of the 'menu' package to work -->
+  <!-- This requires the presence of the 'openbox-menu' package to work -->
   <menu id="/Debian" />
   <separator />
-  <menu id="client-list-menu" />
+  <menu id="applications-menu" label="Applications" execute="openbox-menu -i lxde-applications.menu"/>
   <separator />
   <item label="ObConf">
     <action name="Execute"><execute>obconf</execute></action>

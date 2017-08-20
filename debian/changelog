@@ -7,7 +7,10 @@ openbox (3.6.1-5) UNRELEASED; urgency=medium
     + Bump Standards-Version to 4.0.1.
   * debian/patches:
     + Add patches from Raspberry Pi.
-    + Add patch to disable sets a dull gray background during startup. (Closes: #843231)
+    + Add patch to disable sets a dull gray background during startup. 
+      (Closes: #843231)
+  * Use openbox-menu as replace for menu, which will be gone from Debian.
+    (Closes: #861555)
 
   [ Jeremy Bicha <jbicha@ubuntu.com> ]
   * Adapt to gnome-settings-daemon 3.25 (Closes: #872694) 
