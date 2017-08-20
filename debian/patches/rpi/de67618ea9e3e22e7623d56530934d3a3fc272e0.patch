@@ -1,0 +1,48 @@
+From de67618ea9e3e22e7623d56530934d3a3fc272e0 Mon Sep 17 00:00:00 2001
+From: spl <simon@raspberrypi.org>
+Date: Fri, 11 Aug 2017 14:12:54 +0100
+Subject: [PATCH] Remove ability to maximise a window in a single direction.
+
+---
+ openbox/client.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
+
+diff --git a/openbox/client.c b/openbox/client.c
+index 2c82fb4..8ee38bf 100644
+--- a/openbox/client.c
++++ b/openbox/client.c
+@@ -3522,16 +3522,32 @@ void client_maximize(ObClient *self, gboolean max, gint dir)
+         }
+     }
+ 
+-    if (dir == 0 || dir == 1) /* horz */
++    if (dir == 0)
++    {
+         self->max_horz = max;
+-    if (dir == 0 || dir == 2) /* vert */
+         self->max_vert = max;
++    }
+ 
+     if (max) {
+         /* make sure the window is on some monitor */
+         client_find_onscreen(self, &x, &y, w, h, FALSE);
+     }
+ 
++    Rect desired = {x, y, w, h};
++    guint i = screen_find_monitor(&desired);
++    const Rect *a = screen_area(self->desktop, i,
++        (self->max_horz && self->max_vert ? NULL : &desired));
++
++    /* set the size and position if maximized in one dimension */
++    if (max && dir == 1) {
++        x = a->x;
++        w = a->width - self->frame->size.left - self->frame->size.right;
++    }
++    if (max && dir == 2) {
++        y = a->y;
++        h = a->height - self->frame->size.top - self->frame->size.bottom;
++    }
++
+     client_change_state(self); /* change the state hints on the client */
+ 
+     client_setup_decor_and_functions(self, FALSE);

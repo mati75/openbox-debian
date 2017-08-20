@@ -12,6 +12,8 @@
 808138_Replace-getgrent-with-getgroups.patch
 d9a405e9.patch
 fix-spelling-error-in-binary.patch
-#rpi/d2d8bfc852e4c72fcfc6073b8be47c0efd5c6a05.patch
+rpi/8911f9baac4e7d05412314575c3283d03f1b0358.patch
+rpi/79b77e78cf141cc8a7111c9e4e26842bad092d17.patch
+rpi/de67618ea9e3e22e7623d56530934d3a3fc272e0.patch
 adapt-to-gsd-324.patch
 843231.patch
