@@ -1,3 +1,10 @@
+openbox (3.6.1-5) unstable; urgency=medium
+
+  - Start with this release menu is replaced by openbox-menu. If you still
+    using old style menu please replace configuration file with your own.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 20 Aug 2017 14:42:12 +0200
+
 openbox (3.5.2-5) unstable; urgency=low
 
   - Make new binary packages openbox-gnome-session and openbox-kde-session to

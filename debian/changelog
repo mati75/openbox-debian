@@ -11,6 +11,7 @@ openbox (3.6.1-5) UNRELEASED; urgency=medium
       (Closes: #843231)
   * Use openbox-menu as replace for menu, which will be gone from Debian.
     (Closes: #861555)
+  * Update NEWS.Debian.
 
   [ Jeremy Bicha <jbicha@ubuntu.com> ]
   * Adapt to gnome-settings-daemon 3.25 (Closes: #872694) 
