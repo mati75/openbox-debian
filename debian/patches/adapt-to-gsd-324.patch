@@ -1,0 +1,30 @@
+From: Jeremy Bicha <jbicha@ubuntu.com>
+Date: Mon, 31 Jul 2017 00:00:00 -0400
+Subject: adapt-to-gsd-324
+
+Bug-Debian: https://bugs.debian.org/870227
+---
+ data/gnome-session/openbox-gnome-fallback.session | 2 +-
+ data/gnome-session/openbox-gnome.session          | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/data/gnome-session/openbox-gnome-fallback.session b/data/gnome-session/openbox-gnome-fallback.session
+index 0909fa7..3bb4718 100644
+--- a/data/gnome-session/openbox-gnome-fallback.session
++++ b/data/gnome-session/openbox-gnome-fallback.session
+@@ -1,4 +1,4 @@
+ [GNOME Session]
+ Name=GNOME/Openbox fallback (Safe Mode)
+-RequiredComponents=openbox;gnome-settings-daemon
++RequiredComponents=openbox;org.gnome.SettingsDaemon.A11yKeyboard;org.gnome.SettingsDaemon.A11ySettings;org.gnome.SettingsDaemon.Clipboard;org.gnome.SettingsDaemon.Color;org.gnome.SettingsDaemon.Datetime;org.gnome.SettingsDaemon.Housekeeping;org.gnome.SettingsDaemon.Keyboard;org.gnome.SettingsDaemon.MediaKeys;org.gnome.SettingsDaemon.Mouse;org.gnome.SettingsDaemon.Orientation;org.gnome.SettingsDaemon.Power;org.gnome.SettingsDaemon.PrintNotifications;org.gnome.SettingsDaemon.Rfkill;org.gnome.SettingsDaemon.ScreensaverProxy;org.gnome.SettingsDaemon.Sharing;org.gnome.SettingsDaemon.Smartcard;org.gnome.SettingsDaemon.Sound;org.gnome.SettingsDaemon.Wacom;org.gnome.SettingsDaemon.XSettings;
+ DesktopName=GNOME
+diff --git a/data/gnome-session/openbox-gnome.session b/data/gnome-session/openbox-gnome.session
+index ffeccdb..a93187b 100644
+--- a/data/gnome-session/openbox-gnome.session
++++ b/data/gnome-session/openbox-gnome.session
+@@ -1,4 +1,4 @@
+ [GNOME Session]
+ Name=GNOME/Openbox
+-RequiredComponents=openbox;gnome-settings-daemon;gnome-panel;nautilus-classic;gnome-flashback-services
++RequiredComponents=openbox;org.gnome.SettingsDaemon.A11yKeyboard;org.gnome.SettingsDaemon.A11ySettings;org.gnome.SettingsDaemon.Clipboard;org.gnome.SettingsDaemon.Color;org.gnome.SettingsDaemon.Datetime;org.gnome.SettingsDaemon.Housekeeping;org.gnome.SettingsDaemon.Keyboard;org.gnome.SettingsDaemon.MediaKeys;org.gnome.SettingsDaemon.Mouse;org.gnome.SettingsDaemon.Power;org.gnome.SettingsDaemon.PrintNotifications;org.gnome.SettingsDaemon.Rfkill;org.gnome.SettingsDaemon.ScreensaverProxy;org.gnome.SettingsDaemon.Sharing;org.gnome.SettingsDaemon.Smartcard;org.gnome.SettingsDaemon.Sound;org.gnome.SettingsDaemon.Wacom;org.gnome.SettingsDaemon.XRANDR;org.gnome.SettingsDaemon.XSettings;gnome-panel;nautilus-classic;gnome-flashback-services
+ DesktopName=GNOME

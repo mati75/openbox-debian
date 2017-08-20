@@ -1,8 +1,19 @@
 openbox (3.6.1-5) UNRELEASED; urgency=medium
 
   * Add Breeze-ob theme.
+  * debian/control:
+    + Drop all pre-wheezy breaks.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 19 Dec 2016 13:52:39 +0100
+
+openbox (3.6.1-4.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Jeremy Bicha <jbicha@ubuntu.com> ]
+  * Adapt to gnome-settings-daemon 3.24 (Closes: #870227)
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 08 Aug 2017 15:53:13 +0200
 
 openbox (3.6.1-4) unstable; urgency=medium
 
