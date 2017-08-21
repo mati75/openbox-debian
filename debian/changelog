@@ -1,4 +1,4 @@
-openbox (3.6.1-5) UNRELEASED; urgency=medium
+openbox (3.6.1-5) unstable; urgency=medium
 
   [ Mateusz Łukasik ]
   * Add Breeze-ob theme to make compatibility with lxqt.
@@ -6,17 +6,19 @@ openbox (3.6.1-5) UNRELEASED; urgency=medium
     + Drop all pre-wheezy breaks.
     + Bump Standards-Version to 4.0.1.
   * debian/patches:
-    + Add patches from Raspberry Pi.
+    + Add patches from Raspberry Pi: fix Maximized window spills over to second 
+      display (Closes: #856940 LP: #1624985)
     + Add patch to disable sets a dull gray background during startup. 
       (Closes: #843231)
   * Use openbox-menu as replace for menu, which will be gone from Debian.
     (Closes: #861555)
   * Update NEWS.Debian.
+  * Update debian/copyright.
 
   [ Jeremy Bicha <jbicha@ubuntu.com> ]
   * Adapt to gnome-settings-daemon 3.25 (Closes: #872694) 
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 19 Dec 2016 13:52:39 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 21 Aug 2017 20:22:14 +0200
 
 openbox (3.6.1-4.1) unstable; urgency=medium
 
