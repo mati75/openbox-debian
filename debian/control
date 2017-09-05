@@ -16,8 +16,8 @@ Package: openbox
 Architecture: any
 Provides: x-window-manager, x-session-manager
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: obconf, python-xdg | obsession, scrot, openbox-menu
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-xdg
+Recommends: obconf, obsession, scrot, openbox-menu
 Suggests: fonts-dejavu, python, libxml2-dev, tint2,
  openbox-gnome-session (= ${binary:Version}), openbox-kde-session (= ${binary:Version})
 Breaks: openbox-theme-breeze (<< 1.0)
