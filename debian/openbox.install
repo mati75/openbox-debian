@@ -21,6 +21,7 @@ usr/bin/openbox
 usr/bin/obxprop
 usr/bin/openbox-session
 usr/bin/gdm-control
+usr/bin/openbox-xdg-menu
 etc/xdg/openbox/rc.xml
 etc/xdg/openbox/menu.xml
 etc/xdg/openbox/autostart
