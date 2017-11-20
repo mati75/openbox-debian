@@ -1,0 +1,21 @@
+Description: Re-enable horizontal and vertical maximization/restore
+Author: Bing Xia <darkeyes.online@gmail.com>
+Bug-Debian: https://bugs.debian.org/873480
+
+--- a/openbox/client.c
++++ b/openbox/client.c
+@@ -3522,11 +3522,11 @@
+         }
+     }
+ 
+-    if (dir == 0)
+-    {
++    // need them to restore from both one directional and full maximization
++    if (dir == 0 || dir == 1) /* horz */
+         self->max_horz = max;
++    if (dir == 0 || dir == 2) /* vert */
+         self->max_vert = max;
+-    }
+ 
+     if (max) {
+         /* make sure the window is on some monitor */
