@@ -54,6 +54,11 @@ Copyright: 2015, jcsl
 Source: https://www.box-look.org/content/show.php/Breeze-ob?content=169136
 License: GPL-3+
 
+Files: debian/xdg-menu
+Copyright: 2008, Red Hat, Inc.
+Source: http://pkgs.fedoraproject.org/cgit/rpms/openbox.git/plain/xdg-menu
+License: GPL-2+
+
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

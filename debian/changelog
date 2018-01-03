@@ -1,3 +1,9 @@
+openbox (3.6.1-6) UNRELEASED; urgency=medium
+
+  * Move openbox-menu to Recommends. (Closes: #872983)
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 05 Sep 2017 15:00:45 +0200
+
 openbox (3.6.1-5.1) unstable; urgency=medium
 
   [ Daniel Kahn Gillmor ]
