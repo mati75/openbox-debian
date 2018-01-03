@@ -4,6 +4,16 @@ openbox (3.6.1-6) UNRELEASED; urgency=medium
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 05 Sep 2017 15:00:45 +0200
 
+openbox (3.6.1-5.1) unstable; urgency=medium
+
+  [ Daniel Kahn Gillmor ]
+  * Non-maintainer upload
+
+  [ Bing Xia ]
+  * fix maximize/restore vertical or horizontal only (Closes: #873480)
+
+ -- Daniel Kahn Gillmor <dkg@fifthhorseman.net>  Tue, 02 Jan 2018 11:53:06 -0500
+
 openbox (3.6.1-5) unstable; urgency=medium
 
   [ Mateusz Łukasik ]
