@@ -17,3 +17,4 @@ rpi/79b77e78cf141cc8a7111c9e4e26842bad092d17.patch
 rpi/de67618ea9e3e22e7623d56530934d3a3fc272e0.patch
 adapt-to-gsd-324.patch
 843231.patch
+873480_fix_restore-horz-vert.patch
