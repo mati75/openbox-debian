@@ -1,6 +1,9 @@
 openbox (3.6.1-6) UNRELEASED; urgency=medium
 
   * Move openbox-menu to Recommends. (Closes: #872983)
+  * Drop depends on gconf2. (Closes: #886050)
+  * debian/patches:
+    + Add 09-fix-detect-gnome-version.patch (LP: #1740420)
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 05 Sep 2017 15:00:45 +0200
 
