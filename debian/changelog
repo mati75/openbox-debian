@@ -1,6 +1,8 @@
 openbox (3.6.1-6) UNRELEASED; urgency=medium
 
   * Move openbox-menu to Recommends. (Closes: #872983)
+  * Drop depends on gconf2: (Closes: #886050 LP: #1740420)
+    + Add debian/patches/09-disable-check-gnome-version.patch.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 05 Sep 2017 15:00:45 +0200
 
