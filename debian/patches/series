@@ -18,4 +18,3 @@ rpi/de67618ea9e3e22e7623d56530934d3a3fc272e0.patch
 adapt-to-gsd-324.patch
 843231.patch
 873480_fix_restore-horz-vert.patch
-09-fix-detect-gnome-version.patch
