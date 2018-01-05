@@ -15,7 +15,7 @@
   <!-- This requires the presence of the 'openbox-menu' package to work -->
   <menu id="/Debian" />
   <separator />
-  <menu id="applications-menu" label="Applications" execute="/usr/bin/openbox-xdg-menu applications"/>
+  <menu id="applications-menu" label="Applications" execute="/usr/bin/obamenu"/>
   <separator />
   <item label="ObConf">
     <action name="Execute"><execute>obconf</execute></action>

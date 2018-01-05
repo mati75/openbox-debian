@@ -21,7 +21,6 @@ usr/bin/openbox
 usr/bin/obxprop
 usr/bin/openbox-session
 usr/bin/gdm-control
-usr/bin/openbox-xdg-menu
 etc/xdg/openbox/rc.xml
 etc/xdg/openbox/menu.xml
 etc/xdg/openbox/autostart
@@ -31,3 +30,4 @@ usr/lib/*/openbox-autostart
 
 debian/menu.xml etc/xdg/openbox
 debian/themes/ usr/share
+debian/obamenu usr/bin
