@@ -21,11 +21,11 @@ command line üarameters or a config file but by having a short config section r
 .PP
 The basic idea
 .PP
-It seems reasonable to assume that openbox users are quite different from users of the more common and usually monstrous window managers. 
+It seems reasonable to assume that openbox users are quite different from users of the more common and usually monstrous window managers.
 And while obamenu is perfectly capable to just splash the usual full menu into your .jwmrc the authors needs (and assumptions on other
 openbox users needs) and accordingly obamenu's capabilities are somewhat more refined.
 .PP
-First some basics. On pretty much any halfway modern Unixoid OS, there is some directory with ".desktop" files which contain information 
+First some basics. On pretty much any halfway modern Unixoid OS, there is some directory with ".desktop" files which contain information
 about applications needed by the OS; things like its name, the command, possibly some comment, and so on. On most linuxes and BSD
 this directory is "/usr/share/applications". Of course, as with every standard, there's some idio^H^H^H^H players (like Gnome) who don't
 care that much and dump their .desktop files elsewhere and anywhere.
@@ -51,28 +51,27 @@ terminal_string = "svte \fB-e\fP"
 # --- End of user config ---
 .TP
 .B
-The first one, "applications_dirs" is a list of directories in which
-.desktop files are to be found. The default, which should be fine for most
+The first one, "applications_dirs" is a list of directories in which .desktop files are to be found. The default, which should be fine for most
 users, is where .desktop files are usually put by linux or BSD. Feel free to add more, for instance some subdirectory within your $HOME.
 The next one, "image_dir", is quite similar but is about icon images for applications. A small caveat, though: While most applications are
 nicely putting their .desktop files into the standard directory, the story with icons is quite different. Particularly the wm behemoths like
-Gnome tend to spread icon files all over the place. Often, for instance, icon files are to be found in some obscure subdirectory of 
+Gnome tend to spread icon files all over the place. Often, for instance, icon files are to be found in some obscure subdirectory of
 "/usr/share/icons" buried deep depending in the chosen theme and the icon size. The author of obamenu admits freely to have taken a
 rather deliberate choice in that regard by having image_dir be a simple string rather than a list, which might seem to be a reasonable way
 to some. The author, however, didn't consider it wise to play find and catch with ignorance and idiosyncrasies of some parties. He rather
 chose to use the trusted Unix mechanism of links. In other words: You are advised to soft link all icon files outside the standard icon directory
-to /usr/share/pixmaps or similar. ("find" is your friend, e.g. find /usr/share/icons \fB-name\fP 'foo.*'). 
+to /usr/share/pixmaps or similar. ("find" is your friend, e.g. find /usr/share/icons \fB-name\fP 'foo.*').
 .PP
-The next setting, "application_groups" looks innocent enough but has some power with it. Obviously the entries in that list are "menu 
+The next setting, "application_groups" looks innocent enough but has some power with it. Obviously the entries in that list are "menu
 groups" or categories into which xdg menus put the applications depending on some .desktop data. You might want to keep in mind
-that obamenu keeps categories in the the order of this setting, i.e. you will find those categories in the menu in that order, too. 
+that obamenu keeps categories in the the order of this setting, i.e. you will find those categories in the menu in that order, too.
 And then there are buts \.\.\.
 The first but is that you almost certaintly don't want more categories than the number of citizens in your home town. Another and more
-interesting but is that, obviously, usage profiles are different. For me as a developer, for instance, a "shows coloured stuff or makes sound" 
+interesting but is that, obviously, usage profiles are different. For me as a developer, for instance, a "shows coloured stuff or makes sound"
 category seems sensibly sufficient; some movie editing people though might have quite different views\.\.\. which brings us to the next
 setting.
 "group_aliases" is a list of string pairs, the first one being what is put as category in the .desktop \fBfile\fP(s) and the second one being the
-category it will end up in. In other words: this is your chance to rearrange things the way you want them. The author, for instance, has a 
+category it will end up in. In other words: this is your chance to rearrange things the way you want them. The author, for instance, has a
 rather frugal attitude regarding multimedia; accordingly, he simply throws anything audio or video related into one category "multimedia".
 To illustrate, though admittedly somewhat construed, another potentially useful feature, have a look at "GTK" in those string pairs. Its second
 string is empty which comes down to telling obamenu "ignore that stuff. Don't put it into my menu". The reason being that openbox *only*
