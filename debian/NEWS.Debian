@@ -1,3 +1,10 @@
+openbox (3.6.1-6) unstable; urgency=medium
+
+  - After many bug reports configuration with openbox-menu has been replaced
+    by simple python script to generate dynamic menu.
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 08 Jan 2018 12:27:40 +0100
+
 openbox (3.6.1-5) unstable; urgency=medium
 
   - Start with this release menu is replaced by openbox-menu. If you still
