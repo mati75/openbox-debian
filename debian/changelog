@@ -8,7 +8,7 @@ openbox (3.6.1-6) unstable; urgency=medium
     + Add debian/patches/09-disable-check-gnome-version.patch.
   * Add python script to generate menu as replacent for openbox-menu.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 08 Jan 2018 12:28:57 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 08 Jan 2018 15:20:49 +0100
 
 openbox (3.6.1-5.1) unstable; urgency=medium
 
