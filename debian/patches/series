@@ -19,3 +19,4 @@ adapt-to-gsd-324.patch
 843231.patch
 873480_fix_restore-horz-vert.patch
 09-disable-check-gnome-version.patch
+887908.patch
