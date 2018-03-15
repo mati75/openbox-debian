@@ -1,11 +1,11 @@
-openbox (3.6.1-7) UNRELEASED; urgency=medium
+openbox (3.6.1-7) unstable; urgency=medium
 
   * Adjust adapt-to-gsd-324.patch for plugin dropped in
     gnome-settings-daemon 3.28 (Closes: #892006)
   * Add patch to fix toggled hover and pressed images masks not loaded.
     (Closes: #887908)
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 12 Mar 2018 10:29:30 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 12 Mar 2018 10:41:03 +0100
 
 openbox (3.6.1-6) unstable; urgency=medium
 
