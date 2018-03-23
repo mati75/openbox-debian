@@ -1,0 +1,102 @@
+Index: openbox-3.6.1/openbox/actions/fullscreen.c
+===================================================================
+--- openbox-3.6.1.orig/openbox/actions/fullscreen.c
++++ openbox-3.6.1/openbox/actions/fullscreen.c
+@@ -1,14 +1,40 @@
+ #include "openbox/actions.h"
+ #include "openbox/client.h"
+ 
++static gboolean run_func_on(ObActionsData *data, gpointer options);
++static gboolean run_func_off(ObActionsData *data, gpointer options);
+ static gboolean run_func_toggle(ObActionsData *data, gpointer options);
+ 
+ void action_fullscreen_startup(void)
+ {
++    actions_register("Fullscreen", NULL, NULL, run_func_on);
++    actions_register("Unfullscreen", NULL, NULL, run_func_off);
+     actions_register("ToggleFullscreen", NULL, NULL, run_func_toggle);
+ }
+ 
+ /* Always return FALSE because its not interactive */
++static gboolean run_func_on(ObActionsData *data, gpointer options)
++{
++    if (data->client) {
++        actions_client_move(data, TRUE);
++        client_fullscreen(data->client, TRUE);
++        actions_client_move(data, FALSE);
++    }
++    return FALSE;
++}
++
++/* Always return FALSE because its not interactive */
++static gboolean run_func_off(ObActionsData *data, gpointer options)
++{
++    if (data->client) {
++        actions_client_move(data, TRUE);
++        client_fullscreen(data->client, FALSE);
++        actions_client_move(data, FALSE);
++    }
++    return FALSE;
++}
++
++/* Always return FALSE because its not interactive */
+ static gboolean run_func_toggle(ObActionsData *data, gpointer options)
+ {
+     if (data->client) {
+Index: openbox-3.6.1/openbox/actions/if.c
+===================================================================
+--- openbox-3.6.1.orig/openbox/actions/if.c
++++ openbox-3.6.1/openbox/actions/if.c
+@@ -66,9 +66,10 @@ typedef struct {
+     gboolean decor_on;
+     gboolean omnipresent_on;
+     gboolean omnipresent_off;
++    gboolean fullscreen_on;
++    gboolean fullscreen_off;
+     gboolean desktop_current;
+     gboolean desktop_other;
+-    gboolean desktop_last;
+     guint    desktop_number;
+     guint    screendesktop_number;
+     guint    client_monitor;
+@@ -186,6 +187,7 @@ static void setup_query(Options* o, xmlN
+     set_bool(node, "urgent", &q->urgent_on, &q->urgent_off);
+     set_bool(node, "undecorated", &q->decor_off, &q->decor_on);
+     set_bool(node, "omnipresent", &q->omnipresent_on, &q->omnipresent_off);
++    set_bool(node, "fullscreen", &q->fullscreen_on, &q->fullscreen_off);
+ 
+     xmlNodePtr n;
+     if ((n = obt_xml_find_node(node, "desktop"))) {
+@@ -193,10 +195,8 @@ static void setup_query(Options* o, xmlN
+         if ((s = obt_xml_node_string(n))) {
+             if (!g_ascii_strcasecmp(s, "current"))
+                 q->desktop_current = TRUE;
+-            else if (!g_ascii_strcasecmp(s, "other"))
++            if (!g_ascii_strcasecmp(s, "other"))
+                 q->desktop_other = TRUE;
+-            else if (!g_ascii_strcasecmp(s, "last"))
+-                q->desktop_last = TRUE;
+             else
+                 q->desktop_number = atoi(s);
+             g_free(s);
+@@ -388,6 +388,11 @@ static gboolean run_func_if(ObActionsDat
+         if (q->omnipresent_off)
+             is_true &= query_target->desktop != DESKTOP_ALL;
+ 
++        if (q->fullscreen_on)
++            is_true &= query_target->fullscreen;
++        if (q->fullscreen_off)
++            is_true &= !query_target->fullscreen;
++
+         gboolean is_on_current_desktop =
+             query_target->desktop == screen_desktop ||
+             query_target->desktop == DESKTOP_ALL;
+@@ -395,8 +400,6 @@ static gboolean run_func_if(ObActionsDat
+             is_true &= is_on_current_desktop;
+         if (q->desktop_other)
+             is_true &= !is_on_current_desktop;
+-        if (q->desktop_last)
+-            is_true &= query_target->desktop == screen_last_desktop;
+ 
+         if (q->desktop_number) {
+             gboolean is_on_desktop =

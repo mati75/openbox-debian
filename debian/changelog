@@ -1,3 +1,11 @@
+openbox (3.6.1-7.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add 'fullscreen' query to 'If' action
+  * Add 'Fullscreen' and 'Unfullscreen' actions
+
+ -- Callie LeFave <antymew@gmail.com>  Fri, 23 Mar 2018 11:09:27 -0400
+
 openbox (3.6.1-7) unstable; urgency=medium
 
   * Adjust adapt-to-gsd-324.patch for plugin dropped in
