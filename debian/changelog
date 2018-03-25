@@ -1,7 +1,10 @@
-openbox (3.6.1-7.1) unstable; urgency=medium
+openbox (3.6.1-8) unstable; urgency=medium
 
-  * Non-maintainer upload.
-  * Add additional fullscreen actions and queries (Closes: #893968)
+  [ Callie LeFave ]
+  * Add patch to additional fullscreen actions and queries (Closes: #893968)
+
+  [ Mateusz Łukasik ]
+  * 
 
  -- Callie LeFave <antymew@gmail.com>  Sat, 24 Mar 2018 12:50:55 -0400
 
