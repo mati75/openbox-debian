@@ -6,7 +6,8 @@ openbox (3.6.1-8) unstable; urgency=medium
   [ Mateusz Łukasik ]
   * Fix applications menu when there are no entries.
     (Closes: #888254 #887122 #886716) (LP: #1771696).
-  * 
+  * debian/control:
+    + Add obconf-qt as alternative for obconf. (Closes: #914960)
 
  -- Callie LeFave <antymew@gmail.com>  Sat, 24 Mar 2018 12:50:55 -0400
 
