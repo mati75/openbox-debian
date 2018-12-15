@@ -9,6 +9,7 @@ openbox (3.6.1-8) unstable; urgency=medium
   * debian/control:
     + Add obconf-qt as alternative for obconf. (Closes: #914960)
     + Bump Standards-Version to 4.2.1.
+    + Remove openbox-menu from Recommends. (Closes: #876017)
 
  -- Callie LeFave <antymew@gmail.com>  Sat, 24 Mar 2018 12:50:55 -0400
 
