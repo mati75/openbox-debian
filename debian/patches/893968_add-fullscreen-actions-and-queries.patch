@@ -2,8 +2,10 @@ Description: Add additional fullscreen actions and queries
 Author: Callie LeFave <antymew@gmail.com>
 Bug-Debian: https://bugs.debian.org/893968
 
---- a/openbox/actions/fullscreen.c
-+++ b/openbox/actions/fullscreen.c
+Index: openbox-3.6.1/openbox/actions/fullscreen.c
+===================================================================
+--- openbox-3.6.1.orig/openbox/actions/fullscreen.c
++++ openbox-3.6.1/openbox/actions/fullscreen.c
 @@ -1,14 +1,40 @@
  #include "openbox/actions.h"
  #include "openbox/client.h"
@@ -45,8 +47,8 @@ Bug-Debian: https://bugs.debian.org/893968
  static gboolean run_func_toggle(ObActionsData *data, gpointer options)
  {
      if (data->client) {
---- a/openbox/actions/if.c
-+++ b/openbox/actions/if.c
+--- openbox-3.6.1.orig/openbox/actions/if.c
++++ openbox-3.6.1/openbox/actions/if.c
 @@ -66,6 +66,8 @@ typedef struct {
      gboolean decor_on;
      gboolean omnipresent_on;

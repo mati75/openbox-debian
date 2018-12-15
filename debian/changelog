@@ -10,8 +10,10 @@ openbox (3.6.1-8) unstable; urgency=medium
     + Add obconf-qt as alternative for obconf. (Closes: #914960)
     + Bump Standards-Version to 4.2.1.
     + Remove openbox-menu from Recommends. (Closes: #876017)
+  * debian/docs/build.html drop suggests using non-existent kdetrayproxy.
+    (Closes: #916086)
 
- -- Callie LeFave <antymew@gmail.com>  Sat, 24 Mar 2018 12:50:55 -0400
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 15 Dec 2018 18:08:04 +0100
 
 openbox (3.6.1-7) unstable; urgency=medium
 

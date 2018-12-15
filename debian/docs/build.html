@@ -96,34 +96,6 @@ When the <b>KDEWM</b> environment variable is set, Openbox will be used in
 place of kwin.
 </p>
 
-<p>
-<b>Note:</b> The current release of KDE is still using a non-standard,
-deprecated protocol for its system tray. This protocol requires interaction
-from the window manager. In place of that, Openbox includes the
-<b>kdetrayproxy</b> application. Once you run it, KDE system tray apps will
-work with window managers that don't support the legacy protocol, like Openbox.
-</p>
-
-<p>
-To run <b>kdetrayproxy</b> before running KDE, and if you are using the KDE
-login manager, it may be easiest to use the
-<a href="#install-xdm">display manager</a> method, and make a startup script
-something like:
-</p>
-
-<blockquote>
-  # Startup stuff for X<br />
-  <br />
-  # Make openbox the KDE window manager<br />
-  export KDEWM=openbox<br />
-  <br />
-  # Make KDE system tray apps work<br />
-  kdetrayproxy &<br />
-  <br />
-  # Start the KDE environment<br />
-  startkde
-</blockquote>
-
 <h3><a name="install-startx"></a>
     If you run X via the <b>startx</b> command:</h3>
 
