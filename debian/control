@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 11), gettext, libstartup-notification0-dev,
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev,
  autoconf, automake (>= 1:1.11), libimlib2-dev, libxcursor-dev,
  autopoint, librsvg2-dev, libxi-dev
-Standards-Version: 4.2.1
+Standards-Version: 4.3.0
 Homepage: http://www.openbox.org
 Vcs-Browser: https://github.com/mati75/openbox-debian
 Vcs-Git: https://github.com/mati75/openbox-debian.git
