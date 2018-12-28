@@ -1,9 +1,5 @@
 openbox (3.6.1-8) unstable; urgency=medium
 
-  [ Callie LeFave ]
-  * Add patch to additional fullscreen actions and queries (Closes: #893968)
-
-  [ Mateusz Łukasik ]
   * Fix applications menu when there are no entries.
     (Closes: #888254 #887122 #886716) (LP: #1771696).
   * debian/control:
