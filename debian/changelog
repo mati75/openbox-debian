@@ -8,8 +8,11 @@ openbox (3.6.1-8) unstable; urgency=medium
     + Remove openbox-menu from Recommends. (Closes: #876017)
   * debian/docs/build.html drop suggests using non-existent kdetrayproxy.
     (Closes: #916086)
+  * debian/patches:
+    + Add 917204_undecorated_maximized_no_border.patch for removed top 
+    border on undecorated maximized windows. (Closes: #917204)
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 15 Dec 2018 18:08:04 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 28 Dec 2018 15:15:26 +0100
 
 openbox (3.6.1-7) unstable; urgency=medium
 
