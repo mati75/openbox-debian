@@ -308,6 +308,38 @@
       <command>kfmclient openProfile filemanagement</command>
     </action>
   </keybind>
+
+  <!-- Keybindings for media keys -->
+  <keybind key="XF86AudioLowerVolume">
+    <action name="Execute"><execute>amixer -q sset PCM 3dB-</execute></action>
+  </keybind>
+  <keybind key="XF86AudioRaiseVolume">
+    <action name="Execute"><execute>amixer -q sset PCM 3dB+</execute></action>
+  </keybind>
+  <keybind key="XF86AudioMute">
+    <action name="Execute"><execute>amixer -q sset PCM toggle</execute></action>
+  </keybind>
+  <keybind key="XF86AudioPlay">
+    <action name="Execute"><execute>sh -c
+      'for name in $(dbus-send --session --type=method_call --dest=org.freedesktop.DBus --print-reply=literal /org/freedesktop/DBus org.freedesktop.DBus.ListNames); do
+        if test "x${name#org.mpris}" != "x$name"; then dbus-send --session --type=method_call --dest=$name /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+      fi; done'
+    </execute></action>
+  </keybind>
+  <keybind key="XF86AudioPrev">
+    <action name="Execute"><execute>sh -c
+      'for name in $(dbus-send --session --type=method_call --dest=org.freedesktop.DBus --print-reply=literal /org/freedesktop/DBus org.freedesktop.DBus.ListNames); do
+        if test "x${name#org.mpris}" != "x$name"; then dbus-send --session --type=method_call --dest=$name /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+      fi; done'
+    </execute></action>
+  </keybind>
+  <keybind key="XF86AudioNext">
+    <action name="Execute"><execute>sh -c
+      'for name in $(dbus-send --session --type=method_call --dest=org.freedesktop.DBus --print-reply=literal /org/freedesktop/DBus org.freedesktop.DBus.ListNames); do
+        if test "x${name#org.mpris}" != "x$name"; then dbus-send --session --type=method_call --dest=$name /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+      fi; done'
+    </execute></action>
+  </keybind>
 </keyboard>
 
 <mouse>
