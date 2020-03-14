@@ -21,8 +21,6 @@ override_dh_auto_configure:
 	dh_auto_configure -- --enable-librsvg --disable-silent-rules
 
 override_dh_auto_build:
-	#pod2man --section=1 --release=$(VERSION) --center \
-	#	"Openbox documentation" debian/kdetrayproxy.pod > kdetrayproxy.1
 	pod2man --section=1 --release=$(VERSION) --center \
 		"Openbox documentation" debian/gnome-panel-control.pod > \
 		gnome-panel-control.1
@@ -32,12 +30,11 @@ override_dh_auto_build:
 	dh_auto_build
 
 override_dh_install:
-	dh_install --list-missing
+	dh_missing --list-missing
 	find debian/tmp/usr/lib*/ -name "*.la" -delete
 
 override_dh_auto_clean:
 	rm -f openbox.1
-	#rm -f kdetrayproxy.1
 	rm -f gnome-panel-control.1
 	rm -f gdm-control.1	
 	dh_auto_clean
