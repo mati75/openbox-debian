@@ -95,7 +95,7 @@ def xescape(s):
 
 def process_category(cat, curCats,  appGroups = application_groups,  aliases = group_aliases ):
 	# first process aliases
-	if aliases.has_key(cat):
+	if cat in aliases:
 		if aliases[cat] == "":
 			return ""                               # ignore this one
 		cat = aliases[cat]
@@ -125,7 +125,7 @@ def process_dtfile(dtf,  catDict):  # process this file & extract relevant info
 		# else
 		eqi = l.split('=')
 		if len(eqi) < 2:
-			print "Error: Invalid .desktop line'" + l + "'"
+			print("Error: Invalid .desktop line'" + l + "'")
 			continue
 		# Check what it is ...
 		if eqi[0] == "Name":
@@ -182,9 +182,9 @@ if __name__ == "__main__":
 
     # now, generate jwm menu include
     if simpleOBheader == True:
-        print '<openbox_pipe_menu>'       # magic header
+        print('<openbox_pipe_menu>')       # magic header
     else:
-        print '<?xml version="1.0" encoding="UTF-8" ?><openbox_pipe_menu xmlns="http://openbox.org/"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://openbox.org/" >'       # magic header
+        print('<?xml version="1.0" encoding="UTF-8" ?><openbox_pipe_menu xmlns="http://openbox.org/"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://openbox.org/" >')       # magic header
     appGroupLen = len(application_groups)
     for ag in range(appGroupLen ):
         catList = categoryDict[application_groups[ag]]
@@ -194,7 +194,7 @@ if __name__ == "__main__":
         tmp = getCatIcon(application_groups[ag])
         if tmp != "":
             catStr += "icon=\"%s\"" % tmp
-        print catStr,  ">"
+        print(catStr,  ">")
         for app in catList:
             progStr = "<item "
             progStr += "label=\"%s\" "  % app.Name
@@ -204,7 +204,7 @@ if __name__ == "__main__":
             if app.Terminal == True:
                 progStr += terminal_string + " "
             progStr += "%s]]></command></action></item>"  % app.Exec
-            print progStr
-        print "</menu>"
-    print "</openbox_pipe_menu>"       # magic footer
+            print(progStr)
+        print("</menu>")
+    print("</openbox_pipe_menu>")       # magic footer
     pass # done/debug break

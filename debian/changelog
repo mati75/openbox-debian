@@ -1,3 +1,11 @@
+openbox (3.6.1-9) UNRELEASED; urgency=medium
+
+  * Switch to python3. (Closes: #) (LP: #1816473)
+    + Thanks for Kevin Otte (nivex) for patch obamenu
+  * 
+
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 10 Mar 2020 12:38:45 +0100
+
 openbox (3.6.1-8) unstable; urgency=medium
 
   * Fix applications menu when there are no entries.
