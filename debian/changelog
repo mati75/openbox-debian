@@ -4,7 +4,9 @@ openbox (3.6.1-9) UNRELEASED; urgency=medium
     + Thanks for Kevin Otte (nivex) for patch obamenu
   * d/control:
     + Change dh version to 12.
+    + Set Rules-Requires-Root to no.
   * Rename debian/NEWS.Debian to debian/NEWS.
+  * 
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 10 Mar 2020 12:38:45 +0100
 

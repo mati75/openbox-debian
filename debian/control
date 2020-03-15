@@ -8,6 +8,7 @@ Build-Depends: debhelper-compat (= 12), gettext, libstartup-notification0-dev,
  autoconf, automake (>= 1:1.11), libimlib2-dev, libxcursor-dev,
  autopoint, librsvg2-dev, libxi-dev
 Standards-Version: 4.5.0
+Rules-Requires-Root: no
 Homepage: http://www.openbox.org
 Vcs-Browser: https://github.com/mati75/openbox-debian
 Vcs-Git: https://github.com/mati75/openbox-debian.git
