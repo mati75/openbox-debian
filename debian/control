@@ -7,7 +7,7 @@ Build-Depends: debhelper-compat (= 12), gettext, libstartup-notification0-dev,
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev,
  autoconf, automake (>= 1:1.11), libimlib2-dev, libxcursor-dev,
  autopoint, librsvg2-dev, libxi-dev
-Standards-Version: 4.3.0
+Standards-Version: 4.5.0
 Homepage: http://www.openbox.org
 Vcs-Browser: https://github.com/mati75/openbox-debian
 Vcs-Git: https://github.com/mati75/openbox-debian.git
@@ -18,7 +18,7 @@ Provides: x-window-manager, x-session-manager
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, python3
 Recommends: obconf | obconf-qt, obsession, scrot
-Suggests: fonts-dejavu, libxml2-dev, tint2, python,
+Suggests: fonts-dejavu, libxml2-dev, tint2,
  openbox-gnome-session (= ${binary:Version}), openbox-kde-session (= ${binary:Version})
 Breaks: openbox-theme-breeze (<< 1.0)
 Description: standards-compliant, fast, light-weight and extensible window manager

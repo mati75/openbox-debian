@@ -6,7 +6,7 @@ Subject: [PATCH] Add python3 support to openbox-xdg-autostart.
 Updated syntax in openbox-xdg-autostart to support both python2 and
 python3.
 
-Added a configure substitution to set the choosen python at build time.
+Added a configure substitution to set the chosen python at build time.
 
 https://bugzilla.icculus.org/show_bug.cgi?id=6444
 ---
