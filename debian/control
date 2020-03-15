@@ -151,4 +151,3 @@ Description: command line utility to run Openbox as KDE SC session
  openbox-kde-session can provide KDE SC session with openbox as
  a default window manager. Can replace the original window manager
  called KWin.
-

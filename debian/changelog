@@ -8,6 +8,7 @@ openbox (3.6.1-9) UNRELEASED; urgency=medium
   * Rename debian/NEWS.Debian to debian/NEWS.
   * d/patches:
     + Fix 07_update_desktop.patch
+  * Update debian/source/lintian-overrides to new of rename tags.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 10 Mar 2020 12:38:45 +0100
 
