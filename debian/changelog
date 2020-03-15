@@ -6,7 +6,8 @@ openbox (3.6.1-9) UNRELEASED; urgency=medium
     + Change dh version to 12.
     + Set Rules-Requires-Root to no.
   * Rename debian/NEWS.Debian to debian/NEWS.
-  * 
+  * d/patches:
+    + Fix 07_update_desktop.patch
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 10 Mar 2020 12:38:45 +0100
 

@@ -7,4 +7,4 @@ Author: Mateusz Łukasik <mati75@linuxmint.pl>
  X-Ubuntu-Gettext-Domain=openbox
  # back compat
  X-GNOME-Autostart-Notify=true
-+_Keywords=wm;windowmanager;window;manager;gnome;
++Keywords=wm;windowmanager;window;manager;gnome;
