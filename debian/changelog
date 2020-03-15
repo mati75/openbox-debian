@@ -1,6 +1,6 @@
 openbox (3.6.1-9) UNRELEASED; urgency=medium
 
-  * Switch to python3. (Closes: #887122) (LP: #1816473)
+  * Switch to python3. (Closes: #887122 #886716) (LP: #1816473)
     + Thanks for Kevin Otte (nivex) for patch obamenu
   * d/control:
     + Change dh version to 12.
@@ -9,6 +9,7 @@ openbox (3.6.1-9) UNRELEASED; urgency=medium
   * d/patches:
     + Fix 07_update_desktop.patch
   * Update debian/source/lintian-overrides to new of rename tags.
+  * Drop references for lxde-applications.menu. (Closes: #884570)
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 10 Mar 2020 12:38:45 +0100
 
