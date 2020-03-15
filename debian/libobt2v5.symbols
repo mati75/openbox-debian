@@ -1,4 +1,5 @@
 libobt.so.2 libobt2v5 #MINVER#
+* Build-Depends-Package:openbox-dev
  callbacks@Base 3.6.0
  gid_cmp@Base 3.6.0
  obt_ddparse_file@Base 3.6.0

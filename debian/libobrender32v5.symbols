@@ -1,4 +1,5 @@
 libobrender.so.32 libobrender32v5 #MINVER#
+* Build-Depends-Package:openbox-dev
  DestroyImlibLoader@Base 3.6.0
  DestroyRsvgLoader@Base 3.6.0
  DrawRGBA@Base 3.6.0
