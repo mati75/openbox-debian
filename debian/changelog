@@ -13,8 +13,9 @@ openbox (3.6.1-9) unstable; urgency=medium
   * Drop references for lxde-applications.menu. (Closes: #884570)
   * d/*.symbols add Build-Depends-Package:openbox-dev
     Fix lintian warning symbols-file-missing-build-depends-package-field.
+  * d/copyright: Welcome 2020.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 15 Mar 2020 17:55:07 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 17 Mar 2020 18:20:12 +0100
 
 openbox (3.6.1-8) unstable; urgency=medium
 
