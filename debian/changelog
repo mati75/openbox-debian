@@ -1,9 +1,10 @@
-openbox (3.6.1-9) UNRELEASED; urgency=medium
+openbox (3.6.1-9) unstable; urgency=medium
 
   * Switch to python3. (Closes: #887122 #886716) (LP: #1816473)
     + Thanks for Kevin Otte (nivex) for patch obamenu
   * d/control:
     + Change dh version to 12.
+    + Bump Standards-Version to 4.5.0.
     + Set Rules-Requires-Root to no.
   * Rename debian/NEWS.Debian to debian/NEWS.
   * d/patches:
@@ -13,7 +14,7 @@ openbox (3.6.1-9) UNRELEASED; urgency=medium
   * d/*.symbols add Build-Depends-Package:openbox-dev
     Fix lintian warning symbols-file-missing-build-depends-package-field.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Tue, 10 Mar 2020 12:38:45 +0100
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 15 Mar 2020 17:55:07 +0100
 
 openbox (3.6.1-8) unstable; urgency=medium
 
