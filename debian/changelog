@@ -2,6 +2,7 @@ openbox (3.6.1-10) UNRELEASED; urgency=medium
 
   * debian/copyright: use spaces rather than tabs to start continuation
     lines.
+  * Fix day-of-week for changelog entries 3.5.0-2, 3.5.0-1, 2.0.0-1.
 
  -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
 
@@ -447,7 +448,7 @@ openbox (3.5.0-2) unstable; urgency=low
     - remove debian-menu.xml from rc.xml and only load the file from
       /var/lib/openbox to prevent confusing errors in xsessions-errors.
 
- -- Nico Golde <nion@debian.org>  Sun, 31 Oct 2011 23:41:20 +0200
+ -- Nico Golde <nion@debian.org>  Mon, 31 Oct 2011 23:41:20 +0200
 
 openbox (3.5.0-1) unstable; urgency=low
 
@@ -482,7 +483,7 @@ openbox (3.5.0-1) unstable; urgency=low
   * debian/openbox.xsession:
     - Removed. Openbox now ships it by default.
 
- -- Nico Golde <nion@debian.org>  Sun, 03 Oct 2011 22:59:30 +0200
+ -- Nico Golde <nion@debian.org>  Mon, 03 Oct 2011 22:59:30 +0200
 
 openbox (3.4.11.2-2) unstable; urgency=low
 
@@ -1164,7 +1165,7 @@ openbox (2.0.0-1) unstable; urgency=low
 
   * Initial full release from CVS.
 
- -- Kyle McMartin <kyle@debian.org>  Thu, 16 Aug 2002 20:33:10 -0400
+ -- Kyle McMartin <kyle@debian.org>  Fri, 16 Aug 2002 20:33:10 -0400
 
 openbox (0.20020811-1) unstable; urgency=low
 
