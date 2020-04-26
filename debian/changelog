@@ -1,3 +1,10 @@
+openbox (3.6.1-10) UNRELEASED; urgency=medium
+
+  * debian/copyright: use spaces rather than tabs to start continuation
+    lines.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
+
 openbox (3.6.1-9) unstable; urgency=medium
 
   * Switch to python3. (Closes: #887122 #886716) (LP: #1816473)
