@@ -716,8 +716,8 @@ static void parse_theme(xmlNodePtr node, gpointer d)
         config_theme_window_list_icon_size = obt_xml_node_int(n);
         if (config_theme_window_list_icon_size < 16)
             config_theme_window_list_icon_size = 16;
-        else if (config_theme_window_list_icon_size > 96)
-            config_theme_window_list_icon_size = 96;
+        else if (config_theme_window_list_icon_size > 256)
+            config_theme_window_list_icon_size = 256;
     }
 
     for (n = obt_xml_find_node(node, "font");
