@@ -1,0 +1,29 @@
+From 8529b69d5789d83858c93f063ba4ef36760b1679 Mon Sep 17 00:00:00 2001
+From: Zsolt Salamon <github@sa4zet.win>
+Date: Tue, 14 Jul 2020 21:44:53 +0200
+Subject: [PATCH] Add class hint to focus cycle popup
+
+---
+ openbox/focus_cycle_popup.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/openbox/focus_cycle_popup.c b/openbox/focus_cycle_popup.c
+index e1ea848..d43bd79 100644
+--- a/openbox/focus_cycle_popup.c
++++ b/openbox/focus_cycle_popup.c
+@@ -153,6 +153,12 @@ void focus_cycle_popup_startup(gboolean reconfig)
+     popup.bg = create_window(obt_root(ob_screen), ob_rr_theme->obwidth,
+                              CWOverrideRedirect | CWBorderPixel, &attrib);
+ 
++    XClassHint *class_hint = XAllocClassHint();
++    class_hint->res_name = "OPENBOX_FOCUS_CYCLE_POPUP";
++    class_hint->res_class = "OPENBOX_FOCUS_CYCLE_POPUP";
++    XSetClassHint(obt_display, popup.bg, class_hint);
++    XFree(class_hint);
++
+     /* create the text window used for the icon-mode popup */
+     popup.icon_mode_text = create_window(popup.bg, 0, 0, NULL);
+ 
+-- 
+2.27.0
+
