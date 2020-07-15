@@ -23,3 +23,4 @@ adapt-to-gsd-324.patch
 917204_undecorated_maximized_no_border.patch
 python3.patch
 Allow-256x256-window-icon-size-for-HiDPI-displays.patch
+Add-class-hint-to-focus-cycle-popup.patch
