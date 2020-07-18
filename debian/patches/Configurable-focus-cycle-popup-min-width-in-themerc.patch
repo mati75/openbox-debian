@@ -1,0 +1,56 @@
+From bc3d1ab2e76bac3f7ce4fe82e5bcd186d23ecd4b Mon Sep 17 00:00:00 2001
+From: Zsolt Salamon <github@sa4zet.win>
+Date: Sat, 18 Jul 2020 20:51:06 +0200
+Subject: [PATCH] Configurable popup focus cycle minimum width in themerc
+
+---
+ obrender/theme.c            | 3 +++
+ obrender/theme.h            | 2 ++
+ openbox/focus_cycle_popup.c | 4 ++--
+ 3 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/obrender/theme.c b/obrender/theme.c
+index 2a4f6e1..54f3be8 100644
+--- a/obrender/theme.c
++++ b/obrender/theme.c
+@@ -272,6 +272,9 @@ RrTheme* RrThemeNew(const RrInstance *inst, const gchar *name,
+     READ_INT("window.client.padding.width", theme->cbwidthx, 0, 100, theme->paddingx);
+     READ_INT("window.client.padding.height", theme->cbwidthy, 0, 100, theme->cbwidthx);
+ 
++    /* max 16K resolution, the default value is the old default */
++    READ_INT("popup.focus_cycle.min.width", theme->focus_cycle_popup_min_width, 0, 15360, 320);
++
+     /* load colors */
+     READ_COLOR_("window.active.border.color",
+                 "border.color",
+diff --git a/obrender/theme.h b/obrender/theme.h
+index 8797f0b..a004820 100644
+--- a/obrender/theme.h
++++ b/obrender/theme.h
+@@ -63,6 +63,8 @@ struct _RrTheme {
+     gint menu_title_label_height;
+     gint menu_title_height;
+ 
++    gint focus_cycle_popup_min_width;
++
+     /* style settings - colors */
+     RrColor *menu_border_color;
+     RrColor *osd_border_color;
+diff --git a/openbox/focus_cycle_popup.c b/openbox/focus_cycle_popup.c
+index e1ea848..7b83984 100644
+--- a/openbox/focus_cycle_popup.c
++++ b/openbox/focus_cycle_popup.c
+@@ -437,8 +437,8 @@ static void popup_render(ObFocusCyclePopup *p, const ObClient *c)
+     if (mode == OB_FOCUS_CYCLE_POPUP_MODE_LIST)
+         /* when in list mode, there are icons down the side */
+         w += list_mode_icon_column_w;
+-    w = MIN(w, MAX(screen_area->width/3, POPUP_WIDTH)); /* max width */
+-    w = MAX(w, POPUP_WIDTH); /* min width */
++    w = MIN(w, MAX(screen_area->width/3, ob_rr_theme->focus_cycle_popup_min_width)); /* max width */
++    w = MAX(w, ob_rr_theme->focus_cycle_popup_min_width); /* min width */
+ 
+     /* get the text height */
+     texth = RrMinHeight(p->a_hilite_text);
+-- 
+2.28.0.rc1
+
