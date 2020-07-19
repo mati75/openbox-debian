@@ -24,4 +24,3 @@ adapt-to-gsd-324.patch
 python3.patch
 Allow-256x256-window-icon-size-for-HiDPI-displays.patch
 Add-class-hint-to-focus-cycle-popup.patch
-Configurable-up-and-down-arrows-in-themes.patch
