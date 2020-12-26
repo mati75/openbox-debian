@@ -7,6 +7,9 @@ openbox (3.6.1-10) UNRELEASED; urgency=medium
 
   [ Mateusz Łukasik ]
   * Remove obsession from Recommends it is upstream dead.
+  * d/control:
+    + Change dh version to 13.
+    + Bump Standards-Version to 4.5.1.
 
  -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
 

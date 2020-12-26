@@ -2,12 +2,12 @@ Source: openbox
 Section: x11
 Priority: optional
 Maintainer: Mateusz Łukasik <mati75@linuxmint.pl>
-Build-Depends: debhelper-compat (= 12), gettext, libstartup-notification0-dev,
+Build-Depends: debhelper-compat (= 13), gettext, libstartup-notification0-dev,
  libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl,
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev,
  autoconf, automake (>= 1:1.11), libimlib2-dev, libxcursor-dev,
  autopoint, librsvg2-dev, libxi-dev
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
 Rules-Requires-Root: no
 Homepage: http://www.openbox.org
 Vcs-Browser: https://github.com/mati75/openbox-debian
