@@ -1,8 +1,13 @@
 openbox (3.6.1-10) UNRELEASED; urgency=medium
 
+  [ Debian Janitor ]
   * debian/copyright: use spaces rather than tabs to start continuation
     lines.
   * Fix day-of-week for changelog entries 3.5.0-2, 3.5.0-1, 2.0.0-1.
+
+  [ dann frazier ]
+  * When running with > 2 screens, avoid calling XQueryPointer() in an
+    infinite loop. (Closes: #983882)
 
  -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
 
