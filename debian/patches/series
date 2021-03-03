@@ -24,3 +24,4 @@ adapt-to-gsd-324.patch
 python3.patch
 Allow-256x256-window-icon-size-for-HiDPI-displays.patch
 Add-class-hint-to-focus-cycle-popup.patch
+Fix-collision-between-iterator-and-throw-away-argume.patch
