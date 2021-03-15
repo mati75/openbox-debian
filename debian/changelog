@@ -11,6 +11,10 @@ openbox (3.6.1-10) UNRELEASED; urgency=medium
     + Change dh version to 13.
     + Bump Standards-Version to 4.5.1.
 
+  [ dann frazier ]
+  * When running with > 2 screens, avoid calling XQueryPointer() in an
+    infinite loop. (Closes: #983882)
+
  -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
 
 openbox (3.6.1-9) unstable; urgency=medium
