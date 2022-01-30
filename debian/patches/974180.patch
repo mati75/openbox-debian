@@ -1,0 +1,25 @@
+Description: openbox-kde-session: The following configuration file changes need to be made to restore KDE/Openbox Sessions:
+Author: Mateusz Łukasik <mati75@linuxmint.pl>
+Bug-Debian: https://bugs.debian.org/974180
+Origin: other
+Forwarded: no
+Last-Update: 2022-01-30
+
+--- openbox-3.6.1.orig/data/xsession/openbox-kde-session.in
++++ openbox-3.6.1/data/xsession/openbox-kde-session.in
+@@ -17,4 +17,4 @@ xprop -root -remove _NET_NUMBER_OF_DESKT
+ 
+ # Run KDE with Openbox as its window manager
+ export KDEWM="@bindir@/openbox"
+-exec startkde "$@"
++exec startplasma-x11 "$@"
+--- openbox-3.6.1.orig/data/xsession/openbox-kde.desktop.in
++++ openbox-3.6.1/data/xsession/openbox-kde.desktop.in
+@@ -2,6 +2,6 @@
+ Name=KDE/Openbox
+ Comment=Use the Openbox window manager inside of the K Desktop Environment
+ Exec=@bindir@/openbox-kde-session
+-TryExec=startkde
++TryExec=startplasma-x11
+ Icon=openbox
+ Type=Application

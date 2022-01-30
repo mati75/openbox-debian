@@ -11,7 +11,7 @@ diff --git a/openbox/config.c b/openbox/config.c
 index dad5d1b..78b567f 100644
 --- a/openbox/config.c
 +++ b/openbox/config.c
-@@ -716,8 +716,8 @@ static void parse_theme(xmlNodePtr node, gpointer d)
+@@ -718,8 +718,8 @@ static void parse_theme(xmlNodePtr node,
          config_theme_window_list_icon_size = obt_xml_node_int(n);
          if (config_theme_window_list_icon_size < 16)
              config_theme_window_list_icon_size = 16;
@@ -20,8 +20,5 @@ index dad5d1b..78b567f 100644
 +        else if (config_theme_window_list_icon_size > 256)
 +            config_theme_window_list_icon_size = 256;
      }
- 
-     for (n = obt_xml_find_node(node, "font");
--- 
-2.27.0
-
+     if ((n = obt_xml_find_node(node, "roundCorners")))
+         config_theme_roundcorners = obt_xml_node_bool(n);

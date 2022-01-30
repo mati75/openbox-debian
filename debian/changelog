@@ -10,6 +10,8 @@ openbox (3.6.1-10) UNRELEASED; urgency=medium
   * d/control:
     + Change dh version to 13.
     + Bump Standards-Version to 4.5.1.
+  * Add patch for The following configuration file changes need to be
+    made to restore KDE/Openbox Sessions. (Closes: #974180)
 
   [ dann frazier ]
   * When running with > 2 screens, avoid calling XQueryPointer() in an
