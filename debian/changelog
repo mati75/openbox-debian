@@ -13,11 +13,15 @@ openbox (3.6.1-10) UNRELEASED; urgency=medium
   * Add patch for The following configuration file changes need to be
     made to restore KDE/Openbox Sessions. (Closes: #974180)
 
+ -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
+
+openbox (3.6.1-9+deb11u1) unstable; urgency=medium
+
   [ dann frazier ]
   * When running with > 2 screens, avoid calling XQueryPointer() in an
     infinite loop. (Closes: #983882)
 
- -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Thu, 18 Mar 2021 22:11:13 +0100
 
 openbox (3.6.1-9) unstable; urgency=medium
 
