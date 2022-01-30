@@ -1,4 +1,4 @@
-openbox (3.6.1-10) UNRELEASED; urgency=medium
+openbox (3.6.1-10) unstable; urgency=medium
 
   [ Debian Janitor ]
   * debian/copyright: use spaces rather than tabs to start continuation
@@ -12,8 +12,9 @@ openbox (3.6.1-10) UNRELEASED; urgency=medium
     + Bump Standards-Version to 4.6.0.
   * Add patch for The following configuration file changes need to be
     made to restore KDE/Openbox Sessions. (Closes: #974180)
+  * Add d/not-installed.
 
- -- Debian Janitor <janitor@jelmer.uk>  Sun, 26 Apr 2020 15:33:13 +0000
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 30 Jan 2022 13:33:32 +0100
 
 openbox (3.6.1-9+deb11u1) unstable; urgency=medium
 

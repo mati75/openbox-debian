@@ -1,7 +1,7 @@
-usr/lib/*/libobt.a
-usr/lib/*/libobrender.a
-usr/lib/*/pkgconfig/obrender-3.5.pc
-usr/lib/*/pkgconfig/obt-3.5.pc
+usr/lib/${DEB_HOST_MULTIARCH}/libobt.a
+usr/lib/${DEB_HOST_MULTIARCH}/libobrender.a
+usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig/obrender-3.5.pc
+usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig/obt-3.5.pc
 usr/include/openbox/3.6/*
-usr/lib/*/libobt.so
-usr/lib/*/libobrender.so
+usr/lib/${DEB_HOST_MULTIARCH}/libobt.so
+usr/lib/${DEB_HOST_MULTIARCH}/libobrender.so

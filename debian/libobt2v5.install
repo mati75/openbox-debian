@@ -1,2 +1,2 @@
-usr/lib/*/libobt.so.2.0.2
-usr/lib/*/libobt.so.2
+usr/lib/${DEB_HOST_MULTIARCH}/libobt.so.2.0.2
+usr/lib/${DEB_HOST_MULTIARCH}/libobt.so.2

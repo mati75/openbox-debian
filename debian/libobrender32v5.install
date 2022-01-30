@@ -1,2 +1,2 @@
-usr/lib/*/libobrender.so.32.0.0
-usr/lib/*/libobrender.so.32
+usr/lib/${DEB_HOST_MULTIARCH}/libobrender.so.32.0.0
+usr/lib/${DEB_HOST_MULTIARCH}/libobrender.so.32
