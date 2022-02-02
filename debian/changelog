@@ -1,6 +1,7 @@
 openbox (3.6.1-11) UNRELEASED; urgency=medium
 
   * Remove 1 obsolete maintscript entry.
+  * Avoid explicitly specifying -Wl,--as-needed linker flag.
 
  -- Debian Janitor <janitor@jelmer.uk>  Wed, 02 Feb 2022 13:36:48 -0000
 
