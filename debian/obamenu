@@ -10,7 +10,7 @@ image_cat_prefix = "applications-"  # if empty will create no icon text only men
 application_groups = ("Office",  "Development",  "Graphics", "Internet",  "Games", "System",  "Multimedia",  "Utilities",  "Settings")
 group_aliases = {"Audio":"Multimedia","AudioVideo":"Multimedia","Network":"Internet","Game":"Games", "Utility":"Utilities", "GTK":"",  "GNOME":""}
 ignoreList = ("evince-previewer", "Ted",  "wingide3.2", "python3.4", "feh","xfce4-power-manager-settings" )
-terminal_string = "evte -e"         # your favourites terminal exec string
+terminal_string = "x-terminal-emulator -e"         # your favourites terminal exec string
 simpleOBheader = False  # print full xml style OB header
 # --- End of user config ---
  

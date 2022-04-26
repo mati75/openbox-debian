@@ -1,7 +1,12 @@
 openbox (3.6.1-11) UNRELEASED; urgency=medium
 
+  [ Debian Janitor ]
   * Remove 1 obsolete maintscript entry.
   * Avoid explicitly specifying -Wl,--as-needed linker flag.
+
+  [ Mateusz Łukasik ]
+  * debian/obamenu: use x-terminal-emulator as terminal emulator.
+    (Closes: #1010019)
 
  -- Debian Janitor <janitor@jelmer.uk>  Wed, 02 Feb 2022 13:36:48 -0000
 
