@@ -1,0 +1,30 @@
+Description: fix openbox invokes imlib_free_image when no image is loaded
+Author: Grant
+Bug-Debian: https://bugs.debian.org/1007147
+Origin: upstream
+Forwarded: https://bugzilla.icculus.org/show_bug.cgi?id=6447#c0
+
+diff --git a/obrender/image.c b/obrender/image.c
+index cffbaf3..5c689c4 100644
+--- a/obrender/image.c
++++ b/obrender/image.c
+@@ -476,17 +476,18 @@ struct _ImlibLoader
+     Imlib_Image img;
+ };
+ 
+ void DestroyImlibLoader(ImlibLoader *loader)
+ {
+     if (!loader)
+         return;
+ 
+-    imlib_free_image();
++    if (loader->img)
++        imlib_free_image();
+     g_slice_free(ImlibLoader, loader);
+ }
+ 
+ ImlibLoader* LoadWithImlib(gchar *path,
+                            RrPixel32 **pixel_data,
+                            gint *width,
+                            gint *height)
+ {

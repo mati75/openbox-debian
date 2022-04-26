@@ -26,3 +26,4 @@ Allow-256x256-window-icon-size-for-HiDPI-displays.patch
 Add-class-hint-to-focus-cycle-popup.patch
 Fix-collision-between-iterator-and-throw-away-argume.patch
 974180.patch
+1007147-openbox-imlib-free-image-NULL.patch
