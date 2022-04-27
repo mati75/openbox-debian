@@ -11,6 +11,16 @@ openbox (3.6.1-11) UNRELEASED; urgency=medium
     + Add patch for fix openbox invokes imlib_free_image when no image
     is loaded (Closes: #1007147)
 
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on automake and libxml2-dev.
+    + gnome-panel-control: Drop versioned constraint on openbox in Replaces.
+    + gnome-panel-control: Drop versioned constraint on openbox in Breaks.
+    + openbox-gnome-session: Drop versioned constraint on openbox in Replaces.
+    + openbox-gnome-session: Drop versioned constraint on openbox in Breaks.
+    + openbox-kde-session: Drop versioned constraint on openbox in Replaces.
+    + openbox-kde-session: Drop versioned constraint on openbox in Breaks.
+
  -- Debian Janitor <janitor@jelmer.uk>  Wed, 02 Feb 2022 13:36:48 -0000
 
 openbox (3.6.1-10) unstable; urgency=medium
