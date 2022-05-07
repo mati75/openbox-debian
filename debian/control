@@ -3,9 +3,9 @@ Section: x11
 Priority: optional
 Maintainer: Mateusz Łukasik <mati75@linuxmint.pl>
 Build-Depends: debhelper-compat (= 13), gettext, libstartup-notification0-dev,
- libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev (>= 2.6.0), perl,
+ libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev, perl,
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev,
- autoconf, automake (>= 1:1.11), libimlib2-dev, libxcursor-dev,
+ autoconf, automake, libimlib2-dev, libxcursor-dev,
  autopoint, librsvg2-dev, libxi-dev
 Standards-Version: 4.6.0
 Rules-Requires-Root: no
@@ -121,8 +121,6 @@ Description: development files for the openbox window manager
 Package: gnome-panel-control
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: openbox (<< 3.4.11.2)
-Breaks: openbox (<< 3.4.11.2)
 Description: command line utility to invoke GNOME panel run dialog/menu
  gnome-panel-control can be used to invoke the GNOME panel run or main
  menu from the command line. This is originally a helper utility of openbox
@@ -133,8 +131,6 @@ Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}),
  gnome-session-bin, x11-utils
 Enhances: gnome-session
-Replaces: openbox (<< 3.5.2-5)
-Breaks: openbox (<< 3.5.2-5)
 Description: command line utility to run Openbox as GNOME session
  openbox-gnome-session can provide GNOME session with openbox as
  a default window manager. It can replace the original window manager
@@ -145,8 +141,6 @@ Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}),
  x11-utils, plasma-workspace
 Enhances: kde-workspace
-Replaces: openbox (<< 3.5.2-5)
-Breaks: openbox (<< 3.5.2-5)
 Description: command line utility to run Openbox as KDE SC session
  openbox-kde-session can provide KDE SC session with openbox as
  a default window manager. Can replace the original window manager
