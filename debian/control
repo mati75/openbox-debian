@@ -53,6 +53,7 @@ Architecture: any
 Conflicts: libobt2
 Replaces: libobt2
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
 Description: parsing library for openbox
  Openbox works with your applications, and makes your desktop easier to manage.
  This is because the approach to its development was the opposite of what seems
