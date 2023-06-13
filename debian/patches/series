@@ -27,3 +27,4 @@ Add-class-hint-to-focus-cycle-popup.patch
 Fix-collision-between-iterator-and-throw-away-argume.patch
 974180.patch
 1007147-openbox-imlib-free-image-NULL.patch
+de.po.patch
