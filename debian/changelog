@@ -1,15 +1,16 @@
 openbox (3.6.1-11) unstable; urgency=medium
 
   [ Mateusz Łukasik ]
-  * debian/obamenu: 
+  * debian/obamenu:
     + Use x-terminal-emulator as terminal emulator. (Closes: #1010019)
     + Fix ignoring broken links. (Closes: #886716)
   * d/patches:
     + Add patch for fix openbox invokes imlib_free_image when no image
     is loaded (Closes: #1007147)
     + Add patch from upstream for fix crashes when switching out of
-    a fullscreen window with GLib 2.76.0. (LP: #2011751) (Closes: #1033385) 
+    a fullscreen window with GLib 2.76.0. (LP: #2011751) (Closes: #1033385)
   * d/control: Bump Standards-Version to 4.6.2.
+  * d/copyright: Welcome 2023.
 
   [ Debian Janitor ]
   * Set upstream metadata fields: Repository-Browse.
