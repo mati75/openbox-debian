@@ -11,6 +11,7 @@ openbox (3.6.1-11) unstable; urgency=medium
     a fullscreen window with GLib 2.76.0. (LP: #2011751) (Closes: #1033385)
   * d/control: Bump Standards-Version to 4.6.2.
   * d/copyright: Welcome 2023.
+  * d/watch: Update to version 4 and change sources repository.
 
   [ Debian Janitor ]
   * Set upstream metadata fields: Repository-Browse.
@@ -28,7 +29,7 @@ openbox (3.6.1-11) unstable; urgency=medium
   [ Ingo Brückl ]
   * Update German translation.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 19 Jul 2023 16:53:37 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Wed, 19 Jul 2023 17:18:18 +0200
 
 openbox (3.6.1-10) unstable; urgency=medium
 
