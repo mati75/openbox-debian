@@ -28,3 +28,4 @@ Fix-collision-between-iterator-and-throw-away-argume.patch
 974180.patch
 1007147-openbox-imlib-free-image-NULL.patch
 de.po.patch
+1033385_Fix_list_traversal_issue_in_client_calc_layer.patch

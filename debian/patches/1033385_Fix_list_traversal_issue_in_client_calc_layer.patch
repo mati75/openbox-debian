@@ -1,0 +1,38 @@
+X-Git-Url: http://git.openbox.org/?p=mikachu%2Fopenbox.git;a=blobdiff_plain;f=openbox%2Fclient.c;h=b8264587c168c50763181011e106a4a81ea73144;hp=7168b24078b7d9da330857489301cd8f44522670;hb=d41128e5a1002af41c976c8860f8299cfcd3cd72;hpb=8c5099bd06f37bc84d979e2aacc637ea5779ab09
+
+diff --git a/openbox/client.c b/openbox/client.c
+index 7168b24..b826458 100644
+--- a/openbox/client.c
++++ b/openbox/client.c
+@@ -2742,9 +2742,12 @@ static void client_calc_layer_internal(ObClient *self)
+ void client_calc_layer(ObClient *self)
+ {
+     GList *it;
++    /* the client_calc_layer_internal calls below modify stacking_list,
++       so we have to make a copy to iterate over */
++    GList *list = g_list_copy(stacking_list);
+ 
+     /* skip over stuff above fullscreen layer */
+-    for (it = stacking_list; it; it = g_list_next(it))
++    for (it = list; it; it = g_list_next(it))
+         if (window_layer(it->data) <= OB_STACKING_LAYER_FULLSCREEN) break;
+ 
+     /* find the windows in the fullscreen layer, and mark them not-visited */
+@@ -2757,7 +2760,7 @@ void client_calc_layer(ObClient *self)
+     client_calc_layer_internal(self);
+ 
+     /* skip over stuff above fullscreen layer */
+-    for (it = stacking_list; it; it = g_list_next(it))
++    for (it = list; it; it = g_list_next(it))
+         if (window_layer(it->data) <= OB_STACKING_LAYER_FULLSCREEN) break;
+ 
+     /* now recalc any windows in the fullscreen layer which have not
+@@ -2768,6 +2771,8 @@ void client_calc_layer(ObClient *self)
+                  !WINDOW_AS_CLIENT(it->data)->visited)
+             client_calc_layer_internal(it->data);
+     }
++
++    g_list_free(it);
+ }
+ 
+ gboolean client_should_show(ObClient *self)
