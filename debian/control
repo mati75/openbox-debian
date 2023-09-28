@@ -130,7 +130,7 @@ Description: command line utility to invoke GNOME panel run dialog/menu
 Package: openbox-gnome-session
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, openbox (>= ${source:Version}),
- gnome-session-bin, x11-utils
+ gnome-session-bin, gnome-settings-daemon, gnome-panel, gnome-flashback, x11-utils
 Enhances: gnome-session
 Description: command line utility to run Openbox as GNOME session
  openbox-gnome-session can provide GNOME session with openbox as
