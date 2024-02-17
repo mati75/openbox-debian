@@ -1,10 +1,10 @@
-openbox (3.6.1-12) UNRELEASED; urgency=medium
+openbox (3.6.1-12) unstable; urgency=medium
 
   * Drop useless html docs about compiling.
   * Add gnome-settings-daemon, gnome-panel, gnome-flashback to 
     openbox-gnome-session depends. (Closes: #1050946)
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Mon, 31 Jul 2023 22:30:33 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 16 Feb 2024 20:38:11 +0100
 
 openbox (3.6.1-11) unstable; urgency=medium
 
