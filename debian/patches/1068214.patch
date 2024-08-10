@@ -1,0 +1,15 @@
+Description: A tiny patch to improve the example for setting an environment
+Author: u34@net9.cf
+Bug-Debian: https://bugs.debian.org/1068214
+
+--- a/data/environment
++++ b/data/environment
+@@ -4,7 +4,7 @@
+ #
+ 
+ # To set your language for displaying messages and time/date formats, use the following:
+-#LANG=en_CA.UTF8
++#export LANG=en_CA.UTF8
+ 
+ # To set your keyboard layout, you need to modify your X config:
+ # http://www.google.com/search?q=how+to+set+keyboard+layout+xorg
