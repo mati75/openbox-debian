@@ -1,5 +1,8 @@
-openbox (3.6.1-13) UNRELEASED; urgency=medium
+openbox (3.7~rc2-1) UNRELEASED; urgency=medium
 
+  * New upstream release candidate:
+    + Remove patches included upstream.
+    + Add patch for fix FTBFS.
   * Move python3 to Suggests. (Closes: #1072921)
   * Stop install obamenu.
   * Add patch to improve the example for setting an environment.

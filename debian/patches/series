@@ -9,11 +9,8 @@
 704724_fix_refers-to-autostart.sh.patch
 719620_fix_show_startup_notification.patch
 754207_use-scrot.patch
-808138_Replace-getgrent-with-getgroups.patch
-d9a405e9.patch
 fix-spelling-error-in-binary.patch
 rpi/8911f9baac4e7d05412314575c3283d03f1b0358.patch
-rpi/79b77e78cf141cc8a7111c9e4e26842bad092d17.patch
 rpi/de67618ea9e3e22e7623d56530934d3a3fc272e0.patch
 adapt-to-gsd-324.patch
 843231.patch
@@ -27,6 +24,5 @@ Add-class-hint-to-focus-cycle-popup.patch
 Fix-collision-between-iterator-and-throw-away-argume.patch
 974180.patch
 1007147-openbox-imlib-free-image-NULL.patch
-de.po.patch
-1033385_Fix_list_traversal_issue_in_client_calc_layer.patch
 1068214.patch
+added_missing_debug_include.patch

@@ -1,0 +1,18 @@
+Description: Missing include debug.h file
+Author: Mateusz Łukasik <mati75@linuxmint.pl>
+
+Origin: backport
+Bug: https://github.com/Mikachu/openbox/commit/4a36cba8131b62bad83ff6ea62c23c24243d97c6
+Forwarded: not-needed
+Last-Update: 2025-07-21
+
+--- a/openbox/keyboard.c
++++ b/openbox/keyboard.c
+@@ -36,6 +39,7 @@
+ #include "obt/keyboard.h"
+ 
+ #include <glib.h>
++#include "debug.h"
+ 
+ KeyBindingTree *keyboard_firstnode = NULL;
+ static ObPopup *popup = NULL;

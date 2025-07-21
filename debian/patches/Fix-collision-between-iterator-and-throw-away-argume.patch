@@ -9,30 +9,29 @@ the collision can make the loop infinitely call XQueryPointer() on X screen 1.
 Bug-Debian: https://bugs.debian.org/983882
 Bug-Ubuntu: https://bugs.launchpad.net/bugs/1917516
 Origin: https://github.com/AlexGoinsNV/openbox-multiXscreen-bugfix/commit/2635c87d160aa5f6f9e91e290678e99111788d57
-Last-Updated: 2021-03-02
+Last-Update: 2025-07-21
 
-Index: openbox-debian/openbox/screen.c
-===================================================================
---- openbox-debian.orig/openbox/screen.c
-+++ openbox-debian/openbox/screen.c
-@@ -1908,16 +1908,16 @@ guint screen_monitor_pointer()
+--- a/openbox/screen.c
++++ b/openbox/screen.c
+@@ -1922,7 +1922,7 @@ guint screen_monitor_pointer()
+ 
  gboolean screen_pointer_pos(gint *x, gint *y)
  {
-     Window w;
 -    gint i;
-+    gint i, scrnindex;
-     guint u;
++    gint i; scrnindex;
      gboolean ret;
  
+     /* we don't care about any of these return values, but we can't pass NULL */
+@@ -1933,9 +1933,9 @@ gboolean screen_pointer_pos(gint *x, gin
      ret = !!XQueryPointer(obt_display, obt_root(ob_screen),
-                           &w, &w, x, y, &i, &i, &u);
+                           &w, &w, x, y, &j, &j, &u);
      if (!ret) {
 -        for (i = 0; i < ScreenCount(obt_display); ++i)
 -            if (i != ob_screen)
--                if (XQueryPointer(obt_display, obt_root(i),
+-                if ((ret=XQueryPointer(obt_display, obt_root(i),
 +        for (scrnindex = 0; scrnindex < ScreenCount(obt_display); ++scrnindex)
 +            if (scrnindex != ob_screen)
 +                if (XQueryPointer(obt_display, obt_root(scrnindex),
-                                   &w, &w, x, y, &i, &i, &u))
+                                   &w, &w, x, y, &j, &j, &u)))
                      break;
      }
