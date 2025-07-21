@@ -58,8 +58,12 @@ typedef struct {
     gboolean maxfull_off;
     gboolean iconic_on;
     gboolean iconic_off;
+    gboolean fullscreen_on;
+    gboolean fullscreen_off;
     gboolean focused;
     gboolean unfocused;
+    gboolean focusable;
+    gboolean nonfocusable;
     gboolean urgent_on;
     gboolean urgent_off;
     gboolean decor_off;
@@ -68,6 +72,7 @@ typedef struct {
     gboolean omnipresent_off;
     gboolean desktop_current;
     gboolean desktop_other;
+    gboolean desktop_last;
     guint    desktop_number;
     guint    screendesktop_number;
     guint    client_monitor;
@@ -82,11 +87,13 @@ typedef struct {
     GArray *queries;
     GSList *thenacts;
     GSList *elseacts;
+    GSList *noneacts;
 } Options;
 
 static gpointer setup_func(xmlNodePtr node);
 static void     free_func(gpointer options);
 static gboolean run_func_if(ObActionsData *data, gpointer options);
+static gboolean run_func_if_internal(ObActionsData *data, gpointer options);
 static gboolean run_func_stop(ObActionsData *data, gpointer options);
 static gboolean run_func_foreach(ObActionsData *data, gpointer options);
 
@@ -181,7 +188,9 @@ static void setup_query(Options* o, xmlNodePtr node, QueryTarget target) {
     set_bool(node, "maximizedhorizontal", &q->maxhorz_on, &q->maxhorz_off);
     set_bool(node, "maximizedvertical", &q->maxvert_on, &q->maxvert_off);
     set_bool(node, "iconified", &q->iconic_on, &q->iconic_off);
+    set_bool(node, "fullscreen", &q->fullscreen_on, &q->fullscreen_off);
     set_bool(node, "focused", &q->focused, &q->unfocused);
+    set_bool(node, "focusable", &q->focusable, &q->nonfocusable);
     set_bool(node, "urgent", &q->urgent_on, &q->urgent_off);
     set_bool(node, "undecorated", &q->decor_off, &q->decor_on);
     set_bool(node, "omnipresent", &q->omnipresent_on, &q->omnipresent_off);
@@ -192,8 +201,10 @@ static void setup_query(Options* o, xmlNodePtr node, QueryTarget target) {
         if ((s = obt_xml_node_string(n))) {
             if (!g_ascii_strcasecmp(s, "current"))
                 q->desktop_current = TRUE;
-            if (!g_ascii_strcasecmp(s, "other"))
+            else if (!g_ascii_strcasecmp(s, "other"))
                 q->desktop_other = TRUE;
+            else if (!g_ascii_strcasecmp(s, "last"))
+                q->desktop_last = TRUE;
             else
                 q->desktop_number = atoi(s);
             g_free(s);
@@ -253,6 +264,16 @@ static gpointer setup_func(xmlNodePtr node)
             m = obt_xml_find_node(m->next, "action");
         }
     }
+    if ((n = obt_xml_find_node(node, "none"))) {
+        xmlNodePtr m;
+
+        m = obt_xml_find_node(n->children, "action");
+        while (m) {
+            ObActionsAct *action = actions_parse(m);
+            if (action) o->noneacts = g_slist_append(o->noneacts, action);
+            m = obt_xml_find_node(m->next, "action");
+        }
+    }
 
     xmlNodePtr query_node = obt_xml_find_node(node, "query");
     if (!query_node) {
@@ -301,6 +322,10 @@ static void free_func(gpointer options)
         actions_act_unref(o->elseacts->data);
         o->elseacts = g_slist_delete_link(o->elseacts, o->elseacts);
     }
+    while (o->noneacts) {
+        actions_act_unref(o->noneacts->data);
+        o->noneacts = g_slist_delete_link(o->noneacts, o->noneacts);
+    }
 
     g_array_unref(o->queries);
     g_slice_free(Options, o);
@@ -308,6 +333,12 @@ static void free_func(gpointer options)
 
 /* Always return FALSE because its not interactive */
 static gboolean run_func_if(ObActionsData *data, gpointer options)
+{
+    run_func_if_internal(data, options);
+    return FALSE;
+}
+
+static gboolean run_func_if_internal(ObActionsData *data, gpointer options)
 {
     Options *o = options;
     ObClient *action_target = data->client;
@@ -327,10 +358,16 @@ static gboolean run_func_if(ObActionsData *data, gpointer options)
             break;
         }
 
-        /* If there's no client to query, then false. */
+        if (q->screendesktop_number)
+            is_true &= screen_desktop == q->screendesktop_number - 1;
+
+        /* If there's no client to query, then false, unless... */
         if (!query_target) {
+            /* if we checked the active desktop number, allow empty client */
+            if (q->screendesktop_number)
+                continue;
             is_true = FALSE;
-            break;
+            break;            
         }
 
         if (q->shaded_on)
@@ -342,6 +379,11 @@ static gboolean run_func_if(ObActionsData *data, gpointer options)
             is_true &= query_target->iconic;
         if (q->iconic_off)
             is_true &= !query_target->iconic;
+
+        if (q->fullscreen_on)
+            is_true &= query_target->fullscreen;
+        if (q->fullscreen_off)
+            is_true &= !query_target->fullscreen;
 
         if (q->maxhorz_on)
             is_true &= query_target->max_horz;
@@ -364,6 +406,11 @@ static gboolean run_func_if(ObActionsData *data, gpointer options)
             is_true &= query_target == focus_client;
         if (q->unfocused)
             is_true &= query_target != focus_client;
+
+        if (q->focusable)
+            is_true &= query_target->can_focus;
+        if (q->nonfocusable)
+            is_true &= !query_target->can_focus;
 
         gboolean is_urgent =
             query_target->urgent || query_target->demands_attention;
@@ -392,6 +439,8 @@ static gboolean run_func_if(ObActionsData *data, gpointer options)
             is_true &= is_on_current_desktop;
         if (q->desktop_other)
             is_true &= !is_on_current_desktop;
+        if (q->desktop_last)
+            is_true &= query_target->desktop == screen_last_desktop;
 
         if (q->desktop_number) {
             gboolean is_on_desktop =
@@ -399,9 +448,6 @@ static gboolean run_func_if(ObActionsData *data, gpointer options)
                 query_target->desktop == DESKTOP_ALL;
             is_true &= is_on_desktop;
         }
-
-        if (q->screendesktop_number)
-            is_true &= screen_desktop == q->screendesktop_number - 1;
 
         is_true &= check_typed_match(&q->title, query_target->original_title);
         is_true &= check_typed_match(&q->class, query_target->class);
@@ -425,7 +471,7 @@ static gboolean run_func_if(ObActionsData *data, gpointer options)
                      data->x, data->y, data->button,
                      data->context, action_target);
 
-    return FALSE;
+    return is_true;
 }
 
 static gboolean run_func_foreach(ObActionsData *data, gpointer options)
@@ -433,14 +479,22 @@ static gboolean run_func_foreach(ObActionsData *data, gpointer options)
     GList *it;
 
     foreach_stop = FALSE;
+    gboolean was_true = FALSE;
 
     for (it = client_list; it; it = g_list_next(it)) {
         data->client = it->data;
-        run_func_if(data, options);
+        was_true |= run_func_if_internal(data, options);
         if (foreach_stop) {
             foreach_stop = FALSE;
             break;
         }
+    }
+
+    if (!was_true) {
+        Options *o = options;
+        actions_run_acts(o->noneacts, data->uact, data->state,
+                         data->x, data->y, data->button,
+                         data->context, data->client);
     }
 
     return FALSE;

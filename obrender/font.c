@@ -60,6 +60,15 @@ static void measure_font(const RrInstance *inst, RrFont *f)
 
 }
 
+void RrFontDescriptionFromString(RrFont *font, gchar *description)
+{
+    PangoFontDescription *desc;
+    desc = pango_font_description_from_string(description);
+    pango_font_description_merge(font->font_desc, desc, TRUE);
+    pango_font_description_free(desc);
+    pango_layout_set_font_description(font->layout, font->font_desc);
+}
+
 RrFont *RrFontOpen(const RrInstance *inst, const gchar *name, gint size,
                    RrFontWeight weight, RrFontSlant slant)
 {
@@ -104,7 +113,10 @@ RrFont *RrFontOpen(const RrInstance *inst, const gchar *name, gint size,
     pango_font_description_set_family(out->font_desc, name);
     pango_font_description_set_weight(out->font_desc, pweight);
     pango_font_description_set_style(out->font_desc, pstyle);
-    pango_font_description_set_size(out->font_desc, size * PANGO_SCALE);
+    if (size < 0)
+        pango_font_description_set_absolute_size(out->font_desc, -size * PANGO_SCALE);
+    else
+        pango_font_description_set_size(out->font_desc, size * PANGO_SCALE);
 
     /* setup the layout */
     pango_layout_set_font_description(out->layout, out->font_desc);
