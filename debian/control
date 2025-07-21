@@ -3,7 +3,7 @@ Section: x11
 Priority: optional
 Maintainer: Mateusz Łukasik <mati75@linuxmint.pl>
 Build-Depends: debhelper-compat (= 13), gettext, libstartup-notification0-dev,
- libxrender-dev, pkg-config, libglib2.0-dev, libxml2-dev, perl,
+ libxrender-dev, pkgconf, libglib2.0-dev, libxml2-dev, perl,
  libxt-dev, libxinerama-dev, libxrandr-dev, libpango1.0-dev, libx11-dev,
  autoconf, automake, libimlib2-dev, libxcursor-dev,
  autopoint, librsvg2-dev, libxi-dev
@@ -18,8 +18,8 @@ Architecture: any
 Provides: x-window-manager, x-session-manager
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: obconf | obconf-qt, scrot
-Suggests: fonts-dejavu, libxml2-dev, tint2, python3,
+Recommends: obconf | obconf-qt
+Suggests: fonts-dejavu, libxml2-dev, tint2, python3, scrot
  openbox-gnome-session (= ${binary:Version}), openbox-kde-session (= ${binary:Version})
 Breaks: openbox-theme-breeze (<< 1.0)
 Description: standards-compliant, fast, light-weight and extensible window manager
@@ -47,11 +47,11 @@ Description: standards-compliant, fast, light-weight and extensible window manag
   * Multi-head Xinerama support!
   * Pipe menus
 
-Package: libobt2v5
+Package: libobt2
 Section: libs
 Architecture: any
-Conflicts: libobt2
-Replaces: libobt2
+Conflicts: libobt2v5
+Replaces: libobt2v5 (<< 3.6.1-12ubuntu1)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Multi-Arch: same
 Description: parsing library for openbox
@@ -72,11 +72,11 @@ Description: parsing library for openbox
  This package contains the libobt library files used by openbox
  to load and parse configuration and theme files of openbox.
 
-Package: libobrender32v5
+Package: libobrender32
 Section: libs
 Architecture: any
-Conflicts: libobrender32
-Replaces: libobrender32
+Conflicts: libobrender32v5
+Replaces: libobrender32v5 (<< 3.6.1-12ubuntu1)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: rendering library for openbox themes
  Openbox works with your applications, and makes your desktop easier to manage.
@@ -99,8 +99,8 @@ Description: rendering library for openbox themes
 Package: openbox-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender32v5 (= ${binary:Version}),
- libobt2v5 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
+Depends: ${shlibs:Depends}, ${misc:Depends}, libobrender32 (= ${binary:Version}),
+ libobt2 (= ${binary:Version}), libxml2-dev, libglib2.0-dev, libpango1.0-dev,
  libimlib2-dev, librsvg2-dev, libxcursor-dev
 Description: development files for the openbox window manager
  Openbox works with your applications, and makes your desktop easier to manage.
