@@ -191,6 +191,7 @@ void obt_prop_startup(void)
     CREATE_(OB_CONFIG_FILE);
     CREATE_(OB_WM_ACTION_UNDECORATE);
     CREATE_(OB_WM_STATE_UNDECORATED);
+    CREATE_(OB_LAST_DESKTOP);
     CREATE_(OB_CONTROL);
     CREATE_(OB_VERSION);
     CREATE_(OB_APP_ROLE);
@@ -407,7 +408,7 @@ static void* convert_text_property(XTextProperty *tprop,
             const gchar *end; /* the first byte past the valid data */
 
             g_utf8_validate(retlist[i], -1, &end);
-            retlist[i] = g_strndup(retlist[i], end-retlist[i]);
+            retlist[i] = g_utf8_normalize(retlist[i], end-retlist[i], G_NORMALIZE_NFC);
         }
         else if (encoding == LOCALE) {
             gsize nvalid; /* the number of valid bytes at the front of the
