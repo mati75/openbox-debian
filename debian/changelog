@@ -9,6 +9,7 @@ openbox (3.6.1-13) UNRELEASED; urgency=medium
   * Rename packages following the GCC 5 transition.
   * Move from pkg-config to pkgconf.
   * Fix d/watch file.
+  * Add remove debian dir from upstream tarball.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 10 Aug 2024 21:12:05 +0200
 
