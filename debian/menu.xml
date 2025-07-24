@@ -12,6 +12,10 @@
   <item label="Web browser">
     <action name="Execute"><execute>x-www-browser</execute></action>
   </item>
+  <!-- This requires the presence of the 'obamenu' package to work -->
+  <menu id="/Debian" />
+  <separator />
+  <menu id="applications-menu" label="Applications" execute="/usr/bin/obamenu.sh"/>
   <separator />
   <item label="ObConf">
     <action name="Execute"><execute>obconf</execute></action>

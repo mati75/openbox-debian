@@ -31,3 +31,4 @@ usr/lib/*/openbox-autostart
 
 debian/menu.xml etc/xdg/openbox
 debian/themes/ usr/share
+debian/obamenu.sh usr/bin

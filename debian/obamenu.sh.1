@@ -1,0 +1,70 @@
+.TH OBAMENU.SH 1 "July 2025" "0.1" "User Commands"
+.SH NAME
+obamenu.sh \- generate a dynamic Openbox menu from .desktop files
+.SH SYNOPSIS
+.B obamenu.sh
+.RI [ --no-icons ]
+.SH DESCRIPTION
+.B obamenu.sh
+is a Bash script that dynamically generates an XML menu for the Openbox window manager based on
+.I .desktop
+files found in system application directories.
+
+The script organizes applications into user-defined categories, supports localized names, includes optional icons, and outputs a pipe menu suitable for Openbox integration.
+
+.SH OPTIONS
+.TP
+.B --no-icons
+Disables icons in the menu output. Useful for minimalist setups or low-resource environments.
+
+.SH FEATURES
+.TP
+\- Supports localized application names (e.g., \fBName[pl]\fR based on \fBLANG\fR)
+.TP
+\- Sorts applications alphabetically within each category
+.TP
+\- Uses fallback to standard \fBName\fR if no localized name is found
+.TP
+\- Automatically detects and includes icons (if available)
+.TP
+\- Filters out blacklisted/ignored desktop files
+.TP
+\- Handles terminal-based applications via a configurable terminal command
+
+.SH USAGE EXAMPLES
+.TP
+Use in Openbox \fImenu.xml\fR as a dynamic pipe menu:
+.RS
+.nf
+<menu id="apps" label="Applications" execute="/path/to/obamenu.sh"/>
+.fi
+.RE
+
+.TP
+Disable icons:
+.RS
+.nf
+<menu id="apps-noicon" label="Apps (No Icons)" execute="/path/to/obamenu.sh --no-icons"/>
+.fi
+.RE
+
+.SH ENVIRONMENT
+.TP
+.B LANG
+Determines which localized application name to use from the \fB.desktop\fR files.
+For example, \fBLANG=en_US.UTF-8\fR will select \fBName[pl]\fR when available.
+
+.SH FILES
+.TP
+.I /usr/share/applications/*.desktop
+Standard location for application desktop entries on most Linux systems.
+
+.SH AUTHOR
+Originally written in Python, ported to Bash by Mateusz Łukasik <mati75@linuxmint.pl> for Debian openbox package.
+
+.SH LICENSE
+Free software; distributed under the MIT.
+
+.SH SEE ALSO
+.BR openbox (1),
+.BR desktop-file-utils (1)
