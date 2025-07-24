@@ -31,6 +31,7 @@ libobrender.so.32 libobrender32 #MINVER#
  RrDepth@Base 3.6.0
  RrDisplay@Base 3.6.0
  RrFontClose@Base 3.6.0
+ RrFontDescriptionFromString@Base 3.7~rc2
  RrFontDraw@Base 3.6.0
  RrFontHeight@Base 3.6.0
  RrFontMeasureString@Base 3.6.0
