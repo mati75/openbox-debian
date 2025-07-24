@@ -3,6 +3,7 @@ openbox (3.7~rc2-1) UNRELEASED; urgency=medium
   * New upstream release candidate:
     + Remove patches included upstream.
     + Add patch for fix FTBFS.
+    + Disable Fix-collision-between-iterator-and-throw-away-argume.patch
   * Move python3 to Suggests. (Closes: #1072921)
   * Stop install obamenu.
   * Add patch to improve the example for setting an environment.
@@ -13,6 +14,7 @@ openbox (3.7~rc2-1) UNRELEASED; urgency=medium
   * Move from pkg-config to pkgconf.
   * Fix d/watch file.
   * Add remove debian dir from upstream tarball.
+  * Update d/libobrender32.symbols.
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 10 Aug 2024 21:12:05 +0200
 
