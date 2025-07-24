@@ -7,7 +7,7 @@ openbox (3.7~rc2-1) UNRELEASED; urgency=medium
   * Stop install obamenu.
   * Add patch to improve the example for setting an environment.
     (Closes: #1068214)
-  * d/control: Bump Standards-Version to 4.7.0.
+  * d/control: Bump Standards-Version to 4.7.2.
   * Demote scrot to suggest.
   * Rename packages following the GCC 5 transition.
   * Move from pkg-config to pkgconf.
