@@ -1,4 +1,4 @@
-openbox (3.7~rc2-1) UNRELEASED; urgency=medium
+openbox (3.7~rc2-1) experimental; urgency=medium
 
   * New upstream release candidate:
     + Remove patches included upstream.
@@ -16,12 +16,12 @@ openbox (3.7~rc2-1) UNRELEASED; urgency=medium
   * Add remove debian dir from upstream tarball.
   * Update d/libobrender32.symbols.
 
- -- Mateusz Łukasik <mati75@linuxmint.pl>  Sat, 10 Aug 2024 21:12:05 +0200
+ -- Mateusz Łukasik <mati75@linuxmint.pl>  Sun, 05 Oct 2025 12:27:25 +0200
 
 openbox (3.6.1-12) unstable; urgency=medium
 
   * Drop useless html docs about compiling.
-  * Add gnome-settings-daemon, gnome-panel, gnome-flashback to 
+  * Add gnome-settings-daemon, gnome-panel, gnome-flashback to
     openbox-gnome-session depends. (Closes: #1050946)
 
  -- Mateusz Łukasik <mati75@linuxmint.pl>  Fri, 16 Feb 2024 20:38:11 +0100
